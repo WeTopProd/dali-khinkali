@@ -1,0 +1,250 @@
+@font-face {
+  font-family: "Lato";
+  src: url("../../assets/fonts/latoregular.woff2") format(woff2);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url("../../assets/fonts/latosemibold.woff2") format(woff2);
+  font-weight: 600;
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.taxi {
+  position: relative;
+  padding: 150px 0;
+  font-family: "Lato";
+  line-height: normal;
+}
+
+.wrapper {
+  max-width: 1655px;
+  margin: 0 auto;
+  box-sizing: content-box;
+  padding: 0 12px;
+}
+
+.taxi__title {
+  color: #000;
+  font-size: 4.375rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.taxi__content {
+  display: flex;
+  gap: 58px;
+}
+
+.taxi__image-block {
+  flex: 1 1 1046px;
+  min-height: 342px;
+}
+
+.taxi__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 20px;
+  box-shadow: 4px 4px 10px 0px #000;
+}
+
+.taxi__order-block {
+  text-align: center;
+  /* display: flex;
+  align-items: start;
+  flex-direction: column; */
+}
+
+.taxi__order-info {
+  color: #000;
+  font-size: 1.875rem;
+  font-weight: 400;
+  margin-bottom: 114px;
+}
+
+/* .taxi__order-button {
+  display: flex;
+   width: 100%; 
+  padding: 24px 0;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  font-size: 1.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+}  */
+
+.taxi__backgroundDecor {
+  position: absolute;
+  z-index: -1;
+  top: 60px;
+  right: 0;
+}
+
+.taxi__form {
+  width: 600px;
+  height: 570px;
+  padding: 38px 50px 46px;
+  border-radius: 30.847px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  font-size: 1.625rem;
+  font-weight: 600;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.taxi__form-title {
+  font-size: 3.375rem;
+  margin-bottom: 86px;
+}
+
+.taxi__form-body {
+  width: 100%;
+}
+
+.taxi__form-body > *:not(:first-child, :last-child) {
+  margin-bottom: 40px;
+}
+
+.taxi__form-input,
+.taxi__form-select {
+  outline: none;
+}
+
+.taxi__form-input {
+  border-bottom: 2.5px solid #000;
+  color: #000;
+  font-family: "Lato";
+  font-size: 25.593px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.taxi__form-select {
+  border-bottom: 2.5px solid #000;
+  appearance: none;
+  margin-right: 10px;
+  width: 120px;
+  font-family: "Lato";
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: normal;
+  position: relative;
+}
+
+/* .taxi__form-select:after {
+position: absolute;
+content: url(../../assets/img/Vector.png);
+width: 16px;
+height: 21px;
+} */
+
+
+.taxi__form-select-arrow {
+  vertical-align: bottom;
+}
+
+.taxi__form-select-arrow:not(:last-child) {
+  margin-right: 15px;
+}
+
+.taxi__form-field {
+  display: flex;
+  justify-content: space-between;
+}
+
+.taxi__form-select-inputs {
+  display: flex;
+  min-width: 298px;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 1160px) {
+  .taxi__title {
+    font-size: 3.375rem;
+    margin-bottom: 40px;
+  }
+  .taxi__order-button {
+    font-size: 1.2rem;
+  }
+
+  .taxi__order-info {
+    font-size: 1.3rem;
+    margin-bottom: 60px;
+  }
+
+  /* .taxi__order-button{
+  padding: 16px 0;
+} */
+
+  .taxi__content {
+    gap: 32px;
+  }
+
+  .taxi__form-title {
+    font-size: 2.375rem;
+    margin-bottom: 50px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .taxi__content {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .taxi__image-block {
+    flex: 1 1 100%;
+    min-height: initial;
+  }
+
+  .taxi__order-block {
+    text-align: center;
+  }
+
+  .taxi__order-info {
+    width: 100%;
+    margin-bottom: 40px;
+  }
+
+  /* .taxi__order-button {
+  display: inline-flex;
+  max-width: 300px;
+  padding: 18px 40px;
+  font-size: 1.2rem;
+} */
+}
+
+@media screen and (max-width: 767px) {
+  .taxi__title {
+    font-size: 2.6rem;
+  }
+  .taxi__order-button {
+    padding: 16px 30px;
+    font-size: 1rem;
+  }
+}

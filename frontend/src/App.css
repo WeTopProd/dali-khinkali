@@ -1,0 +1,10 @@
+.App {
+  /*text-align: center;*/
+  min-height: 100vh;
+  /*background: linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%), url('./assets/images/background.png'), lightgray 50% / cover no-repeat;*/
+}
+
+
+.uppercase{
+  text-transform: uppercase;
+}

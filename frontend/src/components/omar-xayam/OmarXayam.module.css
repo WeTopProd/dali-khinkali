@@ -1,0 +1,59 @@
+/* !===== Pages Omar Xayam ===== */
+
+@font-face {
+  font-family: "Tangak";
+  src: url(../../assets/fonts/3675-font.woff);
+  src: url(../../assets/fonts/tangak.woff);
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+}
+.PagesOmar {
+  background: url(../../assets/img/background-omar.png) rgb(218, 65, 65)
+    no-repeat center;
+  background-size: cover;
+  margin-top: 50px;
+}
+.BlockOmarTitles {
+  padding-top: 196px;
+  margin-left: 76px;
+}
+.OmarTitle {
+  color: #6ee0fa;
+  font-family: "tangak";
+  font-size: 10vw;
+  font-weight: 400;
+  letter-spacing: 43.871px;
+  text-transform: uppercase;
+  padding: 0 0 50px 0;
+}
+.OmarSubTitle {
+  color: #fff;
+  font-family: "Lato";
+  font-size: 4vw;
+  font-weight: 500;
+}
+
+.OmarBtn {
+  margin-top: 195px;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 300px;
+}
+
+@media screen and (max-width: 423px) {
+  .BlockOmarTitles {
+    padding-top: 90px;
+  }
+  .OmarTitle {
+    letter-spacing: 22.871px;
+    line-height: 40px;
+  }
+  .PagesOmar {
+    background-size: 300% 100%;
+  }
+  .OmarSubTitle {
+    font-size: 15px;
+    letter-spacing: 3px;
+  }
+}

@@ -1,0 +1,32 @@
+.header a{
+    color: #FFF;
+    text-align: center;
+    font-family: Open Sans;
+    font-size: 1.2vw;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 22.416px; /* 89.663% */
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 10px 0;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+}
+.header a.active{
+    border-bottom: 3px solid #FFF;
+}
+.header a:hover{
+    border-bottom: 3px solid #FFF;
+}
+
+.header .btn{
+    color: #FFF;
+    text-align: center;
+    font-family: Open Sans;
+    /* font-size: 25px; */
+    font-style: normal;
+    font-weight: 600;
+    /* line-height: 22.416px; */
+    letter-spacing: 1px;
+}

@@ -1,0 +1,22 @@
+.banner{
+    display: inline-flex;
+    /* padding: 82px 461px; */
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    height: 300px;
+    margin-top: 10px;
+}
+
+.banner a{
+    color: #FFF;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-decoration: none;
+    font-size: 4vw;
+}
+.banner a:hover{
+    -webkit-transform: scale(1.1); 
+}

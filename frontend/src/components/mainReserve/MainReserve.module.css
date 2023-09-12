@@ -1,0 +1,10 @@
+.select::after{
+    border-bottom: 3px solid red;
+}
+.select::before{
+    color:#fff;
+}
+
+.reserveTitle{
+    font-size: 2rem;
+}

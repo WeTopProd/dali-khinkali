@@ -1,0 +1,9 @@
+@font-face {
+	font-family: 'tangak';
+	src: url('../fonts/tangak.eot'); /* IE 9 Compatibility Mode */
+	src: url('../fonts/tangak.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+		url('../fonts/tangak.woff2') format('woff2'), /* Super Modern Browsers */
+		url('../fonts/tangak.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+		url('../fonts/tangak.ttf') format('truetype'), /* Safari, Android, iOS */
+		url('../fonts/tangak.svg#tangak') format('svg'); /* Chrome < 4, Legacy iOS */
+}

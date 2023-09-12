@@ -1,0 +1,208 @@
+@font-face {
+    font-family: "Lato";
+    src: url("../../assets/fonts/latoregular.woff2") format(woff2);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Lato";
+    src: url("../../assets/fonts/latosemibold.woff2") format(woff2);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: "Monserat";
+    src: url("../../assets/fonts/Montserrat-Regular.woff2") format(woff2);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Monserat";
+    src: url("../../assets/fonts/Montserrat-Bold.woff2") format(woff2);
+    font-weight: 700;
+}
+
+.wrapper {
+    max-width: 1655px;
+    margin: 0 auto;
+    box-sizing: content-box;
+    padding: 0 12px;
+}
+
+.footer__columns {
+    display: flex;
+    gap: 37px;
+    margin-bottom: 103px;
+}
+
+.footer__logo {
+    display: inline-block;
+    margin-bottom: 130px;
+}
+
+.footer {
+    padding: 83px 0 59px 0;
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+.footer__copy {
+    font-family: "Monserat";
+    font-weight: 400;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: end;
+    column-gap: 37px;
+    row-gap: 30px;
+}
+
+.footer__copy-center {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 37px;
+    row-gap: 5px;
+    color: #D6D6D6;
+    font-size: 1.125rem;
+    line-height: 130%;
+}
+
+.footer__column-contacts {
+    color: #fff;
+    font-family: "Lato";
+}
+
+.footer__column-title {
+    color: #FFF;
+    font-family: "Monserat";
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 117%
+}
+
+.footer__copy-item:first-child {
+    line-height: 22px;
+    color: #A5A5A5;
+    font-size: 1.125rem;
+    line-height: 150%;
+}
+
+.footer__copy-item:last-child {
+    font-weight: 700;
+    color: #FFF;
+    font-size: 1.125rem;
+    line-height: 120%;
+}
+
+
+.footer__column-workingMode {
+    display: flex;
+    gap: 8px;
+    white-space: nowrap;
+    line-height: 150%;
+    font-size: 1.454rem;
+    font-weight: 400;
+}
+
+
+.footer__column-workingMode:not(:last-child) {
+    margin-bottom: 31px;
+}
+
+.footer__column-address {
+    display: flex;
+    gap: 8px;
+    font-size: 1.615rem;
+}
+
+.footer__column-address:not(:last-child) {
+    margin-bottom: 37px;
+}
+
+.footer__column-phone {
+    white-space: nowrap;
+    display: flex;
+    gap: 8px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.615rem;
+}
+
+.contacts-icon {
+    line-height: 36px;
+}
+
+.footer__column-contacts>.footer__column-title {
+    margin-bottom: 85.5px;
+}
+
+.footer__column-projects>.footer__column-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.MuiGrid-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.footer__column-projects-item-image{
+max-width: 100%;
+height: auto;
+}
+
+
+@media screen and (max-width: 1280px) {
+
+    .footer {
+        padding: 50px 0 12px 0;
+    }
+
+}
+
+@media screen and (max-width: 1160px) {
+.footer__column-title {
+    font-size: 1.2rem;
+}
+
+.footer__column-address, .footer__column-phone, .footer__column-workingMode {
+    font-size: 1.1rem;
+}
+
+.footer__copy-center, .footer__copy-item:first-child,.footer__copy-item:last-child  {
+    font-size: 1rem;
+
+}
+
+.footer__column-workingMode:not(:last-child), .footer__column-address:not(:last-child) {
+    margin-bottom: 2rem;
+}
+.footer__logo {
+    margin-bottom: 80px;
+}
+}
+
+
+
+@media screen and (max-width: 800px) {
+    .footer__columns {
+        flex-direction: column;
+        margin-bottom: 80px;
+        gap: 60px
+    }
+    .footer__column-contacts>.footer__column-title {
+        margin-bottom: 31px;
+    }
+    .footer__logo {
+        margin-bottom: 60px;
+    }
+    .footer__column-contacts {
+       order: 2;
+    }
+    .footer__column-workingMode:not(:last-child), .footer__column-address:not(:last-child) {
+        margin-bottom: 1rem;
+    }
+}
