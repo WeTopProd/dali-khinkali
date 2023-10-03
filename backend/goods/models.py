@@ -27,15 +27,12 @@ class Goods(models.Model):
         ('side_dishes', 'Гарниры'),
         ('dessert', 'Десерты'),
         ('drinks', 'Напитки'),
-        ('khachapuri', 'Хачапури'),
-        ('ossetian_pies', 'Осетинские пироги'),
         ('sauces', 'Соусы'),
         ('dishes_grill', 'Блюда на мангале'),
-        ('beer_snacks', 'Пивные закуски'),
         ('bread', 'Хлеб'),
         ('snacks', 'Закуски'),
         ('soups', 'Супы'),
-        ('business_lunch', 'Бизнес ланч')
+        ('bakery', 'Выпечка'),
     )
     PROMO_GOODS = (
         ('new_items', 'Новинки'),
