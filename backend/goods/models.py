@@ -195,6 +195,7 @@ class Reservation(models.Model):
         ('hall', 'Зал'),
         ('veranda', 'Веранда'),
     )
+
     user = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
