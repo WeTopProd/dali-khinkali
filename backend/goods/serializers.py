@@ -135,12 +135,22 @@ class OrderSerializer(serializers.ModelSerializer):
 
 
 class ReservationSerializer(serializers.ModelSerializer):
+    user = serializers.PrimaryKeyRelatedField(
+        default=serializers.CurrentUserDefault(),
+        read_only=True
+    )
+
     class Meta:
         model = Reservation
         fields = (
             'id',
             'user',
+            'room_type',
             'table_number',
             'date_time',
             'num_people',
+            'name',
+            'phone',
+            'comment',
+            'status',
         )

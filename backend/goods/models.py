@@ -1,6 +1,7 @@
 from django.core.validators import validate_email
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
+from django.utils import timezone
 
 from users.models import User
 
@@ -195,6 +196,10 @@ class Reservation(models.Model):
         ('hall', 'Зал'),
         ('veranda', 'Веранда'),
     )
+    STATUS_CHOICES = (
+        ('booked', 'Забронирован'),
+        ('available', 'Свободен'),
+    )
 
     user = models.ForeignKey(
         User,
@@ -208,16 +213,22 @@ class Reservation(models.Model):
     )
     table_number = models.IntegerField(verbose_name='Номер стола')
     date_time = models.CharField(
-        max_length=255,
+        max_length=50,
         verbose_name='Дата и время бронирования'
     )
     num_people = models.IntegerField(verbose_name='Количество человек')
     name = models.CharField(max_length=255, verbose_name='Имя бронирующего')
-    phone = PhoneNumberField(verbose_name='Телефон')
+    phone = models.CharField(max_length=15, verbose_name='Телефон')
     comment = models.TextField(
         verbose_name='Комментарий',
         blank=True,
         null=True
+    )
+    status = models.CharField(
+        max_length=20,
+        choices=STATUS_CHOICES,
+        default='available',
+        verbose_name='Статус'
     )
 
     class Meta:
