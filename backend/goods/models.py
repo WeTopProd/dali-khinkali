@@ -1,5 +1,6 @@
-from django.db import models
 from django.core.validators import validate_email
+from django.db import models
+from phonenumber_field.modelfields import PhoneNumberField
 
 from users.models import User
 
@@ -187,3 +188,42 @@ class OrderItem(models.Model):
 
     def __str__(self):
         return f'{self.goods.title} - {self.count}'
+
+
+class Reservation(models.Model):
+    ROOM_TYPES = (
+        ('hall', 'Зал'),
+        ('veranda', 'Веранда'),
+    )
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        verbose_name='Бронирующий'
+    )
+    room_type = models.CharField(
+        max_length=50,
+        choices=ROOM_TYPES,
+        verbose_name='Тип помещения'
+    )
+    table_number = models.IntegerField(verbose_name='Номер стола')
+    date_time = models.CharField(
+        max_length=255,
+        verbose_name='Дата и время бронирования'
+    )
+    num_people = models.IntegerField(verbose_name='Количество человек')
+    name = models.CharField(max_length=255, verbose_name='Имя бронирующего')
+    phone = PhoneNumberField(verbose_name='Телефон')
+    comment = models.TextField(
+        verbose_name='Комментарий',
+        blank=True,
+        null=True
+    )
+
+    class Meta:
+        verbose_name = 'Бронирование стола'
+        verbose_name_plural = 'Бронирование столов'
+        ordering = ['-pk']
+
+    def __str__(self):
+        return (f"Резерв стола пользователем: {self.user.email} "
+                f"для {self.num_people} человек на {self.date_time}")

@@ -1,6 +1,7 @@
 from rest_framework import serializers, validators
 
-from .models import Goods, Favorite, ShoppingCart, Image, Order, OrderItem
+from .models import (Favorite, Goods, Image, Order, OrderItem, Reservation,
+                     ShoppingCart)
 
 
 class ImageSerializer(serializers.ModelSerializer):
@@ -104,7 +105,11 @@ class OrderItemSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = OrderItem
-        fields = ('goods', 'count', 'price')
+        fields = (
+            'goods',
+            'count',
+            'price',
+        )
 
 
 class OrderSerializer(serializers.ModelSerializer):
@@ -125,5 +130,17 @@ class OrderSerializer(serializers.ModelSerializer):
             'address',
             'delivery_time',
             'payment_method',
-            'items'
+            'items',
+        )
+
+
+class ReservationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Reservation
+        fields = (
+            'id',
+            'user',
+            'table_number',
+            'date_time',
+            'num_people',
         )

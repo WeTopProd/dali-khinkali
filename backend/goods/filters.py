@@ -1,5 +1,5 @@
-from django_filters.rest_framework import (FilterSet, filters, RangeFilter,
-                                           ChoiceFilter)
+from django_filters.rest_framework import (ChoiceFilter, FilterSet,
+                                           RangeFilter, filters)
 
 from .models import Goods
 
