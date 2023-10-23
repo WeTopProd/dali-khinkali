@@ -1,7 +1,7 @@
 from django.urls import include, path
 from djoser.views import TokenCreateView
 
-from .views import TokenCreateByPhoneView, send_order
+from .views import TokenCreateByPhoneView, send_banquet, send_order
 
 urlpatterns = [
     path('', include('djoser.urls')),
@@ -16,4 +16,5 @@ urlpatterns = [
         name='token_phone'
     ),
     path('send-order/', send_order, name='send_order'),
+    path('send-banquet/', send_banquet, name='send_banquet'),
 ]
