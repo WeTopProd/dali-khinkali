@@ -218,7 +218,7 @@ class Reservation(models.Model):
         verbose_name='Дата и время бронирования'
     )
     num_people = models.IntegerField(verbose_name='Количество человек')
-    name = models.CharField(max_length=255, verbose_name='Имя бронирующего')
+    name = models.CharField(max_length=255, verbose_name='Имя * бронирующего')
     phone = models.CharField(max_length=15, verbose_name='Телефон')
     comment = models.TextField(
         verbose_name='Комментарий',

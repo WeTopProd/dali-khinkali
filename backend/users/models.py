@@ -29,7 +29,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     )
     first_name = models.CharField(
         max_length=255,
-        verbose_name='Имя'
+        verbose_name='Имя *'
     )
     last_name = models.CharField(
         max_length=255,
