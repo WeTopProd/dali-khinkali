@@ -1,216 +1,267 @@
-import styles from './Header.module.css';
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-// import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-// import AdbIcon from '@mui/icons-material/Adb';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import logo from '../../assets/images/logo.png';
+import * as React from "react";
+import { useState } from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Menu from "@mui/material/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
+import Container from "@mui/material/Container";
+import Badge from "@mui/material/Badge";
+//BACKGROUND AND LOOG
+import logo from "../../assets/images/logo.png";
+// BASKET
+import basket from "../../assets/img/basket.svg";
+import Basket from "../../assets/img/basket__icon.png";
+import Delete from "../../assets/img/deleteBasket.png";
+import Salat from "../../assets/img/salat.png";
 
-import Badge, { BadgeProps } from '@mui/material/Badge';
-import { styled } from '@mui/material/styles';
+// STYLES
+import { styled } from "@mui/material/styles";
+import styles from "./Header.module.css";
+import { NavLink } from "react-router-dom";
+import HeaderAuth from "./headerAuth/HeaderAuth";
 
-
-import {Link, NavLink, useNavigate} from 'react-router-dom';
-import { Button, Grid, Modal, TextField } from '@mui/material';
-import HeaderAuth from './headerAuth/HeaderAuth';
-
+// components
+import BasketComponent from "./basket/BasketComponent";
+import axios from "axios";
+import HeaderModal from "./headerModal/HeaderModal";
+import PagesDrop from "../../pages/menu/Menu";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
-    '& .MuiBadge-badge': {
-    //   right: -3,
-    //   top: 13,
-    //   border: `2px solid ${theme.palette.background.paper}`,
-      padding: '0 4px',
-      color:'inherit'
-    },
-  }));
+  // !Korzina border
+  "& .MuiBadge-badge": {
+    borderRadius: "50% !important",
+    fontSize: "15.22px",
+    paddingBottom: "2px",
+    color: "inherit",
+  },
+  // !style for basket
+}));
 
-
-  const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    minWidth: 400,
-    bgcolor: '#242424',
-    borderRadius: '50px',
-    // border: '2px solid #000',
-    boxShadow: 24,
-    color: '#fff',
-    p: '80px 70px',
-    // p: 4,
-  };
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  minWidth: 400,
+  bgcolor: "#242424",
+  borderRadius: "50px",
+  boxShadow: 24,
+  color: "#fff",
+  p: "80px 70px",
+};
 
 const pages = [
-    {'name':'Главная', 'url':'/'},
-    {'name':'Меню ', 'url':'/menu'},
-    {'name':'Резерв стола', 'url':'#table-reserve'},
-    {'name':'Доставка', 'url':'#delivery'},
-    {'name':'Банкеты', 'url':'#hall'},
-    {'name':'КАЛЬЯН', 'url':'#kalyan'},
-    {'name':'такси', 'url':'#taxi'},
-    {'name':'Контакты', 'url':'#contacts'},
+  { name: "Главная", url: "/home#homePages" },
+  { name: "Меню ", url: "/menu" },
+  { name: "Резерв стола", url: "/home#table-reserve" },
+  { name: "Банкеты", url: "/home#hall" },
+  { name: "Доставка", url: "/home#delivery" },
+  { name: "КАЛЬЯН", url: "/home#kalyan" },
+  { name: "Такси", url: "/home#taxi" },
+  { name: "Контакты", url: "/home#contacts" },
 ];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
-function Header() {
+function Header({ Pages, basketItems, setBasketItems }) {
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  // const [basketItems, setBasketItems] = useState([]);
 
-
-    function handleClickScroll(url){
-
-        console.log(url.slice(1));
-
-        const element = document.getElementById(url.slice(1));
-        if (element) {
-          // 👇 Will scroll smoothly to the top of the next section
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      };
-
-
-    const [anchorElNav, setAnchorElNav] = React.useState(null);
-    const [anchorElUser, setAnchorElUser] = React.useState(null);
-
-    const handleOpenNavMenu = (event) => {
-        setAnchorElNav(event.currentTarget);
-    };
-    const handleOpenUserMenu = (event) => {
-        setAnchorElUser(event.currentTarget);
-    };
-
-    const handleCloseNavMenu = (url) => {
-        handleClickScroll(url)
-        setAnchorElNav(null);
-    };
-
-    const handleCloseUserMenu = () => {
-        setAnchorElUser(null);
-    };
-
-
-
-    const [open, setOpen] = React.useState(false);
-  const handleOpen = () => {
-    setOpenSign(false)
-    setOpen(true)
+  function handleClickScroll(url) {
+    if (typeof url === "string") {
+      const element = document.getElementById(url);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
   }
+  const handleCloseNavMenu = (url) => {
+    handleClickScroll(url);
+    setAnchorElNav(null);
+  };
+
+  // Modal
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [headerModal, setHeaderModal] = useState(false);
+
+  const handleModalClick = (e) => {
+    if (e.target === e.currentTarget) {
+      closeModal();
+    }
+  };
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  // end modal
+
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
+
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => {
+    setOpenSign(false);
+    setOpen(true);
+  };
   const handleClose = () => setOpen(false);
 
   const [openSign, setOpenSign] = React.useState(false);
   const handleOpenSign = () => {
-    setOpen(false)
-    setOpenSign(true)
-    };
+    setOpen(false);
+    setOpenSign(true);
+  };
   const handleCloseSign = () => setOpenSign(false);
 
-    return (
-        <AppBar className={styles.header} position="static" style={{background: '#F69049'}}>
-            <Container maxWidth="xl">
-                <Toolbar disableGutters>
-                    {/*<div className='logo'>*/}
-                    {/*    <img src={logo} alt="logo"  />*/}
-                    {/*</div>*/}
+  const handleCklick = () => {
+    headerModal ? setHeaderModal(false) : setHeaderModal(true);
+  };
 
+  React.useEffect(() => {
+    axios
+      .get("http://127.0.0.1:8000/api/goods/basket/", {
+        headers: {
+          "content-type": "application/json",
+          authorization: `Token ${sessionStorage.getItem("auth_token")}`,
+        },
+      })
+      .then((data) => setBasketItems(data.data));
+  }, []);
 
+  return (
+    <>
+      {/* !Logo header */}
+      <AppBar
+        id="menuHeader"
+        style={{
+          background: "black",
+          backgroundAttachment: "scroll",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          maxHeight: "100px",
+          position: "fixed",
+          top: "0",
+          zIndex: "100000",
+        }}
+      >
+        <Box>
+          <img
+            src={logo}
+            alt="Logo"
+            style={{ width: "100%", margin: "30px 0", padding: "0 15px" }}
+          />
+        </Box>
+      </AppBar>
+      {/* End Logo header */}
 
-                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-                        <IconButton
-                            size="large"
-                            aria-label="account of current user"
-                            aria-controls="menu-appbar"
-                            aria-haspopup="true"
-                            onClick={handleOpenNavMenu}
-                            color="inherit"
-                        >
-                            <MenuIcon />
-                        </IconButton>
-                        <Menu
-                            id="menu-appbar"
-                            anchorEl={anchorElNav}
-                            anchorOrigin={{
-                                vertical: 'bottom',
-                                horizontal: 'left',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'left',
-                            }}
-                            open={Boolean(anchorElNav)}
-                            onClose={handleCloseNavMenu}
-                            sx={{
-                                display: { xs: 'block', md: 'none' },
-                            }}
-                        >
-                            {pages.map((page) => (
-                                <NavLink to={page.url} key={page.name} onClick={()=>handleCloseNavMenu(page.url)}>
-                                     <Typography textAlign="center">{page.name}</Typography>
-                                </NavLink>
-                            ))}
-                        </Menu>
-                    </Box>
-                    {/*<AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />*/}
-                    <Typography
-                        variant="h5"
-                        noWrap
-                        component="a"
-                        href="/"
-                        sx={{
-                            mr: 2,
-                            display: { xs: 'flex', md: 'none' },
-                            flexGrow: 1,
-                            fontFamily: 'monospace',
-                            fontWeight: 700,
-                            letterSpacing: '.3rem',
-                            color: 'inherit',
-                            textDecoration: 'none',
-                        }}
-                    >
-                        LOGO
-                    </Typography>
-                    <Box ml={3} sx={{ flexGrow: 1, gap:'2vw', display: { xs: 'none', md: 'flex' } }} style={{padding: '50px 0'}}>
-                        {pages.map((page) => (
-                            <NavLink to={page.url}
-                                     className={({ isActive }) => (isActive ? 'active' : '')}
-                                     key={page.name}
-                                    //  onClick={handleCloseNavMenu}
-                                    onClick={()=>handleClickScroll(page.url)}
-                            >
-                                {page.name}
-                            </NavLink>
-                        ))}
+      {/* Nav bar */}
+      <AppBar
+        className={styles.header}
+        position="static"
+        style={{
+          background: "#F69049",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          position: "fixed",
+          top: "100px",
+          zIndex: "100000",
+        }}
+      >
+        <Container Container maxWidth="xl">
+          {/* menu burger */}
+          <div className={styles.NavBarCenter}>
+            <Toolbar disableGutters>
+              <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+                <IconButton
+                  size="large"
+                  aria-label="account of current user"
+                  aria-controls="menu-appbar"
+                  aria-haspopup="true"
+                  onClick={handleCklick}
+                  color="inherit"
+                >
+                  <MenuIcon />
+                </IconButton>
+              </Box>
 
+              <Box
+                ml={3}
+                sx={{
+                  flexGrow: 1,
+                  gap: "2vw",
+                  display: {
+                    xs: "none",
+                    md: "flex",
+                    justifyContent: "center",
+                  },
+                }}
+                style={{ padding: "50px 0" }}
+              >
+                {pages.map((page) => (
+                  <NavLink
+                    to={page.url}
+                    className={({ isActive }) => (isActive ? "active" : "")}
+                    key={page.name}
+                    onClick={() => handleClickScroll(page.url)}
+                  >
+                    {page.name}
+                  </NavLink>
+                ))}
+              </Box>
 
+              {/* icon basket header */}
+              <button
+                to=""
+                style={{ border: "none" }}
+                className="cart"
+                onClick={openModal}
+              >
+                <img src={basket} alt="" />
+                <span
+                  className={styles.bagQuantity}
+                  style={{ position: "relative" }}
+                >
+                  <span className="basket_sub">{basketItems.length}</span>
+                </span>
+              </button>
 
-                        
-                    </Box>
-                   
-
-                    {/* <Box sx={{ flexGrow: 0 }}> */}
-                    {/* <ShoppingCartIcon sx={{ display: { xs: 'flex' }, mr: 1 }} /> */}
-                    <IconButton color='inherit' aria-label="cart">
-                        <StyledBadge badgeContent={4} color={`info`} anchorOrigin={{
-                                vertical: 'bottom',
-                                horizontal: 'right',
-                            }}>
-                            <ShoppingCartIcon />
-                        </StyledBadge>
-                    </IconButton>
-                    {/* </Box> */}
-                    <HeaderAuth/>
-                </Toolbar>
-            </Container>
-        </AppBar>
-    );
+              <HeaderAuth />
+            </Toolbar>
+          </div>
+        </Container>
+      </AppBar>
+      {headerModal ? (
+        <HeaderModal
+          Pages={Pages}
+          pages={pages}
+          handleCklick={handleCklick}
+          handleClickScroll={handleClickScroll}
+        />
+      ) : (
+        ""
+      )}
+      {/* Модальное окно */}
+      {isModalOpen && (
+        <BasketComponent closeModal={closeModal} basketItems={basketItems} setBasketItems={setBasketItems} />
+      )}
+    </>
+  );
 }
 export default Header;

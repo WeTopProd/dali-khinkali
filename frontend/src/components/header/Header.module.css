@@ -1,32 +1,295 @@
-.header a{
-    color: #FFF;
-    text-align: center;
-    font-family: Open Sans;
-    font-size: 1.2vw;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 22.416px; /* 89.663% */
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 10px 0;
-    border-bottom: 3px solid transparent;
-    white-space: nowrap;
-}
-.header a.active{
-    border-bottom: 3px solid #FFF;
-}
-.header a:hover{
-    border-bottom: 3px solid #FFF;
+.header a {
+  color: #fff;
+  text-align: center;
+  font-family: Open Sans;
+  font-size: 1.2vw;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 22.416px;
+  /* 89.663% */
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 10px 0;
+  border-bottom: 3px solid transparent;
+  white-space: nowrap;
 }
 
-.header .btn{
-    color: #FFF;
-    text-align: center;
-    font-family: Open Sans;
-    /* font-size: 25px; */
-    font-style: normal;
-    font-weight: 600;
-    /* line-height: 22.416px; */
-    letter-spacing: 1px;
+.header a.active {
+  border-bottom: 3px solid #fff;
+}
+
+.header a:hover {
+  border-bottom: 3px solid #fff;
+}
+
+.header .btn {
+  color: #fff;
+  text-align: center;
+  font-family: Open Sans;
+  /* font-size: 25px; */
+  font-style: normal;
+  font-weight: 600;
+  /* line-height: 22.416px; */
+  letter-spacing: 1px;
+}
+
+.css-ahj2mt-MuiTypography-root {
+  position: relative !important;
+}
+
+.NavBarCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 145px;
+}
+
+@media (max-width: 900px) {
+  .NavBarCenter {
+    display: block;
+  }
+}
+
+/* !MODAL */
+
+.modal {
+  background: white;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 500;
+  border-radius: 30px;
+  border: 4px solid #f69049;
+  color: black;
+  width: 750px;
+  margin: 243px 0 0 0;
+}
+
+@media (max-width: 899px) {
+  .modal {
+    margin: 163px 0 0 0;
+  }
+}
+
+.close {
+  display: block;
+  text-align: end;
+  cursor: pointer;
+  padding: 30px 15px 0 0;
+}
+
+.modalBasketRow {
+  padding: 0 65px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 40px 0 40px;
+}
+
+@media (max-width: 767px) {
+  .modalBasketRow {
+    justify-content: center;
+  }
+}
+
+.modalBasketTextRow {
+  display: flex;
+  color: #000;
+  font-family: "Gilroy";
+  font-size: 34px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalBasketTextRow p {
+  margin: 0 20px;
+}
+
+@media (max-width: 767px) {
+  .modalBasketTextRow p {
+    margin: 0 50px;
+  }
+}
+
+.basketIcon {
+  border-radius: 8px;
+  background: #f69049;
+  padding: 11px 15px;
+}
+
+.imgModalDelete {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.lineBasket {
+  background: #d9d9d9;
+  width: 571px;
+  height: 1px;
+}
+
+.imgBasket {
+  display: flex;
+  align-items: center;
+  margin: 0 35px 0 0;
+  width: 100px;
+  height: 100%;
+  background: #d9d9d9;
+  border-radius: 50%;
+}
+
+.imgBasket img {
+  min-width: 100px;
+  height: 100px;
+  margin: 0 30px 0 0;
+}
+
+.countBasket {
+  /* display: block; */
+  color: #000;
+  font-family: "Gilroy";
+  font-size: 18px;
+  font-weight: bolder;
+  line-height: 140%;
+  padding: 0 10px;
+}
+
+.decrease,
+.increase {
+  padding: 5px 15px;
+  color: #000;
+  font-family: "Gilroy";
+  font-size: 18px;
+  font-weight: 800;
+  border-radius: 8px;
+  border: 1px solid #000;
+}
+
+@media (max-width: 500px) {
+
+  .decrease,
+  .increase {
+    background: #f69049;
+  }
+}
+
+.productTitlePriceRow {
+  padding: 0 65px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.price {
+  margin: 0 0 20px 0;
+}
+
+.price,
+.cardTitle {
+  color: #000;
+  font-family: "Gilroy";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.BoxDeliveryBasket {
+  margin: 40px 0;
+  padding: 0 65px 0px;
+  display: flex;
+  justify-content: space-between;
+  color: #000;
+  font-family: "Gilroy";
+  font-size: 20px;
+  font-weight: 800;
+}
+
+@media (max-width: 600px) {
+  .BoxDeliveryBasket {
+    padding: 0 20px 0;
+  }
+}
+
+.sumBasket {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 40px 0;
+  padding: 0 40px;
+}
+
+@media (max-width: 767px) {
+  .sumBasket {
+    padding: 0;
+  }
+}
+
+.sumBasketTotal {
+  color: #000;
+  font-family: "Gilroy";
+  font-size: calc(18px + 16 * ((100vw - 320px) / (1920 - 320)));
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  text-transform: uppercase;
+  padding: 0 20px;
+}
+
+.buttonBasketOrder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.basketOrder:hover {
+  background: black;
+  color: white;
+  border: 4px solid black;
+}
+
+.basketOrder {
+  transition: ease 0.5s;
+  display: flex;
+  text-align: center;
+  padding: 22px 55px;
+  margin: 0 0 50px 0;
+  border-radius: 30px;
+  border: 4px solid #f69049;
+  background: #f69049;
+  text-align: center;
+  font-family: "Gilroy";
+  font-size: 18px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+/* modal media */
+
+@media (max-width: 648px) {
+  .modal {
+    width: 100%;
+  }
+
+  .sumBasket {
+    justify-content: space-between;
+  }
+
+  .basketOrder {
+    padding: 15px 55px;
+  }
+}
+
+@media (max-width: 470px) {
+  .productTitlePriceRow {
+    display: block;
+  }
+
+  .boxCounter {
+    padding: 15px 0 0 0;
+  }
 }

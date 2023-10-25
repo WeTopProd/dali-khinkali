@@ -1,0 +1,58 @@
+/* ! ===== Salats ===== */
+
+.content {
+  text-align: center;
+  margin-bottom: 70px;
+  width: 100%;
+}
+
+.containerCardSalats {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1920px;
+  border-color: rgb(234, 223, 223);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.cardSalat,
+.weight {
+  border-radius: 210.5px 210.5px 20px 20px;
+  width: 386px;
+}
+
+/* !Карточка товара */
+
+.cardSalat {
+  background: #eaeaea;
+  margin: 40px 20px 150px;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+@media (max-width: 921px) {
+  .cardSalat {
+    margin: 100px 10px 150px;
+  }
+}
+
+
+
+
+.cardSalat:hover {
+  min-height: 712px;
+  margin-bottom: -70px;
+}
+.BoxWeightSubTitle {
+  opacity: 0;
+  max-height: 0;
+  visibility: hidden;
+  transition: all 0.5s;
+}
+
+.cardSalat:hover .BoxWeightSubTitle {
+  opacity: 1;
+  max-height: 300px;
+  visibility: visible;
+}

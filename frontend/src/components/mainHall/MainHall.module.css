@@ -1,3 +1,91 @@
-.change{
-    background-color: black;
+.change {
+  background-color: black;
+}
+
+.InputRowError {
+  display: flex;
+  flex-direction: column;
+}
+
+/*! style Select  */
+select,
+select:focus,
+select:active,
+option,
+option:focus,
+option:active {
+  outline: none;
+}
+
+select {
+  position: relative;
+}
+
+input::placeholder {
+  font-size: calc(15px + 11 * ((100vw - 320px) / (1920 - 320)));
+}
+
+select:after {
+  width: 14px;
+  height: 8px;
+  position: absolute;
+  background: black;
+}
+
+.SelectReserveSelectRow {
+  display: flex;
+  background: none;
+}
+
+.ReserveOption option {
+  font-size: calc(18px + 18 * ((100vw - 320px) / (1920 - 320)));
+}
+
+.ReserveOption {
+  border-bottom: 1px solid black;
+  width: 300px;
+  font-size: 23px;
+  color: #fff;
+  background: none;
+  font-family: "Lato";
+  font-weight: 500;
+}
+
+option {
+  background: red !important;
+}
+
+.RowHull {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.backgroundHull img {
+  box-shadow: 70px 0 110px 0px black;
+  margin-top: -110px;
+  width: 100%;
+}
+
+.backgroundBodyReserve {
+  background: #f59049;
+  height: 100%;
+  padding-top: 85px;
+  margin-top: 240px;
+}
+
+@media (max-width: 1200px) {
+  .RowHull {
+    flex-wrap: wrap-reverse;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .backgroundHull img {
+    margin: 0 0 20px 0;
+  }
+
+  .backgroundBodyReserve {
+    margin-top: 120px;
+  }
 }

@@ -1,0 +1,198 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@700&display=swap");
+
+.content {
+  text-align: center;
+  margin-bottom: 70px;
+  width: 100%;
+
+}
+
+.AddServicesSelect {
+  margin: 100px 0 0 100px;
+}
+
+.boxRow {
+  display: flex;
+}
+
+.serviceNameBox {
+  margin: 0 40px 50px 0;
+  min-width: 348px;
+}
+
+.AddServicesSelect>li {
+  margin: 0 0 20px 0;
+  color: #000;
+  font-family: "Lato";
+  font-weight: 400;
+}
+
+.containerCardSalats {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1920px;
+  border-color: rgb(234, 223, 223);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.cardSalat,
+.weight {
+  border-radius: 210.5px 210.5px 20px 20px;
+  width: 386px;
+}
+
+.cardSalat {
+  background: #eaeaea;
+  margin: 40px 20px 150px;
+  max-height: 653px;
+  cursor: pointer;
+}
+
+.BoxWeightSubTitle {
+  transition: all 0.5s;
+  display: none;
+  max-width: 421px;
+  max-height: 300px;
+}
+
+.cardSalat:hover {
+  min-height: 762px;
+  margin-bottom: -70px;
+}
+
+.cardSalat:hover .BoxWeightSubTitle {
+  opacity: 1;
+  max-height: 300px;
+  visibility: visible;
+}
+
+/* !===== Lanch ===== */
+.LunchTitle,
+.LunchTime {
+  color: #fff;
+  font-family: "Lato";
+  font-size: calc(40px + 100 * ((100vw - 320px) / (1920 - 320)));
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.LunchTime {
+  font-size: calc(35px + 80 * ((100vw - 320px) / (1920 - 320)));
+}
+
+.ContainerLunchTitle {
+  text-align: center;
+  padding: 200px 0;
+}
+
+.containerBackground {
+  margin: 255px auto 0;
+  height: 100vh;
+}
+
+.textareaServices {
+  border-radius: 23.491px;
+  border: 4.698px solid var(--Orange, #F2994A);
+  background: rgba(255, 255, 255, 0.90);
+}
+
+.centerTextArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 75px 0 50px;
+}
+
+.textareaServices {
+  padding: 20px 0 0 20px;
+  min-width: 400px;
+  min-height: 290px;
+  height: 100px;
+  font-size: 35.237px;
+}
+
+textarea::placeholder {
+  color: #000;
+  font-family: "Lato";
+  font-size: 35.237px;
+  font-weight: 400;
+
+}
+
+.btnAddServies {
+  color: #FFF;
+  font-family: "Lato";
+  font-size: 41.633px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  background: #F2994A;
+  border-radius: 41.633px;
+  padding: 24px 60px;
+  margin: 50px 0 0 0;
+  transition: ease 0.5s;
+}
+
+.btnAddServies:hover {
+  background: #e88229;
+  color: black;
+}
+
+/* 
+ */
+.counterIncrement,
+.counterDecrement {
+  background: #F2994A;
+  color: #000;
+  font-family: "Lato";
+  font-size: 36.441px;
+  font-weight: 400;
+  border-radius: 50px;
+  margin: 0 10px 0;
+  width: 50px;
+  height: 50px;
+}
+
+
+
+.subTitle {
+  color: #000;
+  font-family: "Lato";
+  font-size: 35px;
+  font-weight: 500;
+  padding: 0 150px 0;
+  margin: 62px 0 61px 0;
+  width: 100%;
+}
+
+.subTitle span {
+  display: block;
+  margin: 30px 0 0 0;
+}
+
+.totalAddServices {
+  margin: 50px 0 0 0;
+  color: #000;
+  font-family: "Lato";
+  font-size: 40px;
+  font-weight: 600;
+}
+
+@media (max-width: 1000px) {
+  .subTitle {
+    padding: 0 20px 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .cardSalat {
+    margin: 70px 22px 150px;
+  }
+
+  .cardSalat:hover {
+    min-height: 660px;
+  }
+}

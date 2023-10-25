@@ -1,13 +1,46 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./taxi.css";
 import ImageTaxi from "../../assets/img/taxi.jpg";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import BackDecorTaxi from "../../assets/img/taxi-decor.png";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
-import Box from "@mui/material/Box";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
+import { TimePicker } from "@mui/x-date-pickers";
+import "../../assets/general-styles/styles.css";
+import Regsuccessfully from "./regsuccessfully/Regsuccessfully";
 
 function Taxi() {
+  const [data, setDate] = useState("");
+  const [time, setTime] = useState("");
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
+  const [error, setErro] = useState("");
+
+  //! Молальное окно прошло успешно
+  const [sucessCardReserveTable, setSucessCardReserveTable] = useState(false);
+
+  const handler = {
+    name: (e) => {
+      setName(e.target.value);
+    },
+    phone: (e) => {
+      setPhone(e.target.value);
+    },
+    address: (e) => {
+      setAddress(e.target.value);
+    },
+    time: (e) => {
+      setTime(`${e["$d"]}`.slice(15, 34));
+    },
+    date: (e) => {
+      setDate(`${e["$d"]}`.slice(0, 15));
+      console.log(`${e["$d"]}`.slice(4, 15));
+    },
+  };
+
   const style = {
     position: "absolute",
     top: "50%",
@@ -21,11 +54,24 @@ function Taxi() {
   };
 
   const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handlerReserveTable = () => {
+    if (!time) {
+      setErro("Выберите дату и время");
+    } else {
+      setSucessCardReserveTable(true);
+      setTimeout(() => {
+        setOpen(false);
+        setSucessCardReserveTable(false);
+      }, 2000);
+    }
+  };
   const handleClose = () => setOpen(false);
 
   return (
-    <div className="taxi" id="taxi">
+    <div className="taxi">
       <div className="taxi__wrapper wrapper">
         <div className="taxi__body">
           <h2 className="taxi__title">Такси до дома</h2>
@@ -36,7 +82,7 @@ function Taxi() {
             <div className="taxi__order-block">
               <p className="taxi__order-info">
                 Проблема добраться домой в позднее время? <br />
-                Такси Дали-Хинкали поможет решить вашу проблему
+                Услуга " такси Дали-Хинкали " поможет решить Вашу проблему
               </p>
               <Button
                 className="taxi__order-button"
@@ -46,7 +92,7 @@ function Taxi() {
                   padding: "18px",
                   borderRadius: "20px",
                   fontSize: "16px",
-                  width: '350px',
+                  width: "93%",
                 }}
                 onClick={handleOpen}
               >
@@ -56,110 +102,154 @@ function Taxi() {
           </div>
         </div>
       </div>
-      <img
-        className="taxi__backgroundDecor"
-        src={BackDecorTaxi}
-        alt="decor"
-      ></img>
 
       <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
       >
         <form className="taxi__form" action="#" method="post">
           <div className="taxi__form-body">
             <h2 className="taxi__form-title">Бронирование такси</h2>
 
-            <div className="taxi__form-field">
-              <div className="taxi__form-labels">
-              <label className="taxi__form-label" for="date-select">
-                Дата
-              </label>{" "}
-              /{" "}
-              <label className="taxi__form-label" for="time-select">
-                Время
-              </label>
+            <div className="form__data__center">
+              <div>
+                <div className="taxi__form-field">
+                  <div></div>
+                  <div className="taxi__form-labels">
+                    <label className="taxi__form-label" for="date-select">
+                      Дата
+                    </label>
+                    /
+                    <label className="taxi__form-label" for="time-select">
+                      Время *
+                    </label>
+                  </div>
+
+                  <div className="taxi__form-select-inputs">
+                    <LocalizationProvider dateAdapter={AdapterDayjs}>
+                      <DemoContainer components={["TimePicker"]}>
+                        <div>
+                          <div className="rowError">
+                            <DatePicker
+                              // !Убрать border у data and time
+
+                              slotProps={{ textField: { variant: "standard" } }}
+                              sx={{
+                                width: "100%",
+                                svg: { color: "#000" },
+                                input: { color: "#000" },
+                                label: {
+                                  color: "black",
+                                  fontSize:
+                                    "calc(15px + 11 * ((100vw - 320px) / (1920 - 320)));",
+                                  fontFamily: "Lato",
+                                  marginLeft: "6px",
+                                },
+                              }}
+                              label="Выбрать дату"
+                              onChange={handler.date}
+                            />
+                            <TimePicker
+                              // !Убрать border у data and time
+                              slotProps={{ textField: { variant: "standard" } }}
+                              sx={{
+                                width: "100%",
+                                svg: { color: "#000" },
+                                input: { color: "#000" },
+                                label: {
+                                  color: "black",
+                                  fontSize:
+                                    "calc(15px + 11 * ((100vw - 320px) / (1920 - 320)));",
+                                  fontFamily: "Lato",
+                                  marginLeft: "6px",
+                                },
+                              }}
+                              label="Выбрать время"
+                              ampm={false}
+                              onChange={handler.time}
+                            />
+                          </div>
+                          {error && (
+                            <div style={{ color: "red", textAlign: "left" }}>
+                              {error}
+                            </div>
+                          )}
+                        </div>
+                      </DemoContainer>
+                    </LocalizationProvider>
+                  </div>
+                </div>
+
+                <div className="taxi__form-field">
+                  <label className="taxi__form-label" for="name">
+                    Имя *
+                  </label>
+
+                  <input
+                    className="taxi__form-input"
+                    id="name"
+                    type="text"
+                    name="name"
+                    required
+                    value={name}
+                    onChange={handler.name}
+                  ></input>
+                </div>
+                <div className="taxi__form-field">
+                  <label className="taxi__form-label" for="phone">
+                    Телефон *
+                  </label>
+                  <input
+                    className="taxi__form-input"
+                    id="phone"
+                    type="tel"
+                    name="phone"
+                    required
+                    value={phone}
+                    onChange={handler.phone}
+                  ></input>
+                </div>
+                <div className="taxi__form-field">
+                  <label className="taxi__form-label" for="address">
+                    Адрес *
+                  </label>
+                  <input
+                    className="taxi__form-input"
+                    id="address"
+                    type="text"
+                    name="address"
+                    required
+                    value={address}
+                    onChange={handler.address}
+                  />
+                </div>
               </div>
-              <div className="taxi__form-select-inputs">
-                <select
-                  className="taxi__form-select"
-                  name="date"
-                  id="date-select"
-                  required
-                >
-                  <option selected disabled></option>
-                  <option>11 Мая</option>
-                  <option>12 апреля</option>
-                </select>{" "}
-              
-                <select
-                  className="taxi__form-select"
-                  name="time"
-                  id="time-select"
-                  required
-                >
-                  <option selected disabled></option>
-                  <option>20:00</option>
-                  <option>21:00</option>
-                </select>{" "}
-
-              </div>
             </div>
-
-             <div className="taxi__form-field">
-              <label className="taxi__form-label" for="name">
-                Имя
-              </label>
-
-              <input
-                className="taxi__form-input"
-                id="name"
-                type="text"
-                name="name"
-                required
-              ></input>
-            </div>
-            <div className="taxi__form-field">
-              <label className="taxi__form-label" for="phone">
-                Телефон
-              </label>
-              <input
-                className="taxi__form-input"
-                id="phone"
-                type="tel"
-                name="phone"
-                required
-              ></input>
-            </div>
-            <div className="taxi__form-field">
-              <label className="taxi__form-label" for="address">
-                Адрес
-              </label>
-              <input
-                className="taxi__form-input"
-                id="address"
-                type="text"
-                name="address"
-                required
-              ></input>
-            </div> 
-            <Button
-              className="taxi__order-button"
-              type="submit"
-              style={{
-                color: "white",
-                backgroundColor: "black",
-                padding: "14px",
-                borderRadius: "20px",
-                fontSize: "16px",
-                width: '350px',
-              }}
-              onClick={handleOpen}
-            >
-              предзаказ
-            </Button>
+            {sucessCardReserveTable ? (
+              <Regsuccessfully />
+            ) : (
+              <button
+                className="taxi__order-button"
+                style={{
+                  color: "white",
+                  backgroundColor: "#ff6900",
+                  padding: "15px 65px",
+                  borderRadius: "20px",
+                  fontSize: "16px",
+                  width: "60%",
+                }}
+                onClick={() => handlerReserveTable(true)}
+              >
+                предзаказ
+              </button>
+            )}
           </div>
         </form>
       </Modal>

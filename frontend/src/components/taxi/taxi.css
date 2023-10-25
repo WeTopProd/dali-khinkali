@@ -22,6 +22,8 @@
   box-sizing: border-box;
 }
 
+
+
 .taxi {
   position: relative;
   padding: 150px 0;
@@ -65,9 +67,6 @@
 
 .taxi__order-block {
   text-align: center;
-  /* display: flex;
-  align-items: start;
-  flex-direction: column; */
 }
 
 .taxi__order-info {
@@ -75,23 +74,8 @@
   font-size: 1.875rem;
   font-weight: 400;
   margin-bottom: 114px;
+  text-align: left;
 }
-
-/* .taxi__order-button {
-  display: flex;
-   width: 100%; 
-  padding: 24px 0;
-  justify-content: center;
-  align-items: center;
-  border-radius: 20px;
-  background-color: #000;
-  color: #fff;
-  text-align: center;
-  font-size: 1.875rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  text-decoration: none;
-}  */
 
 .taxi__backgroundDecor {
   position: absolute;
@@ -100,20 +84,29 @@
   right: 0;
 }
 
+.rowError {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .taxi__form {
-  width: 600px;
-  height: 570px;
-  padding: 38px 50px 46px;
+  width: 70%;
+  padding: 20px 0;
   border-radius: 30.847px;
   background: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #000;
-  font-size: 1.625rem;
   font-weight: 600;
   margin: 0 auto;
   text-align: center;
+  transition: ease 0.5s;
+  position: fixed;
+  top: 66%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .taxi__form-title {
@@ -123,10 +116,6 @@
 
 .taxi__form-body {
   width: 100%;
-}
-
-.taxi__form-body > *:not(:first-child, :last-child) {
-  margin-bottom: 40px;
 }
 
 .taxi__form-input,
@@ -142,6 +131,7 @@
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+  width: 400px;
 }
 
 .taxi__form-select {
@@ -156,14 +146,6 @@
   position: relative;
 }
 
-/* .taxi__form-select:after {
-position: absolute;
-content: url(../../assets/img/Vector.png);
-width: 16px;
-height: 21px;
-} */
-
-
 .taxi__form-select-arrow {
   vertical-align: bottom;
 }
@@ -174,7 +156,22 @@ height: 21px;
 
 .taxi__form-field {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.taxi__form-labels {
+  margin: 0 40px 0 0;
+}
+
+.taxi__form-label {
+  width: 147px;
+  text-align: left;
+  font-family: "Lato";
+  font-weight: 600;
+  font-size: calc(15px + 21 ((100vw - 320px) / (1920 - 320)));
 }
 
 .taxi__form-select-inputs {
@@ -183,17 +180,41 @@ height: 21px;
   justify-content: space-between;
 }
 
+.taxi__form-title {
+  font-size: calc(25px + 29 * ((100vw - 320px) / (1920 - 320)));
+  font-family: "Lato";
+  font-weight: 600;
+}
+
+.taxi__order-button {
+  font-size: calc(25px + 29 * ((100vw - 320px) / (1920 - 320)));
+  color: white;
+  background: #ff6900 !important;
+  padding: 15px 65px !important;
+  border-radius: 20px !important;
+  width: 60%;
+}
+
+.css-1e6y48t-MuiButtonBase-root-MuiButton-root {}
+
+@media (min-width: 0px) {
+  .css-m3oe8z-MuiGrid-root {
+    margin-left: 0 !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .taxi__form {
+    width: 100%;
+  }
+}
+
 @media screen and (max-width: 1160px) {
   .taxi__title {
-    font-size: 3.375rem;
     margin-bottom: 40px;
-  }
-  .taxi__order-button {
-    font-size: 1.2rem;
   }
 
   .taxi__order-info {
-    font-size: 1.3rem;
     margin-bottom: 60px;
   }
 
@@ -206,7 +227,6 @@ height: 21px;
   }
 
   .taxi__form-title {
-    font-size: 2.375rem;
     margin-bottom: 50px;
   }
 }
@@ -230,21 +250,49 @@ height: 21px;
     width: 100%;
     margin-bottom: 40px;
   }
+}
 
-  /* .taxi__order-button {
-  display: inline-flex;
-  max-width: 300px;
-  padding: 18px 40px;
-  font-size: 1.2rem;
-} */
+.form__data__center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 @media screen and (max-width: 767px) {
   .taxi__title {
     font-size: 2.6rem;
   }
+
   .taxi__order-button {
-    padding: 16px 30px;
-    font-size: 1rem;
+    font-size: calc(25px + 29 * ((100vw - 320px) / (1920 - 320)));
   }
+
+  .taxi__form-input {
+    width: 100%;
+  }
+}
+
+.madal__center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root {
+  background: url(../../assets/img//SelectForm.png) no-repeat center;
+}
+
+.css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root svg {
+  display: none;
+}
+
+.css-cwhad8-MuiDateCalendar-root,
+.css-1g7nc1s-MuiPickersLayout-root {
+  position: absolute;
+  top: 1px;
+  background: white;
+  left: -11px;
+  border: 1px solid black;
+  border-radius: 10px;
 }

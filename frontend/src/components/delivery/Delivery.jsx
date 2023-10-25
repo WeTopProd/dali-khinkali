@@ -11,6 +11,7 @@ import Styles from "./Deliver.module.css";
 export default function Delivery() {
   return (
     <>
+      <h3 className="title__pages_all">Доставка</h3>
       <Container
         maxWidth="lg"
         alignItems="center"
@@ -46,8 +47,8 @@ export default function Delivery() {
                 src={DeliveryMobile}
                 alt=""
                 style={{
-                  minWidth: "314px",
-                  height: "550.12px",
+                  minWidth: "344px",
+                  // height: "550.12px",
                   zIndex: "2",
                   filter: "drophadow(0px 4px 100px #000)",
                 }}
@@ -72,12 +73,7 @@ export default function Delivery() {
                 Закажи и следи за курьером в режиме Онлайн
               </Typography>
               {/* button */}
-              <Grid
-                container
-                justifyContent={"center"}
-                alignContent={"center"}
-                xs={12}
-              >
+              <div className={Styles.buttonDelivery}>
                 <Button
                   variant="contained"
                   sx={{
@@ -94,9 +90,9 @@ export default function Delivery() {
                     },
                   }}
                 >
-                  ЗАКАЗАТЬ ДОСТАВКУ
+                  Оформить заказ ДОСТАВКУ
                 </Button>
-              </Grid>
+              </div>
             </Grid>
 
             {/* background Car */}
@@ -130,6 +126,7 @@ export default function Delivery() {
           </Grid>
         </div>
       </Container>
+      <span id="/home#hall"></span>
     </>
   );
 }

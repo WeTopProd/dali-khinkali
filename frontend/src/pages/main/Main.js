@@ -1,72 +1,69 @@
-import React, {useEffect, useState} from "react";
-import { experimentalStyled as styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
+import { experimentalStyled as styled } from "@mui/material/styles";
+import Paper from "@mui/material/Paper";
 import Container from "@mui/material/Container";
-import bannerFist from '../../assets/images/main-banner-1.jpeg';
-import bannerSecond from '../../assets/images/main-banner-2.jpeg';
-import bannerThird from '../../assets/images/main-banner-3.jpeg';
-import Button from "@mui/material/Button";
-import {NavLink} from "react-router-dom";
-import styles from './Main.module.css';
+// import Images
+import bannerFist from "../../assets/images/main-banner-1.jpeg";
+import bannerSecond from "../../assets/images/main-banner-2.jpeg";
+import bannerThird from "../../assets/images/main-banner-3.jpeg";
+import addServicesBanner from "../../assets/img/addServicesBanner.jpeg";
+// import styles
+import styles from "./Main.module.css";
+// import components
 import Banner from "../../components/banner/Banner";
-import { Typography } from "@mui/material";
 import MainReserve from "../../components/mainReserve/MainReserve";
-import MainDelivery from "../../components/mainDelivery/MainDelivery";
 import MainHall from "../../components/mainHall/MainHall";
 import Footer from "../../components/footer/footer";
 import Taxi from "../../components/taxi/taxi";
 import Delivery from "../../components/delivery/Delivery";
-import { OndemandVideo } from "@mui/icons-material";
 import Omar from "../../components/omar-xayam/OmarXayam";
 import CustomSlider from "../../components/sub-menu/Sub-menu";
 
-
-
-
-
 const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
+  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+  ...theme.typography.body2,
+  padding: theme.spacing(2),
+  textAlign: "center",
+  color: theme.palette.text.secondary,
 }));
 
+const Main = ({basketItems,setBasketItems}) => {
+  return (
+    <div id="/home#homePages">
+      <br />
+      <Container maxWidth="xl" className={styles.bannerContainer}>
+        <Banner
+          url={"/main-menu"}
+          background={bannerFist}
+          title="Основное меню"
+        />
+        <Banner url={"/drinks"} background={bannerSecond} title="Напитки" />
+        <Banner
+          url={"/business-lunch"}
+          background={bannerThird}
+          title="Бизнес ланч"
+        />
+        <Banner
+          url={"/additionalServices"}
+          background={addServicesBanner}
+          title="Доп услуги"
+        />
+      </Container>
 
-const Main = () => {
+      <CustomSlider setBasketItems={setBasketItems} basketItems={basketItems} />
 
-    return (
-        <>
+      <MainReserve />
 
-            <Container maxWidth="xl" className={styles.main}>
+      <Delivery />
 
-                <Banner url={'ss'} background={bannerFist} title='Основное меню' />
+      <MainHall />
 
-                <Banner url={'ss'} background={bannerSecond} title='Напитки' />
+      <Omar />
 
-                <Banner url={'ss'} background={bannerThird} title='Бизнес ланч' />
+      <Taxi />
 
-            </Container>
-
-            <CustomSlider/>
-
-
-            <MainReserve />
-
-            <Delivery />
-
-            <MainHall />
-
-            <Omar/>
-
-            <Taxi/>
-
-            <Footer/>
-
-        </>
-    );
+      <Footer />
+    </div>
+  );
 };
 
 export default Main;

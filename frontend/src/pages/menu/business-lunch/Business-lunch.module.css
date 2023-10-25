@@ -1,0 +1,88 @@
+.content {
+  text-align: center;
+  margin-bottom: 70px;
+  width: 100%;
+}
+
+.containerCardSalats {
+  margin: 0 auto;
+  width: 100%;
+  border-color: rgb(234, 223, 223);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.cardSalat,
+.weight {
+  border-radius: 210.5px 210.5px 20px 20px;
+  width: 386px;
+}
+
+.cardSalat {
+  background: #eaeaea;
+  margin: 40px 20px 150px;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+@media (max-width: 921px) {
+  .cardSalat {
+    margin: 100px 10px 150px;
+  }
+}
+
+.BoxWeightSubTitle {
+  opacity: 0;
+  max-height: 0;
+  visibility: hidden;
+  transition: all 0.5s;
+}
+
+
+.cardSalat:hover {
+  min-height: 762px;
+  margin-bottom: -70px;
+}
+
+.cardSalat:hover .BoxWeightSubTitle {
+  opacity: 1;
+  max-height: 300px;
+  visibility: visible;
+}
+
+/* !===== Lanch ===== */
+.LunchTitle,
+.LunchTime {
+  color: #fff;
+  font-family: "Lato";
+  font-size: calc(50px + 100 * ((100vw - 320px) / (1920 - 320)));
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.LunchTime {
+  font-size: calc(40px + 80 * ((100vw - 320px) / (1920 - 320)));
+}
+
+.ContainerLunchTitle {
+  text-align: center;
+  padding: 200px 0;
+  margin: 245px 0 0 0;
+}
+
+.containerBackground {
+  margin-top: 22px;
+}
+
+@media screen and (max-width: 767px) {
+  .cardSalat {
+    margin: 70px 22px 150px;
+  }
+
+  .cardSalat:hover {
+    min-height: 660px;
+  }
+}

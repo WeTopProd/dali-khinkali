@@ -1,0 +1,20 @@
+.PrivacyPoliceContainer {
+  max-width: 1920px;
+  width: 100%;
+  margin: 255px auto;
+  padding: 0 20px 50px;
+}
+.PrivacyPoliceContainer h1 {
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
+  font-size: calc(21px + 19 * ((100vw - 320px) / (1920 - 320)));
+}
+
+.PrivacyPoliceContainer h3 {
+  padding: 20px 0;
+  width: 100%;
+}
+.PrivacyPoliceContainer p {
+  font-size: 20px;
+}
