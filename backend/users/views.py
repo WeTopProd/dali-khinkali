@@ -91,6 +91,27 @@ def send_order(request):
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
+def send_taxi(request):
+    date = request.data.get('date', '')
+    time = request.data.get('time', '')
+    first_name = request.data.get('first_name', '')
+    phone = request.data.get('phone', '')
+    address = request.data.get('address', '')
+    message = (f"БРОНИРОВАНИЕ ТАКСИ ОТ {first_name}\n\n"
+               f"НОМЕР ТЕЛЕФОНА: {phone}\nДАТА И ВРЕМЯ БРОНИРОВАНИЯ: "
+               f"{date} {time}\nАДРЕС: {address}")
+    send_mail(
+        f"БРОНИРОВАНИЕ ТАКСИ ОТ {first_name}",
+        message,
+        settings.DEFAULT_FROM_EMAIL,
+        [settings.DEFAULT_FROM_EMAIL],
+        fail_silently=False,
+    )
+    return Response({'success': 'Сообщение успешно отправлено'})
+
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
 def send_banquet(request):
     date = request.data.get('date', '')
     first_name = request.data.get('first_name', '')
