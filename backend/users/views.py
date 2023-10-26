@@ -136,6 +136,31 @@ def send_banquet(request):
     return Response({'success': 'Сообщение успешно отправлено'})
 
 
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def send_hookah(request):
+    hall = request.data.get('hall', '')
+    date = request.data.get('date', '')
+    time = request.data.get('time', '')
+    first_name = request.data.get('first_name', '')
+    phone = request.data.get('phone', '')
+    count_people = request.data.get('count_people', '')
+    comment = request.data.get('comment', '')
+    message = (f"БРОНИРОВАНИЕ СТОЛА В КАЛЬЯННОЙ ОТ {first_name}\n\n"
+               f"НОМЕР ТЕЛЕФОНА: {phone}\nЗАЛ: {hall}\n"
+               f"КОЛИЧЕСТВО ГОСТЕЙ: {count_people}\n"
+               f"ДАТА И ВРЕМЯ БРОНИРОВАНИЯ: {date} {time}\n\n"
+               f"КОММЕНТАРИЙ: {comment}")
+    send_mail(
+        f"БРОНИРОВАНИЕ СТОЛА В КАЛЬЯННОЙ ОТ {first_name}",
+        message,
+        settings.DEFAULT_FROM_EMAIL,
+        [settings.DEFAULT_FROM_EMAIL],
+        fail_silently=False,
+    )
+    return Response({'success': 'Сообщение успешно отправлено'})
+
+
 @api_view(["POST"])
 @permission_classes([IsAuthenticated])
 def payment(request):
