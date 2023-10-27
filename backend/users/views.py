@@ -1,5 +1,4 @@
 import base64
-import locale
 from datetime import datetime
 
 import requests
@@ -54,7 +53,6 @@ class TokenCreateByPhoneView(APIView):
 def send_order(request):
     user = request.user
     now = datetime.now()
-    locale.setlocale(locale.LC_TIME, 'ru_RU.UTF-8')
     date = now.strftime("%d %B %Y, %A %H:%M")
     description = request.data.get('description', '')
     goods_ids = request.data.get('goods_id', [])
@@ -145,7 +143,7 @@ def send_hookah(request):
     first_name = request.data.get('first_name', '')
     phone = request.data.get('phone', '')
     count_people = request.data.get('count_people', '')
-    comment = request.data.get('comment', '')
+        comment = request.data.get('comment', '')
     message = (f"БРОНИРОВАНИЕ СТОЛА В КАЛЬЯННОЙ ОТ {first_name}\n\n"
                f"НОМЕР ТЕЛЕФОНА: {phone}\nЗАЛ: {hall}\n"
                f"КОЛИЧЕСТВО ГОСТЕЙ: {count_people}\n"
@@ -164,25 +162,29 @@ def send_hookah(request):
 @api_view(["POST"])
 @permission_classes([IsAuthenticated])
 def payment(request):
-    # Логин и пароль от личного кабинета PayKeeper
     user = "admin"
-    password = "268cb05d892c"
+    password = "2a0bc5f99012"
     base64_auth = base64.b64encode(f"{user}:{password}".encode()).decode()
     headers = {
         'Content-Type': 'application/x-www-form-urlencoded',
         'Authorization': f'Basic {base64_auth}'
     }
-    server_paykeeper = "https://reiting.server.paykeeper.ru"
+    server_paykeeper = "https://tyteda-1.server.paykeeper.ru"
 
-    price = int(request.data.get('price', ''))
+    price = request.data.get('price')
     num_order = request.data.get('num_order', '')
     user_data = request.user
     client_id = user_data.last_name + ' ' + user_data.first_name
     client_email = user_data.email
     service_name = request.data.get('service_name', '')
     client_phone = user_data.phone
+    if not price or not num_order or not service_name:
+        return Response(
+            {'error': 'Отсутствуют обязательные поля в запросе'},
+            status=status.HTTP_400_BAD_REQUEST
+        )
     payment_data = {
-        "pay_amount": price,
+        "pay_amount": int(price),
         "clientid": client_id,
         "orderid": num_order,
         "client_email": client_email,
