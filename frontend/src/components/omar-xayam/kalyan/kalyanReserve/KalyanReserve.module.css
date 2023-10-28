@@ -1,0 +1,21 @@
+.KalyanReservePages {
+	background: url(../../../../assets/img/kalyan/KalyanBackground.png) center no-repeat;
+	width: 100%;
+}
+
+.KalyanReserveContainer h3 {
+	padding: 60px 0 0 0;
+	color: #FFF;
+	font-family: "Lato";
+	font-size: 50px;
+	text-align: center;
+	font-weight: 500;
+}
+
+.KalyanReserveVideo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	padding: 100px 0 200px 0;
+}

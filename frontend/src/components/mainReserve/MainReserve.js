@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./MainReserve.module.css";
 import "../../assets/general-styles/styles.css";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -28,6 +28,8 @@ const MainReserve = () => {
 
   const handlerReserveTable = () => {
     let errorMessages = {};
+    const maxGuests = place === "Зал" ? 26 : 50;
+
     if (!place.trim()) {
       errorMessages = { ...errorMessages, place: "обязательное поле" };
     }
@@ -43,24 +45,15 @@ const MainReserve = () => {
     if (!time) {
       errorMessages = {
         ...errorMessages,
-        time: " Некоректное время: Заведение работает с 11:00 до 3:00",
+        time: "Некоректное время: Заведение работает с 11:00 до 3:00",
       };
     }
 
-    if (Number(guestsCount) <= 0) {
+    if (Number(guestsCount) <= 0 || Number(guestsCount) > maxGuests) {
       errorMessages = {
         ...errorMessages,
-        guestsCount: "Введите корректное число гостей",
+        guestsCount: `Введите корректное число гостей (не более ${maxGuests})`,
       };
-    } else {
-      const maxGuests = place === "Зал" ? 26 : 50;
-
-      if (Number(guestsCount) > maxGuests) {
-        errorMessages = {
-          ...errorMessages,
-          guestsCount: `Максимальное число гостей для выбранного места составляет ${maxGuests}`,
-        };
-      }
     }
 
     if (Object.keys(errorMessages).length > 0) {
@@ -72,7 +65,7 @@ const MainReserve = () => {
     setTimeout(() => {
       setSucessCardReserveTable(false);
       setErrors({});
-    }, 3000);
+    }, 4000);
   };
 
   const [date, setDate] = useState("");
@@ -117,19 +110,28 @@ const MainReserve = () => {
     },
 
     guestsCount: (e) => {
-      setGuestsCount(Number(e.target.value));
+      const enteredGuestsCount = Number(e.target.value);
+      const maxGuests = placeLimit === "Зал" ? 26 : 50;
+
+      if (enteredGuestsCount > maxGuests) {
+        setErrors((prevErrors) => ({
+          ...prevErrors,
+          guestsCount: `Максимальное число гостей составляет ${maxGuests}`,
+        }));
+        setGuestsCount(maxGuests);
+      } else {
+        setErrors((prevErrors) => ({ ...prevErrors, guestsCount: undefined }));
+        setGuestsCount(enteredGuestsCount);
+      }
     },
 
     place: (e) => {
       const selectedOption = e.target.value;
       setPlace(selectedOption);
       setPlaceLimit(selectedOption);
-      const maxGuests = selectedOption === "Зал" ? 26 : 50;
+      const maxGuests = placeLimit === "Зал" ? 26 : 50;
 
-      const inputElement = document.querySelector(`.${styles.ReserveOption}`);
-      if (inputElement) {
-        inputElement.max = maxGuests;
-      }
+      setGuestsCount((prevCount) => Math.min(prevCount, maxGuests));
 
       setShowTableNumber(
         e.target.value === "Зал" || e.target.value === "Веранда"
@@ -207,13 +209,16 @@ const MainReserve = () => {
 
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DemoContainer components={["TimePicker"]}>
-                    <div className={styles.InputRowError}>
+                    <div
+                      className={styles.InputRowError}
+                      style={{ margin: "0 45px 0 0" }}
+                    >
                       <DatePicker
                         // !Убрать border у data and time
                         disablePast
                         slotProps={{ textField: { variant: "standard" } }}
                         sx={{
-                          width: "100%",
+                          maxWidth: "94%",
                           svg: { color: "#fff" },
                           input: { color: "#fff" },
                           label: {
@@ -232,12 +237,13 @@ const MainReserve = () => {
                         <div style={{ color: "red" }}>{errors.date}</div>
                       )}
                     </div>
+
                     <div className={styles.InputRowError}>
                       <TimePicker
                         // !Убрать border у data and time
                         slotProps={{ textField: { variant: "standard" } }}
                         sx={{
-                          width: "100%",
+                          width: "50%",
                           svg: { color: "#fff" },
                           input: { color: "#fff" },
                           label: {
@@ -308,6 +314,7 @@ const MainReserve = () => {
                     margin="dense"
                     id="date"
                     placeholder="Ваш телефон"
+                    type="number"
                     color="black"
                     variant="standard"
                     value={phone}
@@ -353,7 +360,6 @@ const MainReserve = () => {
                       },
                     },
                   }}
-                  // autoFocus
                   margin="dense"
                   id="date"
                   placeholder="По желанию"

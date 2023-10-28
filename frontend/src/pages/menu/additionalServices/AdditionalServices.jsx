@@ -20,11 +20,16 @@ export default function AdditionalServices() {
   const [goods_id, setGoods_id] = useState([]);
 
   const [counters, setCounters] = useState(services.map(() => 0));
+  const [price, setPrice] = useState(services.map(() => 0));
 
   const incrementCounter = (index) => {
     const newCounters = [...counters];
     newCounters[index]++;
     setCounters(newCounters);
+
+    const newPrices = [...price];
+    newPrices[index] = newCounters[index] * services[index].price;
+    setPrice(newPrices);
 
     setGoods_id((prev) => [...prev, services[index].id]);
   };
@@ -54,17 +59,17 @@ export default function AdditionalServices() {
     }
     const token = localStorage.getItem("token");
     const data = {
-      description: "",
+      description: description,
       goods_id: goods_id,
       count_goods: counters,
-      price_goods: [],
+      price_goods: price,
       final_price: `${getTotal()}`,
     };
     addetionalServiseApi(token, data)
       .then((data) => setSuccessCard(true))
       .then(() => {
         setTimeout(() => {
-          window.location.reload();
+          setSuccessCard(false);
         }, 2500);
       })
       .catch((err) => alert(err));

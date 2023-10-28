@@ -57,7 +57,7 @@ const pages = [
   { name: "Меню ", url: "/menu" },
   { name: "Резерв стола", url: "/home#table-reserve" },
   { name: "Банкеты", url: "/home#hall" },
-  { name: "Доставка", url: "/home#delivery" },
+  { name: "Доставка", url: "/menu" },
   { name: "КАЛЬЯН", url: "/home#kalyan" },
   { name: "Такси", url: "/home#taxi" },
   { name: "Контакты", url: "/home#contacts" },
@@ -140,8 +140,9 @@ function Header({ Pages, basketItems, setBasketItems }) {
           authorization: `Token ${sessionStorage.getItem("auth_token")}`,
         },
       })
-      .then((data) => setBasketItems(data.data));
-  }, []);
+      .then((data) => setBasketItems(data.data))
+      .catch(() => null);
+  },[]);
 
   return (
     <>
@@ -150,14 +151,13 @@ function Header({ Pages, basketItems, setBasketItems }) {
         id="menuHeader"
         style={{
           background: "black",
-          backgroundAttachment: "scroll",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
           maxHeight: "100px",
           position: "fixed",
           top: "0",
-          zIndex: "100000",
+          zIndex: "100",
         }}
       >
         <Box>
@@ -173,7 +173,6 @@ function Header({ Pages, basketItems, setBasketItems }) {
       {/* Nav bar */}
       <AppBar
         className={styles.header}
-        position="static"
         style={{
           background: "#F69049",
           display: "flex",
@@ -181,7 +180,7 @@ function Header({ Pages, basketItems, setBasketItems }) {
           alignItems: "center",
           position: "fixed",
           top: "100px",
-          zIndex: "100000",
+          zIndex: "100",
         }}
       >
         <Container Container maxWidth="xl">
@@ -241,26 +240,31 @@ function Header({ Pages, basketItems, setBasketItems }) {
                   <span className="basket_sub">{basketItems.length}</span>
                 </span>
               </button>
-
-              <HeaderAuth />
+              {/* Модальное окно */}
+              {isModalOpen && (
+                <BasketComponent
+                  closeModal={closeModal}
+                  basketItems={basketItems}
+                  setBasketItems={setBasketItems}
+                />
+              )}
+              <div style={{ display: "block" }}>
+                <HeaderAuth />
+              </div>
+              {headerModal ? (
+                <HeaderModal
+                  Pages={Pages}
+                  pages={pages}
+                  handleCklick={handleCklick}
+                  handleClickScroll={handleClickScroll}
+                />
+              ) : (
+                ""
+              )}
             </Toolbar>
           </div>
         </Container>
       </AppBar>
-      {headerModal ? (
-        <HeaderModal
-          Pages={Pages}
-          pages={pages}
-          handleCklick={handleCklick}
-          handleClickScroll={handleClickScroll}
-        />
-      ) : (
-        ""
-      )}
-      {/* Модальное окно */}
-      {isModalOpen && (
-        <BasketComponent closeModal={closeModal} basketItems={basketItems} setBasketItems={setBasketItems} />
-      )}
     </>
   );
 }

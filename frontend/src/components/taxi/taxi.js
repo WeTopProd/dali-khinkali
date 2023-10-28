@@ -65,7 +65,7 @@ function Taxi() {
       setTimeout(() => {
         setOpen(false);
         setSucessCardReserveTable(false);
-      }, 2000);
+      }, 4000);
     }
   };
   const handleClose = () => setOpen(false);
@@ -114,7 +114,7 @@ function Taxi() {
           alignItems: "center",
         }}
       >
-        <form className="taxi__form" action="#" method="post">
+        <div className="taxi__form">
           <div className="taxi__form-body">
             <h2 className="taxi__form-title">Бронирование такси</h2>
 
@@ -139,18 +139,26 @@ function Taxi() {
                           <div className="rowError">
                             <DatePicker
                               // !Убрать border у data and time
-
+                              disablePast
                               slotProps={{ textField: { variant: "standard" } }}
                               sx={{
-                                width: "100%",
+                                margin: "0 42px 0 0",
+                                width: "40% !important",
+                                height: "5% !important",
+                                padding: "0 !important",
                                 svg: { color: "#000" },
-                                input: { color: "#000" },
+                                input: {
+                                  color: "#000",
+                                  height: "15px",
+                                  width: "100px",
+                                },
+                                right: "0px !important",
+                                padding: "0px !important",
                                 label: {
                                   color: "black",
-                                  fontSize:
-                                    "calc(15px + 11 * ((100vw - 320px) / (1920 - 320)));",
+                                  // fontSize:
+                                  //   "calc(15px + 11 * ((100vw - 320px) / (1920 - 320)));",
                                   fontFamily: "Lato",
-                                  marginLeft: "6px",
                                 },
                               }}
                               label="Выбрать дату"
@@ -160,15 +168,21 @@ function Taxi() {
                               // !Убрать border у data and time
                               slotProps={{ textField: { variant: "standard" } }}
                               sx={{
-                                width: "100%",
+                                // width: "50% !important",
                                 svg: { color: "#000" },
-                                input: { color: "#000" },
+
+                                input: {
+                                  color: "#000",
+                                  height: "15px",
+                                  width: "120px",
+                                },
                                 label: {
                                   color: "black",
-                                  fontSize:
-                                    "calc(15px + 11 * ((100vw - 320px) / (1920 - 320)));",
+                                  // fontSize:
+                                  //   "calc(15px + 11 * ((100vw - 320px) / (1920 - 320)));",
                                   fontFamily: "Lato",
                                   marginLeft: "6px",
+                                  marginTop: "0 !important",
                                 },
                               }}
                               label="Выбрать время"
@@ -251,7 +265,7 @@ function Taxi() {
               </button>
             )}
           </div>
-        </form>
+        </div>
       </Modal>
     </div>
   );

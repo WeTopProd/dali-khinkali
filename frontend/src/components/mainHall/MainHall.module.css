@@ -34,7 +34,10 @@ select:after {
 
 .SelectReserveSelectRow {
   display: flex;
+  width: 100%;
+  flex-wrap: wrap;
   background: none;
+
 }
 
 .ReserveOption option {
@@ -49,6 +52,7 @@ select:after {
   background: none;
   font-family: "Lato";
   font-weight: 500;
+  padding: 10px 0;
 }
 
 option {
@@ -59,6 +63,10 @@ option {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.backgroundHull {
+  width: 100%;
 }
 
 .backgroundHull img {
@@ -78,7 +86,7 @@ option {
   .RowHull {
     flex-wrap: wrap-reverse;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .backgroundHull img {

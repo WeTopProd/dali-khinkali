@@ -115,7 +115,7 @@ const MainReserve = () => {
 
                           slotProps={{ textField: { variant: "standard" } }}
                           sx={{
-                            width: "100%",
+                            width: "94%",
                             svg: { color: "#fff" },
                             input: { color: "#fff" },
                             label: {

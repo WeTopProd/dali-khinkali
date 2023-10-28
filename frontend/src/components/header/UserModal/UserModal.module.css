@@ -2,6 +2,7 @@
 .PersonalInfoPages {
   width: 100%;
 }
+
 .SectionUserRow {
   cursor: pointer;
   display: flex;
@@ -9,17 +10,25 @@
   padding: 0 59px;
   transition: ease 0.6s;
 }
+
 .SectionUserRow:hover {
   background: #f69049;
 }
+
 .UserImagesNameRow {
+  color: #000;
+  font-family: "Gilroy";
+  font-size: 34px;
+  font-weight: 800;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 20px 0 20px 0;
   padding: 0 30px;
 }
+
 .userName {
+
   color: #000;
   font-family: "Gilroy";
   font-size: 34px;
@@ -28,20 +37,27 @@
   font-weight: 800;
   line-height: normal;
 }
+
 .userImages {
   width: 100px;
   height: 100px;
   background: #f69049;
   border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 @media (max-width: 375px) {
   .userImages {
     height: 80px;
   }
 }
+
 .SectionUserRow img {
   padding: 0 20px 0 0;
 }
+
 .myDetails {
   display: block;
   color: #000;
@@ -63,27 +79,30 @@
   align-items: center;
   margin: 0 0 46px 0;
 }
+
 .iconClose {
   cursor: pointer;
 }
+
 .inputRow label,
 .MyDetailsButton {
   display: block;
   min-width: 105px;
   margin: 0 30px 0 0;
-  font-size: 25px;
+  font-size: calc(18px + 5 * ((100vw - 320px) / (1920 - 320)));
   color: #000;
   font-family: "Gilroy";
 
   font-weight: 800;
 }
+
 @media (max-width: 676px) {
   .MyDetails {
     padding: 0 30px;
   }
+
   .inputRow label,
   .MyDetailsButton {
-    font-size: calc(20px + 5 * ((100vw - 320px) / (1920 - 320)));
     min-width: 85px;
   }
 }
@@ -94,11 +113,13 @@
   align-items: center;
   margin: 60px 0 50px 0;
 }
+
 .iconBurgerTextRow {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .iconBurgerTextRow h3 {
   color: #000;
   font-family: "Gilroy";
@@ -109,10 +130,12 @@
 .iconBurgerTextRow img {
   margin: 0 20px 0 0;
 }
+
 .nameEmailTelColumn {
   display: flex;
   flex-direction: column;
 }
+
 .nameEmailTelColumn input,
 .input {
   font-size: 20px;
@@ -138,30 +161,37 @@ input::placeholder {
   transition: ease 0.5s;
   border-radius: 15px;
 }
+
 .MyDetailsButton:hover {
   background: black;
   color: white;
 }
+
 @media (max-width: 676px) {
+
   .nameEmailTelColumn input,
   .input {
     padding: 11px 10px 11px;
   }
+
   .MyDetailsButton {
     padding: 15px 50px;
   }
 }
+
 .btnCenter {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 /*! MyAddresses */
 .editAddress {
   display: flex;
   justify-content: space-between;
   margin: 0 0 80px 0;
 }
+
 .editAddress img {
   cursor: pointer;
   width: 30px;
@@ -171,9 +201,11 @@ input::placeholder {
 .AddAddressImgPlus {
   cursor: pointer;
 }
+
 .AddAddress {
   display: flex;
 }
+
 .AddAddress img {
   margin: 0 23px 0 0;
   cursor: pointer;
@@ -198,26 +230,33 @@ input::placeholder {
   width: 100%;
   padding: 11px 40px 11px;
 }
+
 @media (max-width: 767px) {
+
   .editAddress img,
   .AddAddress img {
     width: 20px;
     height: 20px;
   }
+
   .inputAddAddress {
     padding: 11px 11px 11px;
   }
 }
+
 .inputRowAddress {
   display: flex;
 }
+
 .inputRowAddress input:nth-child(1) {
   margin: 0 40px 0 0;
 }
+
 .AddAddress,
 .inputRowAddress {
   margin: 0 0 40px 0;
 }
+
 /*! HistoryOfOrders */
 .HistoryRow {
   padding: 0 60px;
@@ -226,26 +265,32 @@ input::placeholder {
   align-items: center;
   margin: 60px 0 50px 0;
 }
+
 .HistoryBlock {
   padding: 0 60px;
 }
+
 @media (max-width: 767px) {
   .HistoryBlock {
     padding: 0 25px;
   }
+
   .HistoryRow {
     padding: 0 25px;
   }
 }
+
 .IconZakazi {
   width: 40px;
   height: 40px;
 }
+
 .DataTotal {
   display: flex;
   justify-content: space-between;
   margin: 0 0 70px 0;
 }
+
 .DataZakazi {
   color: #000;
   font-family: "Gilroy";
@@ -267,6 +312,7 @@ input::placeholder {
   display: flex;
   align-items: center;
 }
+
 .rowImgText img {
   width: 100px;
   height: 100px;
@@ -280,12 +326,15 @@ input::placeholder {
   font-weight: 800;
   line-height: 17px;
 }
+
 .OrderTitle {
   margin: 0 0 30px 0;
 }
+
 .rowImgText {
   margin: 0 0 45px 0;
 }
+
 .HistoryOfOrdersBasket {
   border-radius: 6.939px;
   background: #f69049;
@@ -293,14 +342,17 @@ input::placeholder {
   margin: 0 0 44px 0;
   transition: ease 0.5s;
 }
+
 .HistoryOfOrdersBasket:hover {
   background: #3ff921;
 }
+
 .HistoryZakaziNameSum {
   display: flex;
   justify-content: space-between;
   align-items: end;
 }
+
 @media (max-width: 767px) {
   .HistoryZakaziNameSum {
     display: block;

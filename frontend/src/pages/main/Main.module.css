@@ -1,11 +1,13 @@
 .bannerContainer {
-  margin: 235px auto 0;
+  margin: 225px auto 0;
 }
+
 @media (max-width: 899px) {
   .bannerContainer {
     margin: 150px 0 0 0;
   }
 }
+
 .banner {
   display: inline-flex;
   /* padding: 82px 461px; */
@@ -25,6 +27,7 @@
   text-decoration: none;
   font-size: 4vw;
 }
+
 .banner a:hover {
   -webkit-transform: scale(1.1);
 }

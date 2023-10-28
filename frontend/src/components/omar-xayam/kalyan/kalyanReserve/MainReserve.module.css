@@ -1,0 +1,159 @@
+/* style для select  */
+.custom-select::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 5px 0 5px;
+  font-size: 60px;
+}
+
+.custom-select::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+}
+
+.backgroundBodyReserve {
+  background: none;
+  height: 100%;
+  padding-top: 85px;
+  margin: -104px 0 0 0;
+}
+
+.ContainerCenter {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+@media (max-width: 1176px) {
+  .ContainerCenter {
+    justify-content: flex-start;
+  }
+}
+
+.IMaskInput {
+  background: none;
+  border-bottom: 2px solid black;
+  color: #fff;
+  border: none;
+}
+
+/*! style Select  */
+select,
+select:focus,
+select:active,
+option,
+option:focus,
+option:active {
+  outline: none;
+}
+
+select {
+  position: relative;
+}
+
+select:after {
+  width: 14px;
+  height: 8px;
+  position: absolute;
+  background: black;
+}
+
+.SelectReserveSelectRow {
+  display: flex;
+  background: none;
+}
+
+.SelectReserveSelectRow input::placeholder {
+  font-size: calc(18px + 18 * ((100vw - 320px) / (1920 - 320)));
+}
+
+@media (max-width: 1176px) {
+  .SelectReserveSelectRow {
+    display: block;
+  }
+}
+
+.spanReserve {
+  border: none;
+  background: none;
+  color: #fff;
+  font-family: "Lato";
+  font-size: calc(18px + 18 * ((100vw - 320px) / (1920 - 320)));
+  font-weight: 500;
+  padding: 0 0 5px 0;
+  border-bottom: 1px solid black;
+}
+
+.ReserveOption {
+  border: none;
+  background: none;
+  color: #fff;
+  font-family: "Lato";
+  font-size: calc(18px + 18 * ((100vw - 320px) / (1920 - 320)));
+  font-weight: 500;
+  padding: 0 0 5px 0;
+  border-bottom: 1px solid black;
+  width: 479px;
+}
+
+.ReserveOption::placeholder {
+  color: #f9be98;
+
+}
+
+.InputRowError {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputData {
+  margin: 0 20px 0;
+  background: red;
+}
+
+@media (max-width: 495px) {
+  .spanReserve {
+    width: 100%;
+  }
+
+  .ReserveOption {
+    width: 50%;
+  }
+}
+
+.spanReserve {
+  margin: 0 0 0 30px;
+}
+
+TextField {
+  cursor: pointer;
+}
+
+.titleReservePages {
+  font-size: calc(40px + 30 * ((100vw - 320px) / (1920 - 320)));
+  text-align: center;
+  font-weight: 600;
+  font-family: "Lato";
+  margin: 0 0 65px 0;
+}
+
+.deliver__pages__title {
+  margin: 30px 0 0 0;
+}
+
+.css-1c2i806-MuiFormLabel-root-MuiInputLabel-root.Mui-error {
+  color: white !important;
+}
+
+label+.css-v4u5dn-MuiInputBase-root-MuiInput-root {
+  padding: 10px 0 0 0 !important;
+}

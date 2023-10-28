@@ -26,7 +26,7 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-const Main = ({basketItems,setBasketItems}) => {
+const Main = ({ basketItems, setBasketItems }) => {
   return (
     <div id="/home#homePages">
       <br />
@@ -48,7 +48,6 @@ const Main = ({basketItems,setBasketItems}) => {
           title="Доп услуги"
         />
       </Container>
-
       <CustomSlider setBasketItems={setBasketItems} basketItems={basketItems} />
 
       <MainReserve />

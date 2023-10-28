@@ -35,6 +35,19 @@ class User(AbstractBaseUser, PermissionsMixin):
         max_length=255,
         verbose_name='Фамилия'
     )
+    delivery_address = models.CharField(
+        max_length=255,
+        verbose_name='Улица доставки',
+        blank=True,
+    )
+    floor = models.IntegerField(verbose_name='Этаж', blank=True, null=True)
+    intercom = models.CharField(
+        verbose_name='Домофон',
+        max_length=100,
+        blank=True,
+        null=True
+    )
+    comment = models.TextField(blank=True, null=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     date_joined = models.DateTimeField(auto_now_add=True)

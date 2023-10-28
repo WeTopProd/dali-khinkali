@@ -41,6 +41,7 @@ const BasketComponent = ({
     const token = await sessionStorage.getItem("auth_token");
 
     const allGoods = basketItems;
+
     await Promise.all(
       allGoods.map(async (good) => {
         return axios
@@ -56,7 +57,7 @@ const BasketComponent = ({
             console.error("There was an error!", error);
           });
       })
-    ).then(() => setBasketItems([]));
+    ).then(() => setBasketItems([])).catch(()=>null);
   }
   return (
     <div>

@@ -105,13 +105,19 @@ select:after {
   width: 479px;
 }
 
-input::placeholder {
+.ReserveOption::placeholder {
   color: #f9be98;
+
 }
 
 .InputRowError {
   display: flex;
   flex-direction: column;
+}
+
+.inputData {
+  margin: 0 20px 0;
+  background: red;
 }
 
 @media (max-width: 495px) {
@@ -128,6 +134,10 @@ input::placeholder {
   margin: 0 0 0 30px;
 }
 
+TextField {
+  cursor: pointer;
+}
+
 .titleReservePages {
   font-size: calc(40px + 30 * ((100vw - 320px) / (1920 - 320)));
   text-align: center;
@@ -142,4 +152,8 @@ input::placeholder {
 
 .css-1c2i806-MuiFormLabel-root-MuiInputLabel-root.Mui-error {
   color: white !important;
+}
+
+label+.css-v4u5dn-MuiInputBase-root-MuiInput-root {
+  padding: 10px 0 0 0 !important;
 }

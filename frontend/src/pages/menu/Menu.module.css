@@ -1,7 +1,10 @@
 /* !===== Menu-Pages ===== */
 .bannerContainer {
-  margin: 255px auto 0;
+  margin: 265px auto 0;
 }
+
+
+
 .navLink {
   margin: 25px auto 0;
   display: flex;
@@ -9,11 +12,13 @@
   justify-content: center;
   align-items: center;
 }
+
 @media (max-width: 900px) {
   .navLink {
     display: none;
   }
 }
+
 .linkMenu {
   color: #000;
   font-family: "Lato";
@@ -25,15 +30,18 @@
   padding: 12px 38px;
   margin: 0px 20px 20px;
 }
+
 .linkMenu:focus {
   background: #f69049;
 }
+
 .SalatBlockRow {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 }
+
 .BlockCard {
   border-radius: 210.5px 210.5px 20px 20px;
   width: 421px;
@@ -45,4 +53,14 @@ button {
   border: none;
   background: none;
   cursor: pointer;
+}
+
+@media (max-width: 406px) {
+  .bannerContainer {
+    margin: 164px auto 0
+  }
+
+  .hrLine {
+    display: none;
+  }
 }

@@ -4,6 +4,7 @@
   margin: 255px auto;
   padding: 0 20px 50px;
 }
+
 .PrivacyPoliceContainer h1 {
   text-align: center;
   padding: 10px 0;
@@ -15,6 +16,13 @@
   padding: 20px 0;
   width: 100%;
 }
+
 .PrivacyPoliceContainer p {
   font-size: 20px;
+}
+
+@media (max-width: 899px) {
+  .PrivacyPoliceContainer {
+    margin: 175px auto;
+  }
 }

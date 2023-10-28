@@ -6,7 +6,7 @@ import Card from "./Card";
 import { useEffect, useState } from "react";
 import { categoriesApi } from "../../../api/categories";
 
-export default function Businesslunch({basketItems, setBasketItems}) {
+export default function Businesslunch({ basketItems, setBasketItems }) {
   const [usableBL, setUseableBL] = useState([]);
 
   useEffect(() => {
@@ -33,6 +33,7 @@ export default function Businesslunch({basketItems, setBasketItems}) {
         className={styles.containerBackground}
         style={{
           background: `center no-repeat url(${TimeBackgroundLunch}) #51413a`,
+          width: "100%",
           backgroundSize: "cover",
         }}
       >
@@ -51,7 +52,8 @@ export default function Businesslunch({basketItems, setBasketItems}) {
                 elem={elem}
                 basketItems={basketItems}
                 setBasketItems={setBasketItems}
-              key={elem.id} />
+                key={elem.id}
+              />
             ))}
           </div>
         </div>
@@ -60,3 +62,5 @@ export default function Businesslunch({basketItems, setBasketItems}) {
     </>
   );
 }
+/*
+ */

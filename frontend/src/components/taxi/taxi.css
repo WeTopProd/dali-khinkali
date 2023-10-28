@@ -104,7 +104,7 @@
   text-align: center;
   transition: ease 0.5s;
   position: fixed;
-  top: 66%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -131,7 +131,7 @@
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  width: 400px;
+  width: 334px;
 }
 
 .taxi__form-select {
@@ -163,7 +163,7 @@
 }
 
 .taxi__form-labels {
-  margin: 0 40px 0 0;
+  margin: 15px 45px 0 0;
 }
 
 .taxi__form-label {
@@ -296,3 +296,16 @@
   border: 1px solid black;
   border-radius: 10px;
 }
+
+
+
+/* taxi */
+/* .css-1x51dt5-MuiInputBase-input-MuiInput-input {
+  height: 15px;
+  width: 48% !important;
+  background: red;
+}
+
+.css-v4u5dn-MuiInputBase-root-MuiInput-root:before {
+  right: 56px !important
+} */

@@ -14,6 +14,9 @@ class UserCreateSerializer(UserCreateSerializer):
             'email',
             'first_name',
             'last_name',
+            'floor',
+            'intercom',
+            'comment',
             'phone',
             'password',
             're_password'
@@ -26,11 +29,15 @@ class UserSerializer(UserSerializer):
     class Meta(UserSerializer.Meta):
         ref_name = 'CustomUserSerializer'
         fields = (
-            'id',
             'email',
             'first_name',
             'last_name',
-            'phone'
+            'floor',
+            'intercom',
+            'comment',
+            'phone',
+            'password',
+            're_password'
         )
 
 

@@ -1,0 +1,130 @@
+.KalyanContainer {}
+
+.PagesKalyan {
+	margin: 245px 0 0 0;
+	color: black;
+	background: url(../../../assets/img/kalyan/Kalyan.png) center no-repeat;
+	background-size: cover;
+	width: 100%;
+	padding: 0 130px 0;
+}
+
+
+.KalyanNav {
+	display: flex;
+	justify-content: space-between;
+	padding: 20px 0 250px;
+}
+
+.RowKalyanRightNav {
+	display: flex;
+}
+
+.KalyanNavRow {
+	display: flex;
+}
+
+.NavRightKalyan {
+	margin: 0 0 0 17px;
+}
+
+.KalyanRightNavPhone {
+	display: flex;
+	align-items: center;
+	margin: 0 35px 0 0;
+}
+
+.KalyanRightNavTime {
+	display: flex;
+	align-items: center;
+}
+
+.NavRightKalyan {
+	color: #00A657;
+	font-family: "Lato";
+	font-size: 13.321px;
+	font-weight: 600;
+}
+
+/* header */
+.HeaderTitle {
+	color: #FFF;
+	font-family: "Lato";
+	font-size: 65px;
+	font-weight: 500;
+	letter-spacing: 8px;
+	text-transform: uppercase;
+	margin: 0 0 20px 0;
+}
+
+.HeaderSubTitle {
+	color: #00A657;
+	font-family: "tangak";
+	font-size: 80px;
+	font-weight: 400;
+	letter-spacing: 30.4px;
+	text-transform: uppercase;
+}
+
+.HeaderText {
+	color: #FFF;
+	font-family: "Lato";
+	font-size: 30px;
+	font-weight: 400;
+	margin: 14px 0 20px 0;
+}
+
+.boxBtnsHeader {
+	width: 100%;
+}
+
+.buttonMenu {
+	min-width: 33%;
+	color: #000;
+	display: inline-block;
+	text-align: center;
+	background: #00A657;
+	padding: 24px 70px;
+	font-family: "Lato";
+	font-size: 25px;
+	font-weight: 600;
+	text-transform: uppercase;
+	transition: ease .4s;
+}
+
+.buttonMenu:hover {
+	background: #00A657;
+	color: white;
+}
+
+.buttonRight {
+	text-align: center;
+	min-width: 33%;
+	display: inline-block;
+	border: 5px solid #FFF;
+	padding: 19px 70px;
+	color: #FFF;
+	font-family: "Lato";
+	font-size: 25px;
+	font-weight: 600;
+	text-transform: uppercase;
+	transition: ease .4s;
+}
+
+.buttonRight:hover {
+	background: #00A657;
+	border: 5px solid #1c83b6;
+	color: black;
+}
+
+.KalyanHeader span {
+	width: 118px;
+	height: 3px;
+	background: #fff;
+	display: inline-block;
+	margin: 0 0 0 -45px;
+}
+
+.containerHeader {
+	padding: 0 0 300px 0;
+}

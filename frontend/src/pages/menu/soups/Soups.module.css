@@ -1,7 +1,7 @@
 /* ! ===== Salats ===== */
-.CardContainer {
+/* .CardContainer {
   height: 100vh;
-}
+} */
 
 .content {
   text-align: center;
@@ -25,7 +25,11 @@
   width: 386px;
 }
 
-/* !Карточка товара */
+@media (max-width: 900px) {
+  .containerCardSalats {
+    justify-content: center;
+  }
+}
 
 .cardSalat {
   background: #eaeaea;

@@ -22,12 +22,34 @@
   width: 386px;
 }
 
-/* !Карточка товара */
+
+
+.BoxWeightSubTitle {
+  opacity: 0;
+  max-height: 0;
+  visibility: hidden;
+  transition: all 0.5s;
+}
+
+
+
+
+.cardSalat:hover .BoxWeightSubTitle {
+  opacity: 1;
+  max-height: 300px;
+  visibility: visible;
+}
+
+@media (max-width: 900px) {
+  .containerCardSalats {
+    justify-content: center;
+  }
+}
 
 .cardSalat {
   background: #eaeaea;
   margin: 40px 20px 150px;
-  transition: transform all.2s;
+  transition: all 0.5s;
   cursor: pointer;
 }
 
@@ -37,22 +59,8 @@
   }
 }
 
-.BoxWeightSubTitle {
-  opacity: 0;
-  max-height: 0;
-  visibility: hidden;
-  transition: all 0.5s;
-}
-
-.cardSalat:hover .BoxWeightSubTitle {
-  opacity: 1;
-  max-height: 300px;
-  visibility: visible;
-}
-
-
-
-.cardSalat:hover {
-  min-height: 712px;
-  margin-bottom: -70px;
+@media (max-width: 406px) {
+  .cardSalat {
+    width: 355px;
+  }
 }

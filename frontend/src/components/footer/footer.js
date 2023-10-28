@@ -72,7 +72,7 @@ function Footer() {
                 <div className="footer__column-address-icon contacts-icon">
                   <PlaceIcon fontSize="medium" />
                 </div>{" "}
-                ул. Ленина, 36А, Орехово-Зуево, Московская обл.
+                ул. Ленина, 36А Орехово-Зуево, Московская обл.
               </div>
               <a
                 className="footer__column-phone lato-semibold"
@@ -115,7 +115,7 @@ function Footer() {
             </div>
             <div className="footer__copy-center">
               <div className="footer__copy-center-item">
-                ©Все права защищены
+                © Все права защищены
               </div>
               <Link
                 to="/PrivacyPolicy#privacyPolicy"

@@ -102,7 +102,7 @@ const Menu = ({ basketItems, setBasketItems }) => {
             </button>
           ))}
         </div>
-        <hr style={{ border: "3px solid black", margin: "5px 0 0 0" }} />
+        <hr style={{ border: "3px solid black", margin: "5px 0 0 0" }} className={styles.hrLine} />
         {renderSwitch(cardProducts)}
       </div>
     </div>

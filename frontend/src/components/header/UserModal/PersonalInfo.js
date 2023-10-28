@@ -7,6 +7,7 @@ import Logout from "../../../assets/img/logout.png";
 
 // !styles
 import styles from "./UserModal.module.css";
+import "../../../assets/general-styles/styles.css";
 
 export const PersonalInfo = ({ setPersonalModal, userInfo }) => {
   const UserPages = [
@@ -41,21 +42,23 @@ export const PersonalInfo = ({ setPersonalModal, userInfo }) => {
       onClick: () => {
         sessionStorage.setItem("auth_token", "");
         localStorage.setItem("token", "");
-        window.location.reload()
+        window.location.reload();
       },
     },
   ];
 
   return (
-    <div className={styles.PersonalInfoPages}>
+    <div className={`PersonPages ${styles.PersonalInfoPages}`}>
       <div className={styles.UserImagesNameRow}>
         <h1 className={styles.userName}>
           {`${userInfo.first_name} ${userInfo.last_name}`}
         </h1>
-        {/* <img className={styles.userImages} src={""} alt="" /> */}
-        <div
-          className={styles.userImages}
-        >{`${userInfo.first_name.slice(0,1)} ${userInfo.last_name.slice(0,1)}`}</div>
+
+        <div className={styles.userImages}>{`${userInfo.first_name.slice(
+          0,
+          1
+        )}`}</div>
+        {/* ${userInfo.last_name.slice(0, 1)} */}
       </div>
       <hr
         style={{

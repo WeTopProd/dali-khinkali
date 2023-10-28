@@ -14,6 +14,8 @@ import Lunch from "./pages/menu/business-lunch/Business-lunch";
 import MenuBanner from "./pages/menu/Menu";
 import AddServicesBanner from "./pages//menu/additionalServices/AdditionalServices";
 import { PrivacyPolicy } from "./components/footer/privacyPolicy/PrivacyPolicy";
+import Delivery from "./components/delivery/Delivery";
+import { HeaderKalyan } from "./components/omar-xayam/kalyan/HeaderKalyan";
 
 function App() {
   const [add, setAdd] = useState(false);
@@ -61,6 +63,16 @@ function App() {
   });
 
   const pages = [
+    { component: <HeaderKalyan />, url: "/kalyan" },
+    {
+      component: (
+        <Delivery
+          basketItems={basketItems}
+          setBasketItems={setBasketItemsFunction}
+        />
+      ),
+      url: "/menu",
+    },
     {
       component: (
         <Main
@@ -106,8 +118,15 @@ function App() {
       ),
       url: "/drinks",
     },
-    { component: <AddServicesBanner basketItems={basketItems}
-          setBasketItems={setBasketItemsFunction} />, url: "/additionalServices" },
+    {
+      component: (
+        <AddServicesBanner
+          basketItems={basketItems}
+          setBasketItems={setBasketItemsFunction}
+        />
+      ),
+      url: "/additionalServices",
+    },
     { component: <PrivacyPolicy />, url: "/privacyPolicy" },
   ];
   const ScrollToTop = () => {
@@ -124,11 +143,11 @@ function App() {
     <ThemeProvider theme={theme}>
       <div className="App">
         <Router>
+          <ScrollToTop />
           <Header
             basketItems={basketItems}
             setBasketItems={setBasketItemsFunction}
           />
-          <ScrollToTop />
           <Routes>
             {pages.map((page) => (
               <Route key={page.url} path={page.url} element={page.component} />

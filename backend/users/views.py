@@ -9,6 +9,7 @@ from django.core.mail import send_mail
 from django.utils.decorators import method_decorator
 from django.utils.translation import gettext_lazy as _
 from django.views.decorators.csrf import csrf_exempt
+from goods.models import Goods
 from rest_framework import status
 from rest_framework.authtoken.models import Token
 from rest_framework.decorators import api_view, permission_classes
@@ -17,7 +18,6 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from .backends import PhoneBackend
-from goods.models import Goods
 
 
 @method_decorator(csrf_exempt, name='dispatch')
@@ -81,6 +81,32 @@ def send_order(request):
     message += f"ОБЩАЯ СУММА: {final_price}"
     send_mail(
         f"ЗАКАЗ ОТ {last_name} {first_name}",
+        message,
+        settings.DEFAULT_FROM_EMAIL,
+        [settings.DEFAULT_FROM_EMAIL],
+        fail_silently=False,
+    )
+    return Response({'success': 'Сообщение успешно отправлено'})
+
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def send_banquet(request):
+    date = request.data.get('date', '')
+    first_name = request.data.get('first_name', '')
+    phone = request.data.get('phone', '')
+    email_user = request.data.get('email_user', '')
+    event = request.data.get('event', '')
+    hall = request.data.get('hall', '')
+    count_people = request.data.get('count_people', '')
+    additional_services = request.data.get('additional_services', '')
+    message = (f"БРОНИРОВАНИЕ БАНКЕТА ОТ {first_name}\n\n"
+               f"НОМЕР ТЕЛЕФОНА: {phone}\nПОЧТА: {email_user}\nЗАЛ: {hall}\n"
+               f"КОЛИЧЕСТВО ГОСТЕЙ: {count_people}\nСОБЫТИЕ: {event}\n"
+               f"ДАТА И ВРЕМЯ БРОНИРОВАНИЯ: {date}\n\n"
+               f"ДОП. УСЛУГИ: {additional_services}")
+    send_mail(
+        f"БРОНИРОВАНИЕ БАНКЕТА ОТ {first_name}",
         message,
         settings.DEFAULT_FROM_EMAIL,
         [settings.DEFAULT_FROM_EMAIL],

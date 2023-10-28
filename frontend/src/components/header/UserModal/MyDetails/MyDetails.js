@@ -60,11 +60,11 @@ function MyDetails({ IMaskInput, setPersonalModal, userInfo }) {
               onChange={handler.first_name}
             />
           </div>
-          {/*  */}
+
 
           <div className={styles.inputRow}>
             <label className={styles.myDetailsLabel} htmlFor="LastName">
-              Фамилия
+              Фамилия *
             </label>
             <input
               type="text"
@@ -74,7 +74,7 @@ function MyDetails({ IMaskInput, setPersonalModal, userInfo }) {
               onChange={handler.last_name}
             />
           </div>
-          {/*  */}
+
           <div className={styles.inputRow}>
             <label className={styles.myDetailsLabel} htmlFor="tel">
               Телефон *

@@ -282,6 +282,14 @@ body.slick-prev:before,
   min-height: 400px;
 }
 
+@media (max-width: 405px) {
+  .hoverBeverage {
+    width: 100%;
+    min-width: 355px;
+    min-height: 355px;
+  }
+}
+
 .image.hoverBeverage:hover {
   transition: ease-out 0.5s;
   border-radius: 423px;
@@ -310,7 +318,7 @@ body.slick-prev:before,
 }
 
 .css-4jnixx-MuiStack-root>.MuiTextField-root {
-  padding: 8px !important;
+  padding: 0px !important;
 }
 
 @media (max-width: 669px) {
@@ -375,8 +383,17 @@ body.slick-prev:before,
 }
 
 label+.css-v4u5dn-MuiInputBase-root-MuiInput-root {
-  min-width: 220px !important;
-  margin-top: 23px !important;
+  /* min-width: 231px !important; */
+  margin-top: 30px !important;
+}
+
+
+.css-19xtsuf-MuiFormControl-root-MuiTextField-root label {
+  margin-left: 0 !important;
+}
+
+.css-1x51dt5-MuiInputBase-input-MuiInput-input {
+  padding: 1px 0 0 0 !important;
 }
 
 .css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root {
@@ -483,11 +500,7 @@ label+.css-v4u5dn-MuiInputBase-root-MuiInput-root {
   font-size: calc(20px + 10 * ((100vw - 320px) / (1932 - 320))) !important;
 }
 
-/* icon login navbar */
-.css-i4bv87-MuiSvgIcon-root {
-  font-size: 2.5rem !important;
-  position: relative !important;
-}
+
 
 /* icon V резерв стола */
 button.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-edgeEnd.MuiIconButton-sizeMedium.css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root {
@@ -496,17 +509,42 @@ button.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-edgeEnd.MuiIconButton
   padding: 0 18px 0;
 }
 
+/* ! */
+/* icon login navbar */
+.css-i4bv87-MuiSvgIcon-root {
+  font-size: 2.5rem !important;
+  position: relative !important;
+}
+
 .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation8.MuiMenu-paper.MuiPopover-paper.MuiMenu-paper.css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper {
   border-radius: 30px;
   border-radius: 30px;
   border: 4px solid #f69049;
-  position: absolute !important;
+  position: fixed !important;
+  top: 245px !important;
   max-width: 765px !important;
   width: 100% !important;
   right: 100% !important;
-  top: 245px !important;
+  max-height: 68vh;
+  z-index: 910000
 }
 
+.css-6hp17o-MuiList-root-MuiMenu-list {
+  position: absolute;
+  top: 0;
+
+}
+
+.css-g3hgs1-MuiBackdrop-root-MuiModal-backdrop {
+  z-index: 900000 !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0;
+  right: 0;
+
+}
+
+/* ! */
 /* Pages Delivery */
 .css-xpwe3e-MuiGrid-root {
   top: 140px !important;
@@ -515,6 +553,12 @@ button.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-edgeEnd.MuiIconButton
 
 .MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-12.MuiGrid-grid-lg-6.css-f0xsrb-MuiGrid-root {
   flex-wrap: wrap !important;
+}
+
+
+/* Data and time */
+.css-4jnixx-MuiStack-root {
+  margin: -20px 0 0 0 !important;
 }
 
 

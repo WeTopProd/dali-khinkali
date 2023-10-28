@@ -37,9 +37,7 @@ function MyAddresses({ setPersonalModal }) {
         </div>
       </div>
       <div className={styles.editAddress} onClick={toggleEditFormVisibility}>
-        <div className={styles.textAddress}>
-          ! поля для добавление адреса
-        </div>
+        <div className={styles.textAddress}>! поля для добавление адреса</div>
         <img src={Edit} alt="" />
       </div>
       <div className={styles.AddAddress} onClick={toggleFormVisibility}>

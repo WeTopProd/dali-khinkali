@@ -31,7 +31,9 @@ const BasketItemComponent = ({ product, setBasketItems, basketItems }) => {
     delete: () => {
       basketApi
         .delete(product.goods.id, token)
-        .then((data) => setDeleted(true))
+        .then((data) => {
+          // setDeleted(true)
+        })
         .then(() => {
           setBasketItems(basketItems.filter((item) => item != product));
         });
