@@ -1,14 +1,23 @@
 import React, { useState, useEffect } from "react";
 // !styles
 import styles from "../UserModal.module.css";
+import { userApi } from "../../../../api/userApi";
 
-function EditMyAddresses() {
+function EditMyAddresses({
+  addressP,
+  floorP,
+  intercomP,
+  commentP,
+  userId,
+  toggler,handlerSet
+}) {
   // address floor intercom comment
-  const [address, setAddress] = useState("");
-  const [floor, setFloor] = useState("");
-  const [intercom, setIntercom] = useState("");
-  const [comment, setComment] = useState("");
+  const [address, setAddress] = useState(addressP);
+  const [floor, setFloor] = useState(floorP);
+  const [intercom, setIntercom] = useState(intercomP);
+  const [comment, setComment] = useState(commentP);
 
+  const token = localStorage.getItem("token");
   const handler = {
     address: (e) => {
       setAddress(e.target.value);
@@ -21,6 +30,18 @@ function EditMyAddresses() {
     },
     comment: (e) => {
       setComment(e.target.value);
+    },
+    submitEdits: () => {
+      const data = {
+        delivery_address: address,
+        intercom: intercom,
+        floor: floor,
+        comment: comment,
+      };
+      userApi.editAdsress(token, userId, data).then(() => {
+        toggler();
+        handlerSet(address,intercom,floor,comment)
+      });
     },
   };
 
@@ -63,7 +84,11 @@ function EditMyAddresses() {
         </div>
       </form>
       <div className={styles.btnCenter}>
-        <button className={styles.MyDetailsButton} type="submit">
+        <button
+          className={styles.MyDetailsButton}
+          type="submit"
+          onClick={handler.submitEdits}
+        >
           Сохранить изменения
         </button>
       </div>

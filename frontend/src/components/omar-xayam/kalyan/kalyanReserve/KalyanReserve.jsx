@@ -13,6 +13,8 @@ import Veranda from "./veranda/Veranda";
 import Regsuccessfully from "./regsuccessfully/Regsuccessfully";
 import dayjs from "dayjs";
 import "../../../../assets/general-styles/styles.css";
+import { userApi } from "../../../../api/userApi";
+import { reserveApi } from "../../../../api/reserveApi";
 
 export const KalyanReserve = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -153,6 +155,25 @@ export const KalyanReserve = () => {
     placeVeranda: (num) => {
       setPlace(num);
     },
+    submit: () => {
+      const data = {
+        hall: "KALYAN",
+        date: date,
+        time: time,
+        first_name: name,
+        phone: phone,
+        count_people: guestsCount,
+        comment: optional,
+      };
+      const token = localStorage.getItem("token");
+
+      reserveApi
+        .hookah(token, data)
+        .then((data) => {
+          handlerReserveTable(true);
+        })
+        .catch((err) => alert(err.message));
+    },
   };
   return (
     <>
@@ -238,8 +259,9 @@ export const KalyanReserve = () => {
                         disablePast
                         slotProps={{ textField: { variant: "standard" } }}
                         sx={{
+                          borderBottom: "3px solid #78EAFF",
                           maxWidth: "94%",
-                          svg: { color: "#fff" },
+                          svg: { color: "red" },
                           input: { color: "#fff" },
                           label: {
                             color: "#fff",
@@ -263,6 +285,7 @@ export const KalyanReserve = () => {
                         // !Убрать border у data and time
                         slotProps={{ textField: { variant: "standard" } }}
                         sx={{
+                          borderBottom: "3px solid #78EAFF",
                           width: "100%",
                           svg: { color: "#fff" },
                           input: { color: "#fff" },
@@ -405,7 +428,7 @@ export const KalyanReserve = () => {
                     <button
                       className={stylesKalyan.buttonKalyanPrice}
                       onClick={() => {
-                        handlerReserveTable(true);
+                        handler.submit();
                       }}
                     >
                       подтвердить

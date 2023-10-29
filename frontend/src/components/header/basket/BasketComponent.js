@@ -5,6 +5,7 @@ import styles from "../Header.module.css";
 import BasketItemComponent from "./BasketItemComponent";
 import Close from "../../../assets/img/X_close.png";
 import axios from "axios";
+import { userApi } from "../../../api/userApi";
 const BasketComponent = ({
   closeModal,
   product,
@@ -59,6 +60,11 @@ const BasketComponent = ({
       })
     ).then(() => setBasketItems([])).catch(()=>null);
   }
+
+  const CreateOrder =()=>{
+    userApi.createOrder(token,overAllPrice).then(()=>window.location.reload()).catch(err=>console.log(err))
+  }
+
   return (
     <div>
       <div className={styles.modal} onClick={handleModalClick}>
@@ -109,7 +115,7 @@ const BasketComponent = ({
           ))}
         <div className={styles.BoxDeliveryBasket}>
           <div>Доставка</div>
-          <span>0 руб.</span>
+          <span>200 руб.</span>
         </div>
         <span
           style={{
@@ -125,7 +131,9 @@ const BasketComponent = ({
           <span className={styles.sumBasketTotal}>{overAllPrice} руб.</span>
         </div>
         <div className={styles.buttonBasketOrder}>
-          <button className={styles.basketOrder}>Оформить заказ</button>
+          <button className={styles.basketOrder} onClick={CreateOrder}>
+            Оформить заказ
+          </button>
         </div>
       </div>
     </div>

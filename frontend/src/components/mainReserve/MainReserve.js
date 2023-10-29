@@ -11,6 +11,7 @@ import Zal from "./zal/Zal";
 import Veranda from "./veranda/Veranda";
 import Regsuccessfully from "./regsuccessfully/Regsuccessfully";
 import dayjs from "dayjs";
+import { reserveApi } from "../../api/reserveApi";
 
 const MainReserve = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -77,6 +78,8 @@ const MainReserve = () => {
   const [place, setPlace] = useState("");
   const [placeLimit, setPlaceLimit] = useState("");
 
+  const [hall, setHall] = useState("");
+
   const handler = {
     name: (e) => {
       setName(e.target.value);
@@ -138,8 +141,11 @@ const MainReserve = () => {
       );
 
       if (e.target.value === "Зал") {
+        setHall('hall');
         setIsModalOpen(true);
       } else if (e.target.value === "Веранда") {
+        setHall("veranda");
+
         setIsModalOpen(true);
       } else {
         setIsModalOpen(false);
@@ -150,6 +156,23 @@ const MainReserve = () => {
     },
     placeVeranda: (num) => {
       setPlace(num);
+    },
+    submit: () => {
+      const data = {
+        room_type: hall,
+        table_number: place,
+        date_time: `${date} ${time}`,
+        num_people: guestsCount,
+        name: name,
+        phone: phone,
+        comment: optional,
+        status: "booked"
+      };
+      console.log(data,'0909090909');
+      const token = localStorage.getItem("token");
+      reserveApi.reserveTable(token, data).then((data) => {
+        handlerReserveTable(true);
+      });
     },
   };
 
@@ -382,7 +405,7 @@ const MainReserve = () => {
                       borderRadius: "20px",
                     }}
                     onClick={() => {
-                      handlerReserveTable(true);
+                      handler.submit();
                     }}
                   >
                     Забронировать

@@ -10,9 +10,10 @@ import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { TimePicker } from "@mui/x-date-pickers";
 import "../../assets/general-styles/styles.css";
 import Regsuccessfully from "./regsuccessfully/Regsuccessfully";
+import { reserveApi } from "../../api/reserveApi";
 
 function Taxi() {
-  const [data, setDate] = useState("");
+  const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -39,6 +40,20 @@ function Taxi() {
       setDate(`${e["$d"]}`.slice(0, 15));
       console.log(`${e["$d"]}`.slice(4, 15));
     },
+    submit:()=>{
+      const token = localStorage.getItem('token')
+      const data = {
+        date: date,
+        time: time,
+        first_name: name,
+        phone: phone,
+        address: address,
+      };
+
+      reserveApi.taxi(token,data).then((data)=>{
+handlerReserveTable(true);
+      }).catch((err)=>alert(err.message))
+    }
   };
 
   const style = {
@@ -259,7 +274,7 @@ function Taxi() {
                   fontSize: "16px",
                   width: "60%",
                 }}
-                onClick={() => handlerReserveTable(true)}
+                onClick={() => handler.submit()}
               >
                 предзаказ
               </button>

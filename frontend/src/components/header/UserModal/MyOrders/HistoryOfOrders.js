@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Icon from "../../../../assets/img/zakazi.png";
 import Basket from "../../../../assets/img/basket__icon.png";
 import { CloseModal } from "../CloseМodal/CloseModal";
@@ -6,6 +6,8 @@ import Images from "../../../../assets/img/salat.png";
 
 // !styles
 import styles from "../UserModal.module.css";
+import { userApi } from "../../../../api/userApi";
+import HistoryOrderItem from "./HistoryOrderItem";
 
 const HistoryOfOrders = ({ setPersonalModal }) => {
   const HistoryOrdersPages = [
@@ -35,6 +37,16 @@ const HistoryOfOrders = ({ setPersonalModal }) => {
     },
   ];
 
+  const [orderHistory, setOrderHistory] = useState([]);
+  const token = localStorage.getItem("token");
+
+  useEffect(() => {
+    userApi.orderHistory(token).then((data) => setOrderHistory(data));
+    console.log(orderHistory);
+
+
+  }, [orderHistory.length]);
+
   return (
     <div className={styles.HistoryOfOrders}>
       <div className={styles.LIne}>
@@ -54,34 +66,15 @@ const HistoryOfOrders = ({ setPersonalModal }) => {
           }}
         />
       </div>
-      <div className={styles.HistoryBlock}>
-        <div className={styles.DataTotal}>
-          <span className={styles.DataZakazi}>20.04.2023</span>
-          <span className={styles.TotalZakazi}>4 290 руб.</span>
-        </div>
-        <div>
-          <div className={styles.HistoryZakaziNameSum}>
-            <div>
-              {HistoryOrdersPages.map((item) => (
-                <div className={styles.rowImgText}>
-                  <img src={item.img} alt="" />
-                  <div className={styles.HistoryRowOrder}>
-                    <div className={styles.OrderTitle}>{item.title}</div>
-                    <div className={styles.OrderPrice}>{item.price} руб.</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <button className={styles.ImagesBasket}>
-              <img
-                className={styles.HistoryOfOrdersBasket}
-                src={Basket}
-                alt=""
-              />
-            </button>
-          </div>
-        </div>
-      </div>
+      {/* <HistoryOrderItem HistoryOrdersPages={HistoryOrdersPages} /> */}
+      {/* <label>LOL</label> */}
+      {orderHistory.map((el) => (
+        <HistoryOrderItem
+          HistoryOrdersPages={el.items}
+          total_price={el.total_price}
+          order_date={el.order_date}
+        />
+      ))}
       <hr
         style={{
           border: "2px solid #D9D9D9",
