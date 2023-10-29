@@ -37,7 +37,6 @@ class UserSerializer(UserSerializer):
             'comment',
             'phone',
             'password',
-            're_password'
         )
 
 

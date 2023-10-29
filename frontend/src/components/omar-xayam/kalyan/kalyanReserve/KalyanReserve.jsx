@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import stylesKalyan from "./KalyanReserve.module.css";
 //
 import styles from "./MainReserve.module.css";
-import "../../../../assets/general-styles/styles.css";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
@@ -13,6 +12,7 @@ import Zal from "./zal/Zal";
 import Veranda from "./veranda/Veranda";
 import Regsuccessfully from "./regsuccessfully/Regsuccessfully";
 import dayjs from "dayjs";
+import "../../../../assets/general-styles/styles.css";
 
 export const KalyanReserve = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -173,7 +173,7 @@ export const KalyanReserve = () => {
         </div>
 
         <div className={styles.backgroundBodyReserve}>
-          <h3 className="title__pages_all">Бронь стола</h3>
+          <h3 className={stylesKalyan.titleKalyanReserve}>Бронь стола</h3>
 
           <Container className={styles.ContainerCenter}>
             <div className="container__reserve reserve">
@@ -181,7 +181,9 @@ export const KalyanReserve = () => {
 
               <div className="reserve__title__subtitle">
                 <div className={styles.SelectReserveSelectRow}>
-                  <div className="reserve__subtitle__left">Зал / Веранда *</div>
+                  <div className={stylesKalyan.ReserveTitleLeft}>
+                    Зал / Веранда *
+                  </div>
                   <div className={styles.InputRowError}>
                     <div>
                       <select
@@ -221,7 +223,9 @@ export const KalyanReserve = () => {
 
               {/* Дата__и__время */}
               <div className="reserve__title__subtitle">
-                <div className="reserve__subtitle__left">Дата / Время *</div>
+                <div className={stylesKalyan.ReserveTitleLeft}>
+                  Дата / Время *
+                </div>
 
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DemoContainer components={["TimePicker"]}>
@@ -259,7 +263,7 @@ export const KalyanReserve = () => {
                         // !Убрать border у data and time
                         slotProps={{ textField: { variant: "standard" } }}
                         sx={{
-                          width: "50%",
+                          width: "100%",
                           svg: { color: "#fff" },
                           input: { color: "#fff" },
                           label: {
@@ -284,7 +288,7 @@ export const KalyanReserve = () => {
 
               {/* Имя *  */}
               <div className="reserve__title__subtitle">
-                <div className="reserve__subtitle__left">Имя *</div>
+                <div className={stylesKalyan.ReserveTitleLeft}>Имя *</div>
                 <div className={styles.InputRowError}>
                   <TextField
                     InputProps={{
@@ -293,6 +297,7 @@ export const KalyanReserve = () => {
                           color: "#fff",
                           width: "479px",
                           fontFamily: "Lato",
+                          borderBottom: "3px solid #78EAFF",
                         },
                       },
                     }}
@@ -313,11 +318,12 @@ export const KalyanReserve = () => {
 
               {/* Телефон *  */}
               <div className="reserve__title__subtitle">
-                <div className="reserve__subtitle__left">Телефон *</div>
+                <div className={stylesKalyan.ReserveTitleLeft}>Телефон *</div>
                 <div className={styles.InputRowError}>
                   <TextField
                     InputProps={{
                       sx: {
+                        borderBottom: "3px solid #78EAFF",
                         "& input": {
                           color: "#fff",
                           width: "479px",
@@ -345,7 +351,9 @@ export const KalyanReserve = () => {
               {/* Число гостей   */}
               <div className="reserve__title__subtitle">
                 <div className={styles.SelectReserveSelectRow}>
-                  <div className="reserve__subtitle__left">Число гостей *</div>
+                  <div className={stylesKalyan.ReserveTitleLeft}>
+                    Число гостей *
+                  </div>
                   <div className={styles.InputRowError}>
                     <input
                       className={styles.ReserveOption}
@@ -365,10 +373,11 @@ export const KalyanReserve = () => {
 
               {/* По желанию  */}
               <div className="reserve__title__subtitle">
-                <div className="reserve__subtitle__left">Комментарий</div>
+                <div className={stylesKalyan.ReserveTitleLeft}>Комментарий</div>
                 <TextField
                   InputProps={{
                     sx: {
+                      borderBottom: "3px solid #78EAFF",
                       "& input": {
                         color: "#fff",
                         width: "479px",
@@ -387,22 +396,21 @@ export const KalyanReserve = () => {
               </div>
 
               {/* Button__Bron */}
-              <div className="reserve__buttton">
+              <div className="reserve__butttonm">
                 <span id="/home#delivery"></span>
                 {sucessCardReserveTable ? (
                   <Regsuccessfully />
                 ) : (
-                  <Button
-                    className="reserve__order__button"
-                    style={{
-                      borderRadius: "20px",
-                    }}
-                    onClick={() => {
-                      handlerReserveTable(true);
-                    }}
-                  >
-                    Забронировать
-                  </Button>
+                  <div className={stylesKalyan.BtnBoxKalyanPrice}>
+                    <button
+                      className={stylesKalyan.buttonKalyanPrice}
+                      onClick={() => {
+                        handlerReserveTable(true);
+                      }}
+                    >
+                      подтвердить
+                    </button>
+                  </div>
                 )}
               </div>
             </div>

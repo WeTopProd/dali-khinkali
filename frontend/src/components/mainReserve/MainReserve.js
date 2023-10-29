@@ -243,7 +243,7 @@ const MainReserve = () => {
                         // !Убрать border у data and time
                         slotProps={{ textField: { variant: "standard" } }}
                         sx={{
-                          width: "50%",
+                          width: "100%",
                           svg: { color: "#fff" },
                           input: { color: "#fff" },
                           label: {

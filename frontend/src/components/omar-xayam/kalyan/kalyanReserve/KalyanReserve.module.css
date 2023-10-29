@@ -19,3 +19,61 @@
 	width: 100%;
 	padding: 100px 0 200px 0;
 }
+
+.titleKalyanReserve {
+	color: #FFF;
+	text-align: center;
+	font-family: "tangak";
+	font-size: 62.926px;
+	font-weight: 400;
+	text-transform: uppercase;
+}
+
+/*  */
+@media (max-width: 669px) {
+	.reserve__title__subtitle {
+		justify-content: start;
+	}
+
+	.ReserveTitleLeft {
+		padding: 0 20px 20px 0;
+	}
+}
+
+.ReserveTitleLeft {
+	color: #6EE0FA;
+	font-family: "Lato";
+	font-size: calc(18px + 18 * ((100vw - 320px) / (1920 - 320)));
+	font-weight: 600;
+	padding: 0 60px 5px 0;
+	min-width: 300px;
+}
+
+.BtnBoxKalyanPrice {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0px 0 170px 0;
+}
+
+.buttonKalyanPrice {
+	text-align: center;
+	min-width: 33%;
+	display: inline-block;
+	border: 5px solid #FFF;
+	padding: 20px 70px;
+	color: #FFF;
+	font-family: "Lato";
+	font-size: 25px;
+	font-weight: 600;
+	text-transform: uppercase;
+	transition: ease .4s;
+}
+
+
+
+.buttonKalyanPrice:hover {
+	background: #00A657;
+	border: 5px solid #1c83b6;
+	color: black;
+}

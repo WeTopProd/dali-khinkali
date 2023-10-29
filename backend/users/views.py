@@ -89,8 +89,6 @@ def send_order(request):
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
-<<<<<<< HEAD
-=======
 def send_taxi(request):
     date = request.data.get('date', '')
     time = request.data.get('time', '')
@@ -112,7 +110,6 @@ def send_taxi(request):
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
->>>>>>> f80f8505cef0b4a14a9bd302d83b3daf758651a4
 def send_banquet(request):
     date = request.data.get('date', '')
     first_name = request.data.get('first_name', '')
@@ -137,8 +134,6 @@ def send_banquet(request):
     return Response({'success': 'Сообщение успешно отправлено'})
 
 
-<<<<<<< HEAD
-=======
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def send_hookah(request):
@@ -148,7 +143,7 @@ def send_hookah(request):
     first_name = request.data.get('first_name', '')
     phone = request.data.get('phone', '')
     count_people = request.data.get('count_people', '')
-        comment = request.data.get('comment', '')
+    comment = request.data.get('comment', '')
     message = (f"БРОНИРОВАНИЕ СТОЛА В КАЛЬЯННОЙ ОТ {first_name}\n\n"
                f"НОМЕР ТЕЛЕФОНА: {phone}\nЗАЛ: {hall}\n"
                f"КОЛИЧЕСТВО ГОСТЕЙ: {count_people}\n"
@@ -164,7 +159,6 @@ def send_hookah(request):
     return Response({'success': 'Сообщение успешно отправлено'})
 
 
->>>>>>> f80f8505cef0b4a14a9bd302d83b3daf758651a4
 @api_view(["POST"])
 @permission_classes([IsAuthenticated])
 def payment(request):

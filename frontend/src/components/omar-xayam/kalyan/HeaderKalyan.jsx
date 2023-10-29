@@ -53,7 +53,7 @@ export const HeaderKalyan = () => {
       <KalyanMenu />
       <KalyanMenuPrice />
       <KalyanReserve />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };

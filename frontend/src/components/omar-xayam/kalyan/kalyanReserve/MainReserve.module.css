@@ -101,9 +101,11 @@ select:after {
   font-size: calc(18px + 18 * ((100vw - 320px) / (1920 - 320)));
   font-weight: 500;
   padding: 0 0 5px 0;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #6EE0FA;
   width: 479px;
 }
+
+
 
 .ReserveOption::placeholder {
   color: #f9be98;
@@ -156,4 +158,8 @@ TextField {
 
 label+.css-v4u5dn-MuiInputBase-root-MuiInput-root {
   padding: 10px 0 0 0 !important;
+}
+
+.css-12suj6j-MuiInputBase-root-MuiInput-root:before {
+  border-bottom: 1px solid #6EE0FA !important;
 }

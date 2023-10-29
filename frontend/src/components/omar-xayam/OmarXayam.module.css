@@ -61,11 +61,13 @@
 
 .buttonOmar {
   padding: 25px 85px;
-  color: black;
+  transition: ease .5s;
+  color: white;
 }
 
 .buttonOmar:hover {
-  background: #f48230;
+  background: #ea6403;
+  color: black;
 }
 
 @media screen and (max-width: 423px) {
