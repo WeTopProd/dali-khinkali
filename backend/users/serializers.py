@@ -36,7 +36,7 @@ class UserSerializer(UserSerializer):
             'intercom',
             'comment',
             'phone',
-            'password',
+            'delivery_address',
         )
 
 
