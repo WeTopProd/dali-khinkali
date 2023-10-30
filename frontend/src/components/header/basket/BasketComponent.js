@@ -72,7 +72,7 @@ const BasketComponent = ({
   const CreateOrder = () => {
     axios
       .request({
-        url: `http://127.0.0.1:8000/api/send-order`,
+        url: `http://dali-khinkali.ru/api/send-order`,
         method: "POST",
         headers: {
           authorization: `Token ${token}`,
@@ -89,7 +89,7 @@ const BasketComponent = ({
       .then((response) => {
         axios
           .request({
-            url: `http://127.0.0.1:8000/api/payment`,
+            url: `http://dali-khinkali.ru/api/payment`,
             method: "POST",
             headers: {
               authorization: `Token ${token}`,
