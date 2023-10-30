@@ -40,8 +40,8 @@ function Taxi() {
       setDate(`${e["$d"]}`.slice(0, 15));
       console.log(`${e["$d"]}`.slice(4, 15));
     },
-    submit:()=>{
-      const token = localStorage.getItem('token')
+    submit: () => {
+      const token = localStorage.getItem("token");
       const data = {
         date: date,
         time: time,
@@ -50,10 +50,13 @@ function Taxi() {
         address: address,
       };
 
-      reserveApi.taxi(token,data).then((data)=>{
-handlerReserveTable(true);
-      }).catch((err)=>alert(err.message))
-    }
+      reserveApi
+        .taxi(token, data)
+        .then((data) => {
+          handlerReserveTable(true);
+        })
+        .catch((err) => alert(err.message));
+    },
   };
 
   const style = {

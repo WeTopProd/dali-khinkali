@@ -69,8 +69,9 @@
 }
 
 /* !===== Lanch ===== */
-.LunchTitle,
-.LunchTime {
+
+
+.ContainerLunchTitle div {
   color: #fff;
   font-family: "Lato";
   font-size: calc(40px + 100 * ((100vw - 320px) / (1920 - 320)));
@@ -179,6 +180,15 @@ textarea::placeholder {
   font-family: "Lato";
   font-size: 40px;
   font-weight: 600;
+}
+
+.LunchTitle,
+.LunchTime {
+  color: #fff;
+  font-family: "Lato";
+  font-size: calc(40px + 100 * ((100vw - 320px) / (1920 - 320)));
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 @media (max-width: 1000px) {

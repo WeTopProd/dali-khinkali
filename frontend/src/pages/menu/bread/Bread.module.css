@@ -3,7 +3,8 @@
 .content {
   text-align: center;
   margin-bottom: 70px;
-  /* width: 105vw; */
+  width: 100%;
+  height: auto;
 }
 
 .containerCardSalats {
@@ -22,40 +23,45 @@
   width: 386px;
 }
 
-/* !Карточка товара */
+
+
+.BoxWeightSubTitle {
+  opacity: 0;
+  max-height: 0;
+  visibility: hidden;
+  transition: all 0.5s;
+}
+
+
+
+
+.cardSalat:hover .BoxWeightSubTitle {
+  opacity: 1;
+  max-height: 300px;
+  visibility: visible;
+}
+
+@media (max-width: 900px) {
+  .containerCardSalats {
+    justify-content: center;
+  }
+}
 
 .cardSalat {
   background: #eaeaea;
   margin: 40px 20px 150px;
-  transition: transform 0.2s ease-in-out;
+  transition: all 0.5s;
   cursor: pointer;
 }
 
 @media (max-width: 921px) {
   .cardSalat {
-    margin: 100px 10px 150px 23px;
+    margin: 100px 10px 150px;
   }
 }
 
 @media (max-width: 406px) {
-  .content {
-    width: 105vw;
+  .cardSalat {
+    width: 355px;
   }
-}
-
-.BoxWeightSubTitle {
-  transition: transform 0.2s ease-in-out;
-  display: none;
-  max-width: 421px;
-  max-height: 300px;
-}
-
-.cardSalat:hover {
-  min-height: 712px;
-  margin-bottom: -70px;
-}
-
-.cardSalat:hover .BoxWeightSubTitle {
-  display: block;
-  transition: all 1s;
 }

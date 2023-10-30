@@ -1,4 +1,3 @@
-import { Message } from "@mui/icons-material";
 import axios from "axios";
 
 const urlApi = "http://127.0.0.1:8000/api";
@@ -74,8 +73,6 @@ export const userApi = {
       delivery_time: "10:00",
       payment_method: "Nalichki",
     };
-
-    console.log(data);
 
     const res = await axios.request({
       url: `${urlApi}/goods/create_order/`,

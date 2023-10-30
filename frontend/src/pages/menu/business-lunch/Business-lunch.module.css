@@ -1,7 +1,11 @@
+/* ! ===== Salats ===== */
+
 .content {
   text-align: center;
   margin-bottom: 70px;
-  /* width: 105vw; */
+  width: 100%;
+  height: auto;
+  margin: 255px 0 0 0;
 }
 
 .containerCardSalats {
@@ -20,28 +24,6 @@
   width: 386px;
 }
 
-/* !Карточка товара */
-
-.cardSalat {
-  background: #eaeaea;
-  margin: 40px 20px 150px;
-  transition: transform 0.2s ease-in-out;
-  cursor: pointer;
-}
-
-@media (max-width: 921px) {
-  .cardSalat {
-    margin: 100px 10px 150px 23px;
-  }
-}
-
-@media (max-width: 406px) {
-  .content {
-    width: 105vw;
-  }
-}
-
-
 .BoxWeightSubTitle {
   opacity: 0;
   max-height: 0;
@@ -49,55 +31,53 @@
   transition: all 0.5s;
 }
 
+.ContainerLunchTitle {
+  display: flex;
+  justify-content: center;
+  padding: 130px 0 0 0;
+  text-align: center;
+  height: 100vh;
+  margin: 246px 0 0 0;
+
+}
+
+.LunchTitle,
+.LunchTime {
+  color: #fff;
+  font-family: "Lato";
+  font-size: calc(45px + 80 * ((100vw - 320px) / (1920 - 320)));
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+
 .cardSalat:hover .BoxWeightSubTitle {
   opacity: 1;
   max-height: 300px;
   visibility: visible;
 }
 
-.cardSalat:hover {
-  min-height: 712px;
-  margin-bottom: -70px;
+@media (max-width: 900px) {
+  .containerCardSalats {
+    justify-content: center;
+  }
 }
 
-/* !===== Lanch ===== */
-.LunchTitle,
-.LunchTime {
-  color: #fff;
-  font-family: "Lato";
-  font-size: calc(50px + 100 * ((100vw - 320px) / (1920 - 320)));
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  text-transform: uppercase;
+.cardSalat {
+  background: #eaeaea;
+  margin: 40px 20px 150px;
+  transition: all 0.5s;
+  cursor: pointer;
 }
 
-.LunchTime {
-  font-size: calc(40px + 80 * ((100vw - 320px) / (1920 - 320)));
-}
-
-.ContainerLunchTitle {
-  text-align: center;
-  padding: 200px 0;
-  margin: 255px 0 0 0;
-}
-
-.containerBackground {
-  margin-top: 22px;
-}
-
-@media screen and (max-width: 767px) {
+@media (max-width: 921px) {
   .cardSalat {
-    margin: 70px 22px 150px;
-  }
-
-  .cardSalat:hover {
-    min-height: 660px;
+    margin: 100px 10px 150px;
   }
 }
 
-@media (max-width: 899px) {
-  .ContainerLunchTitle {
-    margin: 164px 0 0 0;
+@media (max-width: 406px) {
+  .cardSalat {
+    width: 355px;
   }
 }

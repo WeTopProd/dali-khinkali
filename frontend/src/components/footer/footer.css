@@ -37,8 +37,20 @@
 }
 
 .footer__logo {
-  display: inline-block;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
   margin-bottom: 130px;
+}
+
+.PeyKiperImages {
+  padding: 0 35px 0 0;
+}
+
+@media (max-width: 504px) {
+  .PeyKiperImages {
+    padding: 35px 35px 0 0;
+  }
 }
 
 .footer {
@@ -161,6 +173,12 @@
 @media screen and (max-width: 1280px) {
   .footer {
     padding: 50px 0 12px 40px;
+  }
+}
+
+@media (max-width: 504px) {
+  .footer {
+    padding: 50px 0 12px 0;
   }
 }
 

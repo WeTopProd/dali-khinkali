@@ -6,6 +6,7 @@ import BasketItemComponent from "./BasketItemComponent";
 import Close from "../../../assets/img/X_close.png";
 import axios from "axios";
 import { userApi } from "../../../api/userApi";
+import IconBadket from "../../../assets/img/KorzinfPusto.png";
 const BasketComponent = ({
   closeModal,
   product,
@@ -58,12 +59,71 @@ const BasketComponent = ({
             console.error("There was an error!", error);
           });
       })
-    ).then(() => setBasketItems([])).catch(()=>null);
+    )
+      .then(() => setBasketItems([]))
+      .catch(() => null);
   }
+  const [description, setDescription] = useState("");
+  const [goodsid, setGoodsid] = useState([]);
+  const [countGoods, setCountGoods] = useState([]);
+  const [priceGoods, setPriceGoods] = useState([]);
+  const [finalPrice, setFinalPrice] = useState("");
 
-  const CreateOrder =()=>{
-    userApi.createOrder(token,overAllPrice).then(()=>window.location.reload()).catch(err=>console.log(err))
-  }
+  const CreateOrder = () => {
+    axios
+      .request({
+        url: `http://127.0.0.1:8000/api/send-order`,
+        method: "POST",
+        headers: {
+          authorization: `Token ${token}`,
+          "content-type": "application/json",
+        },
+        data: {
+          description: `${description}`,
+          goods_id: goodsid,
+          count_goods: countGoods,
+          price_goods: priceGoods,
+          final_price: `${finalPrice}`,
+        },
+      })
+      .then((response) => {
+        axios
+          .request({
+            url: `http://127.0.0.1:8000/api/payment`,
+            method: "POST",
+            headers: {
+              authorization: `Token ${token}`,
+              "content-type": "application/json",
+            },
+            data: {
+              service_name: `${description}`,
+              num_order: goodsid,
+              price: `${finalPrice}`,
+            },
+          })
+          .then((response) => {
+            window.location.href = response.data.sucess;
+          });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  useEffect(() => {
+    setDescription(basketItems.map((item) => item.goods.title));
+    setGoodsid(basketItems.map((el) => el.goods.id));
+    setCountGoods(basketItems.map((item) => item.count));
+    setPriceGoods(basketItems.map((item) => item.price * item.count));
+    setFinalPrice(priceGoods.reduce((prev, price) => prev + price, 0));
+    console.log(basketItems, "gjhfjhgkhg");
+    // let countGoods = basketItems.map((item) => item.price * item.count);
+    // setPriceGoods(countGoods);
+    // let totalprice = priceGoods.reduce((prev, price) => prev + price, 0)
+    // setFinalPrice(totalprice);
+  }, []);
+  //! Молальное окно прошло успешно
+  const [sucessCardReserveTable, setSucessCardReserveTable] = useState(false);
 
   return (
     <div>
@@ -113,6 +173,12 @@ const BasketComponent = ({
               basketItems={basketItems}
             />
           ))}
+        {basketItems.length == 0 ? (
+          <div className={styles.BasketEmpty}>
+            <img src={IconBadket} alt="" />
+            Корзина пусто
+          </div>
+        ) : null}
         <div className={styles.BoxDeliveryBasket}>
           <div>Доставка</div>
           <span>200 руб.</span>
@@ -131,6 +197,7 @@ const BasketComponent = ({
           <span className={styles.sumBasketTotal}>{overAllPrice} руб.</span>
         </div>
         <div className={styles.buttonBasketOrder}>
+          {/* {sucessCardReserveTable ? } */}
           <button className={styles.basketOrder} onClick={CreateOrder}>
             Оформить заказ
           </button>

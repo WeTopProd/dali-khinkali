@@ -28,6 +28,7 @@ import Image9 from "../../assets/img/image-9.png";
 import Image10 from "../../assets/img/image-10.png";
 import Image11 from "../../assets/img/image-11.png";
 import Image12 from "../../assets/img/image-12.png";
+import PeyKiperr from "../../assets/img/PeyKiper.svg";
 
 function Footer() {
   const images = [
@@ -54,7 +55,8 @@ function Footer() {
               src={FooterLogo}
               className="footer__logo-image"
               alt="footer-logo"
-            ></img>
+            />
+            <img className="PeyKiperImages" src={PeyKiperr} alt="" />
           </a>
 
           <div className="footer__columns">

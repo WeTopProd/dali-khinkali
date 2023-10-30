@@ -141,7 +141,7 @@ const MainReserve = () => {
       );
 
       if (e.target.value === "Зал") {
-        setHall('hall');
+        setHall("hall");
         setIsModalOpen(true);
       } else if (e.target.value === "Веранда") {
         setHall("veranda");
@@ -166,13 +166,16 @@ const MainReserve = () => {
         name: name,
         phone: phone,
         comment: optional,
-        status: "booked"
+        status: "booked",
       };
-      console.log(data,'0909090909');
       const token = localStorage.getItem("token");
-      reserveApi.reserveTable(token, data).then((data) => {
-        handlerReserveTable(true);
-      });
+      reserveApi
+        .reserveTable(token, data)
+        .then((data) => {
+          handlerReserveTable(true);
+        })
+        .catch((err) => alert("Пожалуйста заполните полей"));
+      handlerReserveTable();
     },
   };
 

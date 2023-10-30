@@ -121,7 +121,7 @@ body.slick-prev:before,
 
 .CardContainer {
   height: 100vh;
-  margin: 0 0 50px 0
+  margin: 0 0 120px 0
 }
 
 
@@ -370,7 +370,7 @@ body.slick-prev:before,
 }
 
 .css-1elsv2b {
-  top: 65% !important;
+  top: 50% !important;
 }
 
 .css-12suj6j-MuiInputBase-root-MuiInput-root input::placeholder {

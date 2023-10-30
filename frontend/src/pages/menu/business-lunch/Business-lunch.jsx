@@ -34,6 +34,7 @@ export default function Businesslunch({ basketItems, setBasketItems }) {
         style={{
           background: `center no-repeat url(${TimeBackgroundLunch}) #51413a`,
           width: "100%",
+          height: "100vh",
           backgroundSize: "cover",
         }}
       >

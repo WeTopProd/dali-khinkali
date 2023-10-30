@@ -71,7 +71,7 @@ function MyAddresses({ setPersonalModal }) {
       <div className={styles.myDetailsRow}>
         <div className={styles.iconBurgerTextRow}>
           <img className={styles.iconBurger} src={Map} alt="" />
-          <h3>Мои адреса</h3>
+          <h3>Мой адрес</h3>
         </div>
         <div className={styles.iconClose}>
           <CloseModal setPersonalModal={setPersonalModal} />
@@ -79,16 +79,26 @@ function MyAddresses({ setPersonalModal }) {
       </div>
       <div className={styles.editAddress} onClick={toggleEditFormVisibility}>
         <div className={styles.textAddress}>
-          {" "}
-          <b>Adress: </b>
-          {address.delivery_address}
-          <br /> <b>Этаж: </b>
-          {address.intercom}
+          <div className={styles.inputAddAddressEdit}>
+            <div>Adress:</div>
+            <span> {address.delivery_address}</span>
+          </div>
+
           <br />
-          <b>Домофон: </b> {address.floor}
+          <div className={styles.inputAddAddressEdit}>
+            <div>Этаж:</div>
+            <span> {address.intercom}</span>
+          </div>
           <br />
-          <b>Комментарий: </b>
-          {address.comment}
+          <div className={styles.inputAddAddressEdit}>
+            <div>Домофон:</div>
+            <span> {address.floor}</span>
+          </div>
+          <br />
+          <div className={styles.inputAddAddressEdit}>
+            <div>Комментарий:</div>
+            <span> {address.comment}</span>
+          </div>
         </div>
         <img src={Edit} alt="" />
       </div>

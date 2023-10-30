@@ -353,6 +353,27 @@ input::placeholder {
   align-items: end;
 }
 
+.inputAddAddressEdit {
+  flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  font-family: "Lato";
+}
+
+
+.inputAddAddressEdit div {
+  font-weight: bold;
+  padding: 0 10px 0 0px;
+}
+
+.inputAddAddressEdit span {
+  display: block;
+  font-weight: 400;
+  font-family: "Lato";
+  padding: 0 10px 0 0
+}
+
 @media (max-width: 767px) {
   .HistoryZakaziNameSum {
     display: block;
