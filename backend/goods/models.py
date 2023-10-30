@@ -1,7 +1,6 @@
 from django.core.validators import validate_email
 from django.db import models
-from django.utils import timezone
-from phonenumber_field.modelfields import PhoneNumberField
+
 from users.models import User
 
 
