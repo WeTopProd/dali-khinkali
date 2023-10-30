@@ -148,6 +148,7 @@ function App() {
             basketItems={basketItems}
             setBasketItems={setBasketItemsFunction}
           />
+          <Main />
           <Routes>
             {pages.map((page) => (
               <Route key={page.url} path={page.url} element={page.component} />

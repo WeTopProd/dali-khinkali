@@ -142,7 +142,7 @@ function Header({ Pages, basketItems, setBasketItems }) {
       })
       .then((data) => setBasketItems(data.data))
       .catch(() => setBasketItems([]));
-  },[]);
+  }, []);
 
   return (
     <>
@@ -240,7 +240,7 @@ function Header({ Pages, basketItems, setBasketItems }) {
                   <span className="basket_sub">{basketItems.length}</span>
                 </span>
               </button>
-              {/* Модальное окно */} 
+              {/* Модальное окно */}
               {isModalOpen && (
                 <BasketComponent
                   closeModal={closeModal}

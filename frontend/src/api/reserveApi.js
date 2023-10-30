@@ -17,14 +17,17 @@ export const addetionalServiseApi = async (token, data) => {
   }
 };
 const url = "http://dali-khinkali.ru/api";
-export const reserveApi ={
-  hookah:async(token,data)=>{
-    const headers = `${token}`.length > 5?{
-         Authorization: `Token ${token}`,
-        "Content-Type": "application/json",
-      }:{
-        "Content-Type": "application/json",
-      }
+export const reserveApi = {
+  hookah: async (token, data) => {
+    const headers =
+      `${token}`.length > 5
+        ? {
+            Authorization: `Token ${token}`,
+            "Content-Type": "application/json",
+          }
+        : {
+            "Content-Type": "application/json",
+          };
     const res = await axios.request({
       url: `${url}/send-hookah/`,
       method: "POST",

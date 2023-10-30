@@ -116,7 +116,6 @@ const BasketComponent = ({
     setCountGoods(basketItems.map((item) => item.count));
     setPriceGoods(basketItems.map((item) => item.price * item.count));
     setFinalPrice(priceGoods.reduce((prev, price) => prev + price, 0));
-    console.log(basketItems, "gjhfjhgkhg");
     // let countGoods = basketItems.map((item) => item.price * item.count);
     // setPriceGoods(countGoods);
     // let totalprice = priceGoods.reduce((prev, price) => prev + price, 0)

@@ -174,7 +174,7 @@ const MainReserve = () => {
         .then((data) => {
           handlerReserveTable(true);
         })
-        .catch((err) => alert("Пожалуйста заполните полей"));
+        .catch((err) => alert(err.message));
       handlerReserveTable();
     },
   };
