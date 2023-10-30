@@ -47,7 +47,7 @@ const BasketComponent = ({
       allGoods.map(async (good) => {
         return axios
           .delete(
-            `http://127.0.0.1:8000/api/goods/${good.goods.id}/shopping_cart/`,
+            `http://dali-khinkali.ru/api/goods/${good.goods.id}/shopping_cart/`,
             {
               headers: {
                 authorization: `Token ${token}`,
