@@ -28,7 +28,7 @@ function App() {
   async function addToCart(id, token) {
     try {
       const res = await axios.post(
-        `http://dali-khinkali.ru/api/goods/${id}/shopping_cart/`,
+        `http://127.0.0.1:8000/api/goods/${id}/shopping_cart/`,
         null,
         {
           headers: {
@@ -148,7 +148,6 @@ function App() {
             basketItems={basketItems}
             setBasketItems={setBasketItemsFunction}
           />
-          <Main />
           <Routes>
             {pages.map((page) => (
               <Route key={page.url} path={page.url} element={page.component} />

@@ -112,7 +112,7 @@ const MainReserve = () => {
                       <DemoContainer components={["TimePicker"]}>
                         <DatePicker
                           // !Убрать border у data and time
-
+                          disablePast
                           slotProps={{ textField: { variant: "standard" } }}
                           sx={{
                             width: "94%",

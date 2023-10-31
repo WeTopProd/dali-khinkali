@@ -5,13 +5,13 @@ import "../../assets/general-styles/styles.css";
 
 const Card = ({ elem, settings, Slider, setBasketItems, basketItems }) => {
   const [add, setAdd] = useState(false);
-  const token = localStorage.getItem('token')
+  const token = localStorage.getItem("token");
   function addToCart() {
     const token = sessionStorage.getItem("auth_token");
 
     const res = axios
       .post(
-        `http://dali-khinkali.ru/api/goods/${Number(elem.id)}/shopping_cart/`,
+        `http://127.0.0.1:8000/api/goods/${Number(elem.id)}/shopping_cart/`,
         null,
         {
           headers: {
@@ -51,7 +51,12 @@ const Card = ({ elem, settings, Slider, setBasketItems, basketItems }) => {
           {add ? (
             <p className="goodCardAdd">✅ В корзине</p>
           ) : (
-            <button className="btn" onClick={() => token.length>5?addToCart():alert('зарегистр')}>
+            <button
+              className="btn"
+              onClick={() =>
+                token.length > 5 ? addToCart() : alert("зарегистр")
+              }
+            >
               + В корзину
             </button>
           )}

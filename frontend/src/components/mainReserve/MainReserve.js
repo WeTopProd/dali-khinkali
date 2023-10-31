@@ -5,13 +5,14 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { TimePicker } from "@mui/x-date-pickers";
-import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
+import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
 import { Button, Container, TextField } from "@mui/material";
 import Zal from "./zal/Zal";
 import Veranda from "./veranda/Veranda";
 import Regsuccessfully from "./regsuccessfully/Regsuccessfully";
 import dayjs from "dayjs";
 import { reserveApi } from "../../api/reserveApi";
+import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
 
 const MainReserve = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -235,16 +236,13 @@ const MainReserve = () => {
 
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DemoContainer components={["TimePicker"]}>
-                    <div
-                      className={styles.InputRowError}
-                      style={{ margin: "0 45px 0 0" }}
-                    >
+                    <div className={styles.InputRowError}>
                       <DatePicker
                         // !Убрать border у data and time
                         disablePast
                         slotProps={{ textField: { variant: "standard" } }}
                         sx={{
-                          maxWidth: "94%",
+                          width: "100%",
                           svg: { color: "#fff" },
                           input: { color: "#fff" },
                           label: {
@@ -259,6 +257,10 @@ const MainReserve = () => {
                         variant="standard"
                         onChange={handler.date}
                       />
+                      {/* <DemoItem label="Mobile variant">
+                        <MobileDatePicker />
+                      </DemoItem> */}
+
                       {errors.date && (
                         <div style={{ color: "red" }}>{errors.date}</div>
                       )}
@@ -386,6 +388,7 @@ const MainReserve = () => {
                       },
                     },
                   }}
+                  required
                   margin="dense"
                   id="date"
                   placeholder="По желанию"
@@ -402,7 +405,7 @@ const MainReserve = () => {
                 {sucessCardReserveTable ? (
                   <Regsuccessfully />
                 ) : (
-                  <Button
+                  <button
                     className="reserve__order__button"
                     style={{
                       borderRadius: "20px",
@@ -412,7 +415,7 @@ const MainReserve = () => {
                     }}
                   >
                     Забронировать
-                  </Button>
+                  </button>
                 )}
               </div>
             </div>

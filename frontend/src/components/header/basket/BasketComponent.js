@@ -48,7 +48,7 @@ const BasketComponent = ({
       allGoods.map(async (good) => {
         return axios
           .delete(
-            `http://dali-khinkali.ru/api/goods/${good.goods.id}/shopping_cart/`,
+            `http://127.0.0.1:8000/api/goods/${good.goods.id}/shopping_cart/`,
             {
               headers: {
                 authorization: `Token ${token}`,
@@ -72,7 +72,8 @@ const BasketComponent = ({
   const CreateOrder = () => {
     axios
       .request({
-        url: `http://dali-khinkali.ru/api/send-order`,
+        // url: `http://127.0.0.1:8000/api/send-order`,
+        url: `http://localhost:3000//api/send-order`,
         method: "POST",
         headers: {
           authorization: `Token ${token}`,
@@ -89,7 +90,8 @@ const BasketComponent = ({
       .then((response) => {
         axios
           .request({
-            url: `http://dali-khinkali.ru/api/payment`,
+            // url: `http://127.0.0.1:8000/api/payment`,
+            url: `http://localhost:3000//api/payment`,
             method: "POST",
             headers: {
               authorization: `Token ${token}`,
@@ -114,15 +116,15 @@ const BasketComponent = ({
     setDescription(basketItems.map((item) => item.goods.title));
     setGoodsid(basketItems.map((el) => el.goods.id));
     setCountGoods(basketItems.map((item) => item.count));
-    setPriceGoods(basketItems.map((item) => item.price * item.count));
+    // setPriceGoods(basketItems.map((item) => item.price * item.count));
     setFinalPrice(priceGoods.reduce((prev, price) => prev + price, 0));
-    // let countGoods = basketItems.map((item) => item.price * item.count);
-    // setPriceGoods(countGoods);
+    let countGoods = basketItems.map((item) => item.price * item.count);
+    setPriceGoods(countGoods);
     // let totalprice = priceGoods.reduce((prev, price) => prev + price, 0)
     // setFinalPrice(totalprice);
   }, []);
-  //! Молальное окно прошло успешно
-  const [sucessCardReserveTable, setSucessCardReserveTable] = useState(false);
+  //////////// Молальное окно прошло успешно
+  // const [sucessCardReserveTable, setSucessCardReserveTable] = useState(false);
 
   return (
     <div>
@@ -196,7 +198,6 @@ const BasketComponent = ({
           <span className={styles.sumBasketTotal}>{overAllPrice} руб.</span>
         </div>
         <div className={styles.buttonBasketOrder}>
-          {/* {sucessCardReserveTable ? } */}
           <button className={styles.basketOrder} onClick={CreateOrder}>
             Оформить заказ
           </button>

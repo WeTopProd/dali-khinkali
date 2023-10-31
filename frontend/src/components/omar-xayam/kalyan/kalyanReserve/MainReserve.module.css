@@ -108,7 +108,9 @@ select:after {
 
 
 .ReserveOption::placeholder {
-  color: #f9be98;
+  color: #6a6d6d;
+  font-size: 20px !important;
+  ;
 
 }
 
@@ -134,6 +136,7 @@ select:after {
 
 .spanReserve {
   margin: 0 0 0 30px;
+  border-bottom: 1px solid #6ee0fa;
 }
 
 TextField {
