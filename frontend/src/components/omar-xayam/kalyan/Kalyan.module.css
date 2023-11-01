@@ -1,5 +1,3 @@
-.KalyanContainer {}
-
 .PagesKalyan {
 	margin: 245px 0 0 0;
 	color: black;
@@ -9,15 +7,68 @@
 	padding: 0 130px 0;
 }
 
+.KalyanLogo img {
+	width: 100%;
+	padding: 0 20px 0;
+}
 
 .KalyanNav {
 	display: flex;
 	justify-content: space-between;
 	padding: 20px 0 250px;
+	flex-wrap: wrap;
 }
+
+@media (max-width: 942px) {
+	.RowKalyanRightNav {
+		padding: 15px 0;
+	}
+}
+
+@media (max-width: 1022px) {
+
+	.PagesKalyan,
+	.containerHeader {
+		padding: 0 30px 0;
+	}
+
+	.KalyanHeader span {
+		margin: 0 -20px 0 !important;
+	}
+}
+
+
+@media (max-width: 899px) {
+	.PagesKalyan {
+		margin: 164px 0 0 0;
+	}
+
+	.KalyanNav {
+		padding: 20px 0 170px;
+	}
+}
+
 
 .RowKalyanRightNav {
 	display: flex;
+	min-width: 365px;
+}
+
+@media (max-width: 395px) {
+	.RowKalyanRightNav {
+		flex-direction: column;
+		padding: 30px 48px 0;
+		margin: 0 0 0 -20px;
+	}
+
+	.KalyanNav {
+		padding: 20px 0 70px;
+	}
+
+	.PagesKalyan {
+		padding: 0 0 100px 0;
+	}
+
 }
 
 .KalyanNavRow {
@@ -44,13 +95,14 @@
 	font-family: "Lato";
 	font-size: 13.321px;
 	font-weight: 600;
+	padding: 0 0 5px 0;
 }
 
 /* header */
 .HeaderTitle {
 	color: #FFF;
 	font-family: "Lato";
-	font-size: 65px;
+	font-size: calc(30px + 65 * ((100vw - 320px) / (1920 - 320)));
 	font-weight: 500;
 	letter-spacing: 8px;
 	text-transform: uppercase;
@@ -60,22 +112,35 @@
 .HeaderSubTitle {
 	color: #00A657;
 	font-family: "tangak";
-	font-size: 80px;
+	font-size: calc(40px + 75 * ((100vw - 320px) / (1920 - 320)));
 	font-weight: 400;
 	letter-spacing: 30.4px;
 	text-transform: uppercase;
 }
 
+@media (max-width: 696px) {
+	.HeaderSubTitle {
+		letter-spacing: 5px;
+	}
+}
+
 .HeaderText {
 	color: #FFF;
 	font-family: "Lato";
-	font-size: 30px;
+	font-size: calc(20px + 30 * ((100vw - 320px) / (1920 - 320)));
 	font-weight: 400;
 	margin: 14px 0 20px 0;
 }
 
 .boxBtnsHeader {
 	width: 100%;
+}
+
+@media (max-width: 1141px) {
+	.boxBtnsHeader {
+		display: flex;
+		flex-direction: column;
+	}
 }
 
 .buttonMenu {
@@ -86,10 +151,11 @@
 	background: #00A657;
 	padding: 24px 70px;
 	font-family: "Lato";
-	font-size: 25px;
+	font-size: calc(16px + 5 * ((100vw - 320px) / (1920 - 320)));
 	font-weight: 600;
 	text-transform: uppercase;
 	transition: ease .4s;
+	margin: 0 0 20px 0;
 }
 
 .buttonMenu:hover {
@@ -105,7 +171,7 @@
 	padding: 19px 70px;
 	color: #FFF;
 	font-family: "Lato";
-	font-size: 25px;
+	font-size: calc(12px + 5 * ((100vw - 320px) / (1920 - 320)));
 	font-weight: 600;
 	text-transform: uppercase;
 	transition: ease .4s;

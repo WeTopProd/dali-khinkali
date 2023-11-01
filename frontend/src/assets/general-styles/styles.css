@@ -672,3 +672,10 @@ button.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-edgeEnd.MuiIconButton
 .css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root {
   background: url(../../assets/img//SelectForm.png) no-repeat center !important;
 }
+
+
+@media (max-width: 414px) {
+  .css-9w8grg-MuiInputBase-root-MuiInput-root input {
+    min-width: 346px !important;
+  }
+}

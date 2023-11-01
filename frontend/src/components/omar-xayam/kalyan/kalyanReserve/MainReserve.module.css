@@ -136,6 +136,15 @@ select:after {
 
   .ReserveOption {
     width: 50%;
+    min-width: 346px;
+  }
+
+  .css-9w8grg-MuiInputBase-root-MuiInput-root input {
+    min-width: 346px;
+  }
+
+  .css-9w8grg-MuiInputBase-root-MuiInput-root input {
+    min-width: 346px;
   }
 }
 
@@ -170,4 +179,10 @@ label+.css-v4u5dn-MuiInputBase-root-MuiInput-root {
 
 .css-12suj6j-MuiInputBase-root-MuiInput-root:before {
   border-bottom: 1px solid #6EE0FA !important;
+}
+
+@media (max-width: 375px) {
+  .css-9w8grg-MuiInputBase-root-MuiInput-root input {
+    width: 346px !important;
+  }
 }

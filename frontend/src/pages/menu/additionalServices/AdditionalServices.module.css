@@ -46,6 +46,10 @@
     margin: 10px 0 10px 0;
   }
 
+  .AddServicesSelect {
+    padding: 0 0 10px 7px;
+  }
+
 }
 
 .AddServicesSelect>li {
@@ -258,7 +262,5 @@ textarea::placeholder {
     padding: 0 0px 0;
   }
 
-  .AddServicesSelect {
-    padding: 0 0 10px 7px;
-  }
+
 }

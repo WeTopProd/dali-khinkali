@@ -251,17 +251,14 @@ export const KalyanReserve = () => {
 
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DemoContainer components={["TimePicker"]}>
-                    <div
-                      className={styles.InputRowError}
-                      style={{ margin: "0 45px 0 0" }}
-                    >
+                    <div className={styles.InputRowError}>
                       <DatePicker
                         // !Убрать border у data and time
                         disablePast
                         slotProps={{ textField: { variant: "standard" } }}
                         sx={{
+                          width: "100%",
                           borderBottom: "3px solid #78EAFF",
-                          maxWidth: "94%",
                           svg: { background: "red !important" },
                           input: { color: "#fff" },
                           label: {
@@ -286,8 +283,8 @@ export const KalyanReserve = () => {
                         // !Убрать border у data and time
                         slotProps={{ textField: { variant: "standard" } }}
                         sx={{
-                          borderBottom: "3px solid #78EAFF",
                           width: "100%",
+                          borderBottom: "3px solid #78EAFF",
                           svg: {
                             color: "red",
                             background: "red",
@@ -407,8 +404,9 @@ export const KalyanReserve = () => {
                       borderBottom: "3px solid #78EAFF",
                       "& input": {
                         color: "#fff",
-                        width: "479px",
                         fontFamily: "Lato",
+                        minWidth: "479px",
+                        width: "100%",
                       },
                     },
                   }}

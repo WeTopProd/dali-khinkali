@@ -383,7 +383,7 @@ const MainReserve = () => {
                     sx: {
                       "& input": {
                         color: "#fff",
-                        width: "479px",
+                        minWidth: "346px !important",
                         fontFamily: "Lato",
                       },
                     },

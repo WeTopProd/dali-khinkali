@@ -44,7 +44,7 @@
 
 .SubBoxKalyanPrice {
 	flex: 0 1 0;
-	margin: 0 50px 0;
+	margin: 0 50px 40px;
 }
 
 .SubBoxKalyanPrice span:nth-child(3),
@@ -84,6 +84,12 @@
 	padding: 170px 0 170px 0;
 }
 
+@media (max-width: 414px) {
+	.BtnBoxKalyanPrice {
+		padding: 40px 0;
+	}
+}
+
 .buttonKalyanPrice {
 	text-align: center;
 	min-width: 33%;
@@ -92,7 +98,7 @@
 	padding: 20px 70px;
 	color: #FFF;
 	font-family: "Lato";
-	font-size: 25px;
+	font-size: calc(12px + 5 * ((100vw - 320px) / (1920 - 320)));
 	font-weight: 600;
 	text-transform: uppercase;
 	transition: ease .4s;
@@ -111,6 +117,5 @@
 		flex-wrap: wrap;
 	}
 }
-.BtnBoxKalyanPrice {
-	
-}
+
+.BtnBoxKalyanPrice {}
