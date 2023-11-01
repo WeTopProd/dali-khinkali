@@ -101,7 +101,7 @@ select:after {
   font-size: calc(18px + 18 * ((100vw - 320px) / (1920 - 320)));
   font-weight: 500;
   padding: 0 0 5px 0;
-  border-bottom: 1px solid #6EE0FA;
+  border-bottom: 3px solid #6EE0FA;
   width: 479px;
 }
 
@@ -136,7 +136,7 @@ select:after {
 
   .ReserveOption {
     width: 50%;
-    min-width: 346px;
+    min-width: 382px;
   }
 
   .css-9w8grg-MuiInputBase-root-MuiInput-root input {
@@ -150,7 +150,7 @@ select:after {
 
 .spanReserve {
   margin: 0 0 0 30px;
-  border-bottom: 1px solid #6ee0fa;
+  border-bottom: 3px solid #6EE0FA;
 }
 
 TextField {

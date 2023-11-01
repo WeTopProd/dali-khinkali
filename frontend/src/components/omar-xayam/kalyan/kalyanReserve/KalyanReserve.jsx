@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import stylesKalyan from "./KalyanReserve.module.css";
-//
+import videoKalyan from "./video/videoKalyann.mp4";
 import styles from "./MainReserve.module.css";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -183,15 +183,7 @@ export const KalyanReserve = () => {
           <h3>Почувствуй нашу атмосферу </h3>
         </div>
         <div className={stylesKalyan.KalyanReserveVideo}>
-          <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/DQWMvj3_hJg?si=JvBLi9PZ07s2soQx"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-          ></iframe>
+          <video src={videoKalyan} controls></video>
         </div>
 
         <div className={styles.backgroundBodyReserve}>
@@ -398,6 +390,34 @@ export const KalyanReserve = () => {
               {/* По желанию  */}
               <div className="reserve__title__subtitle">
                 <div className={stylesKalyan.ReserveTitleLeft}>Комментарий</div>
+                <div className={styles.InputRowError}>
+                  <TextField
+                    InputProps={{
+                      sx: {
+                        "& input": {
+                          color: "#fff",
+                          width: "479px",
+                          fontFamily: "Lato",
+                          borderBottom: "3px solid #78EAFF",
+                        },
+                      },
+                    }}
+                    required
+                    margin="dense"
+                    id="date"
+                    placeholder="По желанию"
+                    color="black"
+                    variant="standard"
+                    value={name}
+                    onChange={handler.name}
+                  />
+                  {errors.name && (
+                    <div style={{ color: "red" }}>{errors.name}</div>
+                  )}
+                </div>
+              </div>
+              {/* <div className="reserve__title__subtitle">
+                <div className={stylesKalyan.ReserveTitleLeft}></div>
                 <TextField
                   InputProps={{
                     sx: {
@@ -405,8 +425,8 @@ export const KalyanReserve = () => {
                       "& input": {
                         color: "#fff",
                         fontFamily: "Lato",
-                        minWidth: "479px",
-                        width: "100%",
+                        minWidth: "346px",
+                        width: "479px",
                       },
                     },
                   }}
@@ -418,7 +438,7 @@ export const KalyanReserve = () => {
                   value={optional}
                   onChange={handler.optional}
                 />
-              </div>
+              </div> */}
 
               {/* Button__Bron */}
               <div className="reserve__butttonm">

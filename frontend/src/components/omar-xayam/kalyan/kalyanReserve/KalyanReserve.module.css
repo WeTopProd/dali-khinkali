@@ -13,11 +13,16 @@
 }
 
 .KalyanReserveVideo {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	display: block;
+	margin: 0 auto;
 	width: 100%;
+}
+
+.KalyanReserveVideo video {
+	width: 600px;
+	height: 600px;
 	padding: 100px 0 200px 0;
+	width: 100%;
 }
 
 .titleKalyanReserve {
