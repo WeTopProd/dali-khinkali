@@ -3,6 +3,11 @@
   margin: 265px auto 0;
 }
 
+@media (max-width: 414px) {
+  .bannerContainer {
+    margin: 173px auto 0;
+  }
+}
 
 
 .navLink {

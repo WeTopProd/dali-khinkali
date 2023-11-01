@@ -273,7 +273,7 @@ const MainReserve = () => {
                   {sucessCardReserveTable ? (
                     <Regsuccessfully />
                   ) : (
-                    <Button
+                    <button
                       className="reserve__order__button"
                       style={{
                         borderRadius: "20px",
@@ -281,7 +281,7 @@ const MainReserve = () => {
                       onClick={BanquetHallPreOrder}
                     >
                       Предзаказ
-                    </Button>
+                    </button>
                   )}
                 </div>
               </div>

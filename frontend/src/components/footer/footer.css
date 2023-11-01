@@ -61,7 +61,7 @@
 }
 
 .footer__copy {
-  font-family: "Monserat";
+  font-family: "Montserrat";
   font-weight: 400;
   display: flex;
   flex-wrap: wrap;
@@ -168,6 +168,11 @@
   display: block;
   color: #fff;
   border-bottom: 1px solid white;
+  font-family: sans-serif;
+}
+
+.footer__copy-center-item {
+  font-family: sans-serif;
 }
 
 @media screen and (max-width: 1280px) {

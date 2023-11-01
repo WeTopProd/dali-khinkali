@@ -31,6 +31,12 @@
   line-height: normal;
 }
 
+@media (max-width: 414px) {
+  .taxi {
+    padding: 0;
+  }
+}
+
 .wrapper {
   max-width: 1655px;
   margin: 0 auto;
@@ -190,7 +196,7 @@
   font-size: calc(25px + 29 * ((100vw - 320px) / (1920 - 320)));
   color: white;
   background: #ff6900 !important;
-  padding: 15px 65px !important;
+  padding: 20px 65px !important;
   border-radius: 20px !important;
   width: 60%;
 }
@@ -280,13 +286,6 @@
   align-items: center;
 }
 
-.css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root {
-  background: url(../../assets/img//SelectForm.png) no-repeat center;
-}
-
-.css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root svg {
-  display: none;
-}
 
 .css-cwhad8-MuiDateCalendar-root,
 .css-1g7nc1s-MuiPickersLayout-root {
@@ -299,6 +298,9 @@
 }
 
 
+.css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root {
+  background: url(../../assets/img//SelectForm.png) no-repeat center;
+}
 
 /* taxi */
 /* .css-1x51dt5-MuiInputBase-input-MuiInput-input {
@@ -310,3 +312,6 @@
 .css-v4u5dn-MuiInputBase-root-MuiInput-root:before {
   right: 56px !important
 } */
+.taxiNoModal {
+  margin: 0px 0 40px 0;
+}

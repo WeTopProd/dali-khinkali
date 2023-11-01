@@ -13,6 +13,12 @@
   border-color: white;
 }
 
+@media (max-width: 414px) {
+  .container {
+    min-height: 640px;
+  }
+}
+
 .BoxWeightSubTitle {
   visibility: hidden;
   opacity: 0;

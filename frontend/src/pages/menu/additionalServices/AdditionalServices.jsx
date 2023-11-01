@@ -113,24 +113,26 @@ export default function AdditionalServices() {
             <ul className={styles.AddServicesSelect}>
               {services.map((service, index) => (
                 <div className={styles.boxRow}>
-                  <li key={index} className={styles.serviceNameBox}>
-                    {service.name} - {service.price} руб
-                  </li>
-                  <li style={{ listStyle: "none" }}>
-                    <button
-                      className={styles.counterDecrement}
-                      onClick={() => decrementCounter(index)}
-                    >
-                      -
-                    </button>
-                    {counters[index]}
-                    <button
-                      className={styles.counterIncrement}
-                      onClick={() => incrementCounter(index)}
-                    >
-                      +
-                    </button>
-                  </li>
+                  <div className={styles.rowAddServices}>
+                    <li key={index} className={styles.serviceNameBox}>
+                      {service.name} - {service.price} руб
+                    </li>
+                    <li style={{ listStyle: "none" }}>
+                      <button
+                        className={styles.counterDecrement}
+                        onClick={() => decrementCounter(index)}
+                      >
+                        -
+                      </button>
+                      {counters[index]}
+                      <button
+                        className={styles.counterIncrement}
+                        onClick={() => incrementCounter(index)}
+                      >
+                        +
+                      </button>
+                    </li>
+                  </div>
                 </div>
               ))}
             </ul>

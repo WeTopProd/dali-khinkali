@@ -15,9 +15,37 @@
   display: flex;
 }
 
+.rowAddServices {
+  display: flex;
+}
+
+@media (max-width: 703px) {
+  .AddServicesSelect {
+    margin: 40px 0 0 20px;
+  }
+}
+
 .serviceNameBox {
   margin: 0 40px 50px 0;
   min-width: 348px;
+  font-size: calc(20px + 5 *((100vw - 320px) / (1920 - 320)));
+}
+
+@media (max-width: 618px) {
+  .serviceNameBox {
+    margin: 0 0px 30px 0;
+  }
+}
+
+@media (max-width: 578px) {
+  .rowAddServices {
+    flex-direction: column;
+  }
+
+  .serviceNameBox {
+    margin: 10px 0 10px 0;
+  }
+
 }
 
 .AddServicesSelect>li {
@@ -74,7 +102,7 @@
 .ContainerLunchTitle div {
   color: #fff;
   font-family: "Lato";
-  font-size: calc(40px + 100 * ((100vw - 320px) / (1920 - 320)));
+  font-size: calc(26px + 100 * ((100vw - 320px) / (1920 - 320)));
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -91,6 +119,16 @@
 .containerBackground {
   margin: 265px auto 0;
   height: 100vh;
+}
+
+@media (max-width: 899px) {
+  .containerBackground {
+    margin: 165px auto 0;
+  }
+
+  /* .ContainerLunchTitle {
+    padding: 380px 0;
+  } */
 }
 
 .textareaServices {
@@ -112,7 +150,9 @@
   min-width: 400px;
   min-height: 290px;
   height: 100px;
-  font-size: 35.237px;
+  font-size: calc(30px + 10 * ((100vw - 320px) / (1920 - 320)));
+  width: 100%;
+  min-width: 328px;
 }
 
 textarea::placeholder {
@@ -126,7 +166,7 @@ textarea::placeholder {
 .btnAddServies {
   color: #FFF;
   font-family: "Lato";
-  font-size: 41.633px;
+  font-size: calc(20px + 20 * ((100vw - 320px) / (1920 - 320)));
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -162,11 +202,17 @@ textarea::placeholder {
 .subTitle {
   color: #000;
   font-family: "Lato";
-  font-size: 35px;
+  font-size: calc(25px + 10 * ((100vw - 320px) / (1920 - 320)));
   font-weight: 500;
   padding: 0 150px 0;
   margin: 62px 0 61px 0;
   width: 100%;
+}
+
+@media (max-width: 633px) {
+  .subTitle {
+    margin: 40px 0;
+  }
 }
 
 .subTitle span {
@@ -178,7 +224,7 @@ textarea::placeholder {
   margin: 50px 0 0 0;
   color: #000;
   font-family: "Lato";
-  font-size: 40px;
+  font-size: calc(30px + 10 * ((100vw - 320px) / (1920 - 320)));
   font-weight: 600;
 }
 
@@ -204,5 +250,15 @@ textarea::placeholder {
 
   .cardSalat:hover {
     min-height: 660px;
+  }
+}
+
+@media (max-width: 397px) {
+  .subTitle {
+    padding: 0 0px 0;
+  }
+
+  .AddServicesSelect {
+    padding: 0 0 10px 7px;
   }
 }

@@ -102,8 +102,8 @@ function Taxi() {
                 Проблема добраться домой в позднее время? <br />
                 Услуга " такси Дали-Хинкали " поможет решить Вашу проблему
               </p>
-              <Button
-                className="taxi__order-button"
+              <button
+                className="taxi__order-button taxiNoModal"
                 style={{
                   color: "white",
                   backgroundColor: "black",
@@ -115,7 +115,7 @@ function Taxi() {
                 onClick={handleOpen}
               >
                 предзаказ
-              </Button>
+              </button>
             </div>
           </div>
         </div>
@@ -268,7 +268,7 @@ function Taxi() {
               <Regsuccessfully />
             ) : (
               <button
-                className="taxi__order-button"
+                className="taxi__order-button taxi_button"
                 style={{
                   color: "white",
                   backgroundColor: "#ff6900",

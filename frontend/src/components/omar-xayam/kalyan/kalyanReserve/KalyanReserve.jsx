@@ -15,6 +15,7 @@ import dayjs from "dayjs";
 import "../../../../assets/general-styles/styles.css";
 import { userApi } from "../../../../api/userApi";
 import { reserveApi } from "../../../../api/reserveApi";
+import "./Kalyan.css";
 
 export const KalyanReserve = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -261,7 +262,7 @@ export const KalyanReserve = () => {
                         sx={{
                           borderBottom: "3px solid #78EAFF",
                           maxWidth: "94%",
-                          svg: { color: "red" },
+                          svg: { background: "red !important" },
                           input: { color: "#fff" },
                           label: {
                             color: "#fff",
@@ -287,7 +288,10 @@ export const KalyanReserve = () => {
                         sx={{
                           borderBottom: "3px solid #78EAFF",
                           width: "100%",
-                          svg: { color: "#fff" },
+                          svg: {
+                            color: "red",
+                            background: "red",
+                          },
                           input: { color: "#fff" },
                           label: {
                             color: "#fff",
