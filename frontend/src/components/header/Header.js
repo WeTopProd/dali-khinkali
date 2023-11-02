@@ -134,7 +134,7 @@ function Header({ Pages, basketItems, setBasketItems }) {
 
   React.useEffect(() => {
     axios
-      .get("http://dali-khinkali/api/goods/basket/", {
+      .get("https://dali-khinkali/api/goods/basket/", {
         headers: {
           "content-type": "application/json",
           authorization: `Token ${sessionStorage.getItem("auth_token")}`,

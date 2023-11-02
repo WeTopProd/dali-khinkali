@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const urlApi = "http://dali-khinkali/api";
+const urlApi = "https://dali-khinkali/api";
 
 export const userApi = {
   get: async (token) => {
