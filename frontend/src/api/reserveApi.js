@@ -3,7 +3,7 @@ import axios from "axios";
 export const addetionalServiseApi = async (token, data) => {
   try {
     const res = await axios.request({
-      url: "https://dali-khinkali/api/send-order/",
+      url: "http://dali-khinkali/api/send-order/",
       data: data,
       headers: {
         Authorization: `Token ${token}`,
@@ -16,7 +16,7 @@ export const addetionalServiseApi = async (token, data) => {
     return error.message;
   }
 };
-const url = "https://dali-khinkali/api";
+const url = "http://dali-khinkali/api";
 export const reserveApi = {
   hookah: async (token, data) => {
     const headers =

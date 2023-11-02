@@ -3,7 +3,7 @@ import axios from "axios";
 export const banquetHullApi = async (token, data) => {
   try {
     const res = await axios.request({
-      url: "https://dali-khinkali/api/send-banquet/",
+      url: "http://dali-khinkali/api/send-banquet/",
       data: JSON.stringify(data),
       headers: {
         Authorization: `Token ${token}`,

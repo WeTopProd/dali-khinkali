@@ -19,7 +19,7 @@ const HistoryOrderItem = ({ HistoryOrdersPages, total_price, order_date }) => {
             {HistoryOrdersPages.map((item) => (
               <div className={styles.rowImgText}>
                 <img
-                  src={`https://dali-khinkali/${item.goods.images[0].images}`}
+                  src={`http://dali-khinkali/${item.goods.images[0].images}`}
                   alt=""
                 />
                 <div className={styles.HistoryRowOrder}>
