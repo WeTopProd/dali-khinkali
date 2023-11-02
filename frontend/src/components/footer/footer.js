@@ -23,27 +23,30 @@ import Image4 from "../../assets/img/image-4.png";
 import Image5 from "../../assets/img/image-5.png";
 import Image6 from "../../assets/img/image-6.png";
 import Image7 from "../../assets/img/image-7.png";
-import Image8 from "../../assets/img/image-8.png";
-import Image9 from "../../assets/img/image-9.png";
+import Image8 from "../../assets/img/tyteda.png";
+import Image9 from "../../assets/img/poyu.png";
 import Image10 from "../../assets/img/image-10.png";
 import Image11 from "../../assets/img/image-11.png";
 import Image12 from "../../assets/img/image-12.png";
+import Image13 from "../../assets/img/image-9.png";
+
 import PeyKiperr from "../../assets/img/PeyKiper.svg";
 
 function Footer() {
   const images = [
-    Image1,
-    Image2,
-    Image3,
-    Image4,
-    Image5,
-    Image6,
-    Image7,
-    Image8,
-    Image9,
-    Image10,
-    Image11,
-    Image12,
+    { src: Image1, link: "/https://frantsuz-club.ru/" },
+    { src: Image2, link: "/https://comicadze.ru/" },
+    { src: Image3, link: "/https://corp-pitanie.https//tyteda.ru/api/" },
+    { src: Image4, link: "#" },
+    { src: Image5, link: "/https://xn--80aamqmn7eb2e.xn--p1ai/" },
+    { src: Image6, link: "/#" },
+    { src: Image7, link: "/https://pominki-dostavka.ru/" },
+    { src: Image8, link: "/https://corp-pitanie.https//tyteda.ru/api/" },
+    { src: Image9, link: "/https://poyuvsegda.ru/" },
+    { src: Image10, link: "/#" },
+    { src: Image11, link: "/https://reiting.moscow/" },
+    { src: Image12, link: "/https://frantsuz.ru/" },
+    { src: Image13, link: "/https://wetop.ru/" },
   ];
 
   return (
@@ -95,14 +98,16 @@ function Footer() {
                   rowSpacing={{ xs: 5, md: 3 }}
                   spacing={{ xs: 3 }}
                 >
-                  {images.map((image, index) => (
+                  {images.map((imageData, index) => (
                     <Grid item xs={6} sm={6} md={4} lg={3} key={index}>
                       <div className="footer__column-projects-item">
-                        <img
-                          src={image}
-                          className="footer__column-projects-item-image"
-                          alt="item-logo"
-                        ></img>
+                        <a href={imageData.link}>
+                          <img
+                            src={imageData.src}
+                            className="footer__column-projects-item-image"
+                            alt="item-logo"
+                          />
+                        </a>
                       </div>
                     </Grid>
                   ))}
