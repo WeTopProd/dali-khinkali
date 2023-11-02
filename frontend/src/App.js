@@ -149,7 +149,7 @@ function App() {
             basketItems={basketItems}
             setBasketItems={setBasketItemsFunction}
           />
-          <Main>
+          <main>
             <Routes>
               {pages.map((page) => (
                 <Route
@@ -159,7 +159,7 @@ function App() {
                 />
               ))}
             </Routes>
-          </Main>
+          </main>
         </Router>
       </div>
     </ThemeProvider>
