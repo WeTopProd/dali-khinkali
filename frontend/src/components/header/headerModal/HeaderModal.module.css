@@ -38,6 +38,7 @@
 
 .NavItemBox {
   margin: 30px 0 0 0;
+  padding: 0 0 0 10px;
 }
 
 .NavItemBox button {
@@ -47,6 +48,11 @@
   border-radius: 30px;
   padding: 10px 10px;
   margin: 0 5px 5px;
+}
+
+.NavItemBox button:focus {
+  background: #f69049;
+  color: white;
 }
 
 .backIconToggle {
