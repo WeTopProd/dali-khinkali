@@ -53,7 +53,7 @@ const style = {
 };
 
 const pages = [
-  { name: "Главная", url: "/home#homePages" },
+  { name: "Главная", url: "/" },
   { name: "Меню ", url: "/menu" },
   { name: "Резерв стола", url: "/home#table-reserve" },
   { name: "Банкеты", url: "/home#hall" },

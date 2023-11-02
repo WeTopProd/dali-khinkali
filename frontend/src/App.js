@@ -81,7 +81,7 @@ function App() {
           setBasketItems={setBasketItemsFunction}
         />
       ),
-      url: "/home",
+      url: "/",
     },
     {
       component: (
@@ -149,17 +149,11 @@ function App() {
             basketItems={basketItems}
             setBasketItems={setBasketItemsFunction}
           />
-          <main>
-            <Routes>
-              {pages.map((page) => (
-                <Route
-                  key={page.url}
-                  path={page.url}
-                  element={page.component}
-                />
-              ))}
-            </Routes>
-          </main>
+          <Routes>
+            {pages.map((page) => (
+              <Route key={page.url} path={page.url} element={page.component} />
+            ))}
+          </Routes>
         </Router>
       </div>
     </ThemeProvider>
