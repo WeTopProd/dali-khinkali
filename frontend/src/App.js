@@ -144,7 +144,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <div className="App">
         <Router>
-          <ScrollToTop />
+          {/* <ScrollToTop /> */}
           <Header
             basketItems={basketItems}
             setBasketItems={setBasketItemsFunction}
