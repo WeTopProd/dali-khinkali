@@ -34,19 +34,19 @@ import PeyKiperr from "../../assets/img/PeyKiper.svg";
 
 function Footer() {
   const images = [
-    { src: Image1, link: "/https://frantsuz-club.ru/" },
-    { src: Image2, link: "/https://comicadze.ru/" },
-    { src: Image3, link: "/https://corp-pitanie.https//tyteda.ru/api/" },
+    { src: Image1, link: "https://frantsuz-club.ru/" },
+    { src: Image2, link: "https://comicadze.ru/" },
+    { src: Image3, link: "https://corp-pitanie.https//tyteda.ru/api/" },
     { src: Image4, link: "#" },
-    { src: Image5, link: "/https://xn--80aamqmn7eb2e.xn--p1ai/" },
-    { src: Image6, link: "/#" },
-    { src: Image7, link: "/https://pominki-dostavka.ru/" },
-    { src: Image8, link: "/https://corp-pitanie.https//tyteda.ru/api/" },
-    { src: Image9, link: "/https://poyuvsegda.ru/" },
-    { src: Image10, link: "/#" },
-    { src: Image11, link: "/https://reiting.moscow/" },
-    { src: Image12, link: "/https://frantsuz.ru/" },
-    { src: Image13, link: "/https://wetop.ru/" },
+    { src: Image5, link: "https://xn--80aamqmn7eb2e.xn--p1ai/" },
+    { src: Image6, link: "#" },
+    { src: Image7, link: "https://pominki-dostavka.ru/" },
+    { src: Image8, link: "https://corp-pitanie.https//tyteda.ru/api/" },
+    { src: Image9, link: "https://poyuvsegda.ru" },
+    { src: Image10, link: "#" },
+    { src: Image11, link: "https://reiting.moscow/" },
+    { src: Image12, link: "https://frantsuz.ru/" },
+    { src: Image13, link: "https://wetop.ru/" },
   ];
 
   return (
