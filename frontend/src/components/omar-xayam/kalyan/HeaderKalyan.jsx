@@ -17,7 +17,7 @@ export const HeaderKalyan = () => {
   const scrollToReserve = () => {
     if (reserveRef.current) {
       reserveRef.current.scrollIntoView({ behavior: "smooth" });
-      const yOffset = 230;
+      const yOffset = 300;
       const y =
         reserveRef.current.getBoundingClientRect().top +
         window.pageYOffset +

@@ -10,7 +10,7 @@ export const KalyanMenuPrice = () => {
         secondComponent.getBoundingClientRect().top + window.pageYOffset;
 
       window.scrollTo({
-        top: yOffset + 390,
+        top: yOffset + -220,
         behavior: "smooth",
       });
     }

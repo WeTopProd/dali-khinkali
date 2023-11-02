@@ -144,16 +144,22 @@ function App() {
     <ThemeProvider theme={theme}>
       <div className="App">
         <Router>
-          {/* <ScrollToTop /> */}
+          <ScrollToTop />
           <Header
             basketItems={basketItems}
             setBasketItems={setBasketItemsFunction}
           />
-          <Routes>
-            {pages.map((page) => (
-              <Route key={page.url} path={page.url} element={page.component} />
-            ))}
-          </Routes>
+          <Main>
+            <Routes>
+              {pages.map((page) => (
+                <Route
+                  key={page.url}
+                  path={page.url}
+                  element={page.component}
+                />
+              ))}
+            </Routes>
+          </Main>
         </Router>
       </div>
     </ThemeProvider>
