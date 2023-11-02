@@ -54,7 +54,9 @@ const Card = ({ elem, settings, Slider, setBasketItems, basketItems }) => {
             <button
               className="btn"
               onClick={() =>
-                token.length > 5 ? addToCart() : alert("зарегистр")
+                token.length > 5
+                  ? addToCart()
+                  : alert("Пожалуйста зарегистрируйтесь!!")
               }
             >
               + В корзину

@@ -5,6 +5,8 @@ import "../../../assets/general-styles/styles.css";
 
 const Card = ({ elem, basketItems, setBasketItems }) => {
   const [add, setAdd] = useState(false);
+  const token = localStorage.getItem("token");
+
   function addToCart() {
     const token = sessionStorage.getItem("auth_token");
 

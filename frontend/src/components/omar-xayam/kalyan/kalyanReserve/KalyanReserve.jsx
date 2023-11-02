@@ -176,16 +176,18 @@ export const KalyanReserve = () => {
         .catch((err) => alert(err.message));
     },
   };
+
   return (
     <>
-      <div className={stylesKalyan.KalyanReservePages}>
+      <div className={stylesKalyan.KalyanReservePages} id="second-component">
         <div className={stylesKalyan.KalyanReserveContainer}>
           <h3>Почувствуй нашу атмосферу </h3>
         </div>
         <div className={stylesKalyan.KalyanReserveVideo}>
-          <video src={videoKalyan} controls></video>
+          <video controls>
+            <source src={videoKalyan} type="video/mp4" />
+          </video>
         </div>
-
         <div className={styles.backgroundBodyReserve}>
           <h3 className={stylesKalyan.titleKalyanReserve}>Бронь стола</h3>
 

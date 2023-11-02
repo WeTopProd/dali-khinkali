@@ -5,6 +5,8 @@ import "../../../assets/general-styles/styles.css";
 
 const Card = ({ elem, basketItems, setBasketItems }) => {
   const [add, setAdd] = useState(false);
+  const token = localStorage.getItem("token");
+
   function addToCart() {
     const token = sessionStorage.getItem("auth_token");
 
@@ -32,7 +34,7 @@ const Card = ({ elem, basketItems, setBasketItems }) => {
 
   return (
     <div className="CardContainer">
-      <div className={`card ${styles.cardSalat}`} key={elem.id}>
+      <div className={styles.cardSalat} key={elem.id}>
         <div className="ImgField imgBeverage">
           <img className="image hoverBeverage" src={elem.src} alt="" />
         </div>
@@ -46,7 +48,14 @@ const Card = ({ elem, basketItems, setBasketItems }) => {
           {add ? (
             <p className="goodCardAdd">✅ В корзине</p>
           ) : (
-            <button className="btn" onClick={() => addToCart()}>
+            <button
+              className="btn"
+              onClick={() =>
+                token.length > 5
+                  ? addToCart()
+                  : alert("Пожалуйста зарегистрируйтесь!!")
+              }
+            >
               + В корзину
             </button>
           )}

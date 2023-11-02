@@ -136,7 +136,7 @@ select:after {
 
   .ReserveOption {
     width: 50%;
-    min-width: 382px;
+    min-width: 342px;
   }
 
   .css-9w8grg-MuiInputBase-root-MuiInput-root input {
@@ -145,6 +145,12 @@ select:after {
 
   .css-9w8grg-MuiInputBase-root-MuiInput-root input {
     min-width: 346px;
+  }
+}
+
+@media (max-width: 414px) {
+  .ReserveOption {
+    min-width: 382px
   }
 }
 

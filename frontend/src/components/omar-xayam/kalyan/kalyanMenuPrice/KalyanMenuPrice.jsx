@@ -2,6 +2,20 @@ import React from "react";
 import styles from "./KalyanMenuPrice.module.css";
 
 export const KalyanMenuPrice = () => {
+  const scrollToSecondComponent = () => {
+    const secondComponent = document.getElementById("second-component");
+
+    if (secondComponent) {
+      const yOffset =
+        secondComponent.getBoundingClientRect().top + window.pageYOffset;
+
+      window.scrollTo({
+        top: yOffset + 390,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <div className={styles.KalyanMenuPriceContainer}>
       <div className={styles.BoxKalyanPrice}>
@@ -31,7 +45,12 @@ export const KalyanMenuPrice = () => {
         </div>
       </div>
       <div className={styles.BtnBoxKalyanPrice}>
-        <button className={styles.buttonKalyanPrice}>
+        <button
+          className={styles.buttonKalyanPrice}
+          onClick={() => {
+            scrollToSecondComponent();
+          }}
+        >
           забронировать столик
         </button>
       </div>
