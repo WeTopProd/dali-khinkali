@@ -16,15 +16,15 @@ import Dessert from "./dessert/Dessert";
 const Pages = [
   { name: "Салаты", url: "" },
   { name: "Закуски", url: "" },
-  { name: "Супы", url: "/" },
-  { name: "Гарниры", url: "/" },
-  { name: "Выпечка", url: "/" },
-  { name: "Горячие блюда", url: "/" },
-  { name: "Блюда на мангале", url: "/" },
-  { name: "Соусы", url: "/" },
-  { name: "Хлеб", url: "/" },
-  { name: "Десерты", url: "/" },
-  { name: "Напитки", url: "/" },
+  { name: "Супы", url: "" },
+  { name: "Гарниры", url: "" },
+  { name: "Выпечка", url: "" },
+  { name: "Горячие блюда", url: "" },
+  { name: "Блюда на мангале", url: "" },
+  { name: "Соусы", url: "" },
+  { name: "Хлеб", url: "" },
+  { name: "Десерты", url: "" },
+  { name: "Напитки", url: "" },
 ];
 
 const Menu = ({ basketItems, setBasketItems }) => {
@@ -102,7 +102,10 @@ const Menu = ({ basketItems, setBasketItems }) => {
             </button>
           ))}
         </div>
-        <hr style={{ border: "3px solid black", margin: "5px 0 0 0" }} className={styles.hrLine} />
+        <hr
+          style={{ border: "3px solid black", margin: "5px 0 0 0" }}
+          className={styles.hrLine}
+        />
         {renderSwitch(cardProducts)}
       </div>
     </div>
