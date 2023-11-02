@@ -101,13 +101,13 @@ function Footer() {
                   {images.map((imageData, index) => (
                     <Grid item xs={6} sm={6} md={4} lg={3} key={index}>
                       <div className="footer__column-projects-item">
-                        <a href={imageData.link}>
+                        <Link to={imageData.link}>
                           <img
                             src={imageData.src}
                             className="footer__column-projects-item-image"
                             alt="item-logo"
                           />
-                        </a>
+                        </Link>
                       </div>
                     </Grid>
                   ))}
