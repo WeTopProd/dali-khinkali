@@ -41,7 +41,7 @@ function Footer() {
     { src: Image5, link: "https://xn--80aamqmn7eb2e.xn--p1ai/" },
     { src: Image6, link: "#" },
     { src: Image7, link: "https://pominki-dostavka.ru/" },
-    { src: Image8, link: "https://corp-pitanie.https//tyteda.ru/api/" },
+    { src: Image8, link: "https://tyteda.ru/" },
     { src: Image9, link: "https://poyuvsegda.ru" },
     { src: Image10, link: "#" },
     { src: Image11, link: "https://reiting.moscow/" },
