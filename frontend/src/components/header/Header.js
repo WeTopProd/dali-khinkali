@@ -211,7 +211,7 @@ function Header({ Pages, basketItems, setBasketItems }) {
                     justifyContent: "center",
                   },
                 }}
-                style={{ padding: "50px 0" }}
+                style={{ padding: "16px 0" }}
               >
                 {pages.map((page) => (
                   <NavLink
