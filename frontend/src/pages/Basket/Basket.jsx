@@ -1,0 +1,485 @@
+import b from "./Basket.module.scss";
+import h from "./Header.module.scss";
+
+import { useEffect, useState } from "react";
+import BasketTovar from "./BasketTovar";
+import { userApi } from "../../api/userApi.js";
+
+import axios from "axios";
+
+export default function Basket({ basketItems, setBasketItems }) {
+  //
+  const [karzinkaTovar, setkarzinkaTovar] = useState([]);
+
+  const [totalCartPrice, setTotalCartPrice] = useState(0);
+  const [address, setAddress] = useState("");
+
+  useEffect(() => {
+    axios
+      .get("http://127.0.0.1:8000/api/goods/basket/", {
+        headers: {
+          "content-type": "application/json",
+          authorization: `Token ${sessionStorage.getItem("auth_token")}`,
+        },
+      })
+      .then((data) => setkarzinkaTovar(data.data))
+      .catch(() => setkarzinkaTovar([]));
+  }, []);
+
+  //////////
+  const [adress, setAdress] = useState({
+    delivery_address: "",
+    intercom: "",
+    floor: 0,
+    comment: "",
+  });
+  const [userId, setUserId] = useState(0);
+  const [uData, setUData] = useState({
+    email: "",
+    first_name: "",
+    id: 0,
+    last_name: "",
+    phone: "",
+  });
+  const token = localStorage.getItem("token");
+  useEffect(() => {
+    userId == 0 &&
+      userApi.get(token).then((data) => {
+        setUserId(data.id);
+        setUData(data);
+      });
+
+    userId != 0 &&
+      userApi
+        .getAdress(token, userId)
+        .then((data) =>
+          setAdress({
+            delivery_address: data.delivery_address,
+            intercom: data.intercom,
+            floor: data.floor,
+            comment: data.comment,
+          })
+        )
+        .then(() => {
+          console.log(userId, address, "--------------");
+        });
+  }, [adress.delivery_address.length, uData]);
+
+  //
+  async function removeBasket(id) {
+    try {
+      await axios.delete(
+        `http://127.0.0.1:8000/api/goods/${id}/shopping_cart/`,
+        {
+          headers: {
+            "content-type": "application/json",
+            authorization: `Token ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+      setkarzinkaTovar((prevKarzinkaTovar) =>
+        prevKarzinkaTovar.filter((item) => item.id !== id)
+      );
+    } catch (err) {}
+  }
+
+  const [instrumentation, setInstrumentation] = useState(1);
+
+  const [delivery_amount, setdelivery_amount] = useState(200);
+
+  const [countInfo, setCountInfo] = useState([]);
+
+  const increaseCount = () => {
+    setInstrumentation(instrumentation + 1);
+  };
+
+  const decreaseCount = () => {
+    if (instrumentation > 0) {
+      setInstrumentation(instrumentation - 1);
+    }
+  };
+
+  // Функция для рассчета общей цены корзины
+  const calculateTotalCartPrice = () => {
+    const totalKarzinkaPrice = karzinkaTovar.reduce(
+      (total, item) => total + item.price * item.count,
+      0
+    );
+    const totalCountInfoPrice = countInfo.reduce(
+      (total, item) => total + item.count * item.goods.price,
+      0
+    );
+    const dostavka = delivery_amount;
+    return totalKarzinkaPrice + totalCountInfoPrice + dostavka;
+  };
+
+  useEffect(() => {
+    setTotalCartPrice(calculateTotalCartPrice());
+  }, [karzinkaTovar, countInfo, setTotalCartPrice]);
+
+  const [name, setName] = useState("");
+
+  const [mail, setMail] = useState("");
+
+  // const [address, setAddress] = useState('')
+
+  const [delTime, setDelTime] = useState("");
+
+  const [delTimeSum, setDelTimeSum] = useState("");
+
+  const [oplata, setOplata] = useState("");
+
+  const deliveryTime = delTime + " " + delTimeSum;
+
+  const tokenTwo = localStorage.getItem("token");
+
+  const [lastName, setLastName] = useState("");
+
+  const [error, setError] = useState("");
+
+  const [modal, setmodal] = useState(false);
+
+  const [goodDisc, setGoodsDisc] = useState("");
+
+  const [goodId, setGoodId] = useState([]);
+
+  const [countGood, setCountGood] = useState([]);
+
+  const [priceGood, setPriceGood] = useState([]);
+
+  const [finalPrice, setFinalPrice] = useState("");
+
+  const [priceCount, setPriceCount] = useState([]);
+
+  useEffect(() => {
+    setGoodsDisc(karzinkaTovar.map((el) => el.title));
+    setGoodId(karzinkaTovar.map((el) => el.id));
+    setCountGood(karzinkaTovar.map((el) => el.count));
+
+    let priceGood = karzinkaTovar.map((el) => el.price * el.count);
+    setPriceGood(priceGood);
+
+    let totalPrice = priceGood.reduce((prev, curr) => prev + curr, 0) + 200;
+    setFinalPrice(totalPrice);
+
+    // const goodsDisc = karzinkaTovar.map(el => el.title)
+    // const goodId = karzinkaTovar.map(el => el.id)
+    // const countGood = karzinkaTovar.map(el => el.count)
+    // const priceGood = karzinkaTovar.map(el => el.price * el.count)
+
+    // setGoodsDisc(goodsDisc)
+    // setGoodId(goodId)
+    // setCountGood(countGood)
+    // setPriceGood(priceGood)
+
+    // const totalPrice = priceGood.reduce((prev, curr) => prev + curr, 0) + 200
+    // setPriceCount(totalPrice)
+    // setFinalPrice(totalPrice)
+
+    // console.log({
+    //     decription: `${goodDisc}`,
+    //     goods_id: goodId,
+    //     count_goods: countGood,
+    //     price_goods: priceGood,
+    //     final_price: `${finalPrice}`,
+    // });
+  }, [karzinkaTovar]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // https://tyteda.ru
+    axios
+      .request({
+        url: "https://tyteda.ru/api/send-order/",
+        data: {
+          decription: `${goodDisc}`,
+          goods_id: goodId,
+          count_goods: countGood,
+          price_goods: priceGood,
+          final_price: `${finalPrice}`,
+        },
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Token ${tokenTwo}`,
+        },
+        method: "POST",
+      })
+      .then((response) => {
+        axios
+          .request({
+            url: "https://tyteda.ru/api/payment/",
+            method: "POST",
+            data: {
+              service_name: `${goodDisc}`,
+              num_order: goodId,
+              price: `${finalPrice}`,
+            },
+            headers: {
+              authorization: `Token ${tokenTwo}`,
+              "Content-Type": "application/json",
+            },
+          })
+          .then((response) => {
+            const redirectUrl = response.data.success;
+            if (redirectUrl) {
+              window.location.href = redirectUrl;
+            }
+          });
+      })
+      .then((res) => {
+        setAddress(address); // Обновите состояние адреса доставки
+        // window.location.reload();
+      })
+      .then((res) => {
+        axios
+          .patch(
+            "https://tyteda.ru/api/users/me/",
+            {
+              delivery_address: address, // Обновление адреса доставки в модели пользователя
+            },
+            {
+              headers: {
+                "Content-Type": "application/json",
+                authorization: `Token ${localStorage.getItem("token")}`,
+              },
+            }
+          )
+          .then(() => {
+            setAddress(address); // Обновите состояние адреса доставки
+            // window.location.reload();
+          })
+          .catch((userError) => {
+            console.error(
+              "Ошибка при обновлении адреса пользователя",
+              userError
+            );
+          });
+      })
+      .catch((err) => {
+        if (err.response.status === 400) {
+          const errorResponse = err.response.data.error;
+          setError(errorResponse || null);
+        } else {
+          setError("Произошла неизвестная ошибка.");
+          console.log(err, "error on payment");
+        }
+        setmodal(false);
+      });
+  };
+
+  const fetchDeliveryAddress = async () => {
+    try {
+      const response = await axios.get("https://tyteda.ru/api/users/me/", {
+        headers: {
+          Authorization: `Token ${tokenTwo}`,
+          "Content-Type": "application/json",
+        },
+      });
+      const address = response.data.delivery_address;
+      const name = response.data.first_name;
+      const mail = response.data.email;
+      // Получение адреса доставки из сервера
+      setAddress(address);
+      setName(name);
+      setMail(mail);
+    } catch (error) {
+      console.error("Ошибка запроса", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchDeliveryAddress();
+  }, []);
+
+  return (
+    <>
+      <section className={b.section__basket}>
+        <div className={h.container}>
+          <form className={b.basket} onSubmit={handleSubmit}>
+            <div className={b.basket__item}>
+              <p className={b.basket__item__title}>Личные данные</p>
+
+              <div className={b.basket__item__form}>
+                <label className={b.basket__item__form__label}>
+                  <p className={b.basket__item__form__label__text}>
+                    Имя/Фамилия
+                  </p>
+
+                  <input
+                    type="text"
+                    placeholder="ФИО"
+                    className={b.basket__item__form__label__inp}
+                    value={`${uData.last_name} ${uData.first_name}`}
+                    onChange={(event) => setName(event.target.value)}
+                  />
+                </label>
+
+                <label className={b.basket__item__form__label}>
+                  <p className={b.basket__item__form__label__text}>Почта</p>
+
+                  <input
+                    type="text"
+                    placeholder="example@mail.ru"
+                    className={b.basket__item__form__label__inp}
+                    value={uData.email}
+                    onChange={(event) => setMail(event.target.value)}
+                  />
+                </label>
+
+                <label className={b.basket__item__form__label}>
+                  <p className={b.basket__item__form__label__text}>Адрес</p>
+
+                  <input
+                    type="text"
+                    placeholder="Реутовских Ополченцев д 14, кв. 551"
+                    className={b.basket__item__form__label__inp}
+                    value={adress.delivery_address}
+                    onChange={(event) => setAddress(event.target.value)}
+                  />
+                </label>
+
+                <label className={b.basket__item__form__label}>
+                  <p className={b.basket__item__form__label__text}>
+                    Время доставки
+                  </p>
+
+                  <select
+                    className={b.basket__item__form__label__select}
+                    value={delTime}
+                    onChange={(event) => setDelTime(event.target.value)}
+                  >
+                    <option value="" disabled hidden>
+                      Выберете
+                    </option>
+                    <option value="Сегодня">Сегодня</option>
+                    <option value="Завтра">Завтра</option>
+                  </select>
+                </label>
+
+                <label className={b.basket__item__form__label}>
+                  <p className={b.basket__item__form__label__text}></p>
+
+                  <input
+                    type="time"
+                    className={b.basket__item__form__label__time}
+                    value={delTimeSum}
+                    onChange={(event) => setDelTimeSum(event.target.value)}
+                  />
+                </label>
+
+                <label className={b.basket__item__form__labelTwo}>
+                  <p className={b.basket__item__form__label__text}>
+                    Способ оплаты
+                  </p>
+
+                  <div className={b.basket__item__form__labelTwo__fl}>
+                    <select
+                      type="text"
+                      className={b.basket__item__form__label__selectTwo}
+                      value={oplata}
+                      onChange={(event) => setOplata(event.target.value)}
+                    >
+                      <option value="Оптала онлайн">Оплата онлайн</option>
+                    </select>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <div className={b.basket__item}>
+              <p className={b.basket__item__title}>Ваш заказ</p>
+
+              <div className={b.basket__item__formTwo}>
+                <div className={b.basket__item__map}>
+                  {karzinkaTovar?.length === 0 ? (
+                    <p className={b.basket__item__map__text}>
+                      Пока что нет выбранных товаров.
+                    </p>
+                  ) : (
+                    karzinkaTovar.map((info, index) => {
+                      return (
+                        <BasketTovar
+                          countInfo={countInfo}
+                          setCountInfo={setCountInfo}
+                          {...info}
+                          setkarzinkaTovar={setkarzinkaTovar}
+                          removeBasket={removeBasket}
+                          karzinkaTovar={karzinkaTovar}
+                          setTotalCartPrice={setTotalCartPrice}
+                          key={index}
+                        />
+                      );
+                    })
+                  )}
+                </div>
+
+                <div className={b.basket__item__pribor}>
+                  <p className={b.basket__item__pribor__title}>Приборы</p>
+
+                  <div className={h.nav__kar__item__fun}>
+                    <div
+                      className={h.nav__kar__item__fun__add}
+                      onClick={decreaseCount}
+                    >
+                      -
+                    </div>
+
+                    <h3>{instrumentation}</h3>
+
+                    <div
+                      className={h.nav__kar__item__fun__add}
+                      onClick={increaseCount}
+                    >
+                      +
+                    </div>
+                  </div>
+                </div>
+
+                <div className={b.basket__item__priborTwo}>
+                  <p className={b.basket__item__pribor__title}>Доставка</p>
+
+                  <p className={b.basket__item__pribor__title}>
+                    {delivery_amount} руб.
+                  </p>
+                </div>
+
+                <div className={b.basket__item__footer}>
+                  <p className={b.basket__item__footer__price}>
+                    {totalCartPrice} руб.
+                  </p>
+
+                  <button
+                    className={b.basket__item__footer__button}
+                    onClick={handleSubmit}
+                  >
+                    Оформить заказ
+                  </button>
+                </div>
+                <div
+                  style={{
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "end",
+                    padding: "10px",
+                  }}
+                >
+                  {error && (
+                    <p
+                      style={{
+                        color: "red",
+                        fontSize: "16px",
+                        padding: "0 15px",
+                      }}
+                    >
+                      {error}
+                    </p>
+                  )}
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+    </>
+  );
+}

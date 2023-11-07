@@ -1,0 +1,66 @@
+.FormVozvrat {
+  display: flex;
+  justify-content: space-around;
+}
+
+.DelTitle {
+  margin: 260px 0 0 0;
+  width: 100%;
+  text-align: center;
+  color: black;
+  display: block;
+}
+
+@media (max-width: 750px) {
+  .FormVozvrat {
+    flex-wrap: wrap;
+  }
+}
+
+.FormVozvratformLeft {
+  min-width: 462px;
+  width: 100%;
+  background: rgba(255, 166, 0, 0.5215686275);
+  margin: 0 30px 30px 0;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.FormVozvratformLeft h3 {
+  padding: 0 0 20px 0;
+}
+
+.FormVozvratInput {
+  border-radius: 10px;
+  color: black;
+  margin: 0 0 15px 0;
+}
+
+.FormVozvratInput input {
+  color: black;
+  border-radius: 5px;
+  width: 100%;
+  padding: 10px 5px;
+}
+
+.FormVozvratInput input::placeholder {
+  font-size: 10px;
+  font-size: calc(15px + 12 * ((100vw - 320px) / (1920 - 320)));
+}
+
+.FormVozvratformRight ul li {
+  color: black;
+}
+
+.buttonVozvrat {
+  font-size: calc(12px + 10 * ((100vw - 320px) / (1920 - 320)));
+  padding: 20px 50px;
+  color: black;
+  border-radius: 10px;
+  font-weight: bold;
+  background: #49b52e;
+}
+
+.buttonVozvrat:hover {
+  background: #3dbb1e;
+}

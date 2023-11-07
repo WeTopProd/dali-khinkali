@@ -3,6 +3,10 @@ import DeliveryBacground from "../../assets/img/delivery.png";
 import DeliveryMobile from "../../assets/img/delivery-mobile.png";
 import DeliveryCard from "../../assets/img/car.png";
 import DeliveryLogo from "../../assets/img/Logo.png";
+import Nalichka from "../../assets/img/Nalichnime.svg";
+import Dostavka from "../../assets/img/DeliverCard.svg";
+import PayKeeper from "../../assets/img/PayKeeper.svg";
+
 import { Container, Grid, Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import "../../assets/general-styles/styles.css";

@@ -57,7 +57,7 @@ const pages = [
   { name: "Меню ", url: "/menu" },
   { name: "Резерв стола", url: "/home#table-reserve" },
   { name: "Банкеты", url: "/home#hall" },
-  { name: "Доставка", url: "/menu" },
+  { name: "Доставка", url: "/home#delivery" },
   { name: "КАЛЬЯН", url: "/home#kalyan" },
   { name: "Такси", url: "/home#taxi" },
   { name: "Контакты", url: "/home#contacts" },
@@ -134,7 +134,7 @@ function Header({ Pages, basketItems, setBasketItems }) {
 
   React.useEffect(() => {
     axios
-      .get("http://dali-khinkali.ru/api/goods/basket/", {
+      .get("http://127.0.0.1:8000/api/goods/basket/", {
         headers: {
           "content-type": "application/json",
           authorization: `Token ${sessionStorage.getItem("auth_token")}`,

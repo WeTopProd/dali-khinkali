@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./taxi.css";
 import ImageTaxi from "../../assets/img/taxi.jpg";
 import Button from "@mui/material/Button";
@@ -102,26 +103,36 @@ function Taxi() {
                 Проблема добраться домой в позднее время? <br />
                 Услуга " такси Дали-Хинкали " поможет решить Вашу проблему
               </p>
-              <button
+              {/* <iframe
+                width="560"
+                height="315"
+                src="http://37.140.195.3:3001"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe> */}
+              <Link
+                to="http://37.140.195.3:3001"
                 className="taxi__order-button taxiNoModal"
                 style={{
                   color: "white",
                   backgroundColor: "black",
-                  padding: "18px",
+                  padding: "18px 50px",
                   borderRadius: "20px",
                   fontSize: "16px",
                   width: "93%",
                 }}
                 onClick={handleOpen}
               >
-                предзаказ
-              </button>
+                ПРЕДЗАКАЗ
+              </Link>
             </div>
           </div>
         </div>
       </div>
 
-      <Modal
+      {/* <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
@@ -284,7 +295,7 @@ function Taxi() {
             )}
           </div>
         </div>
-      </Modal>
+      </Modal> */}
     </div>
   );
 }

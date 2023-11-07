@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const categoriesApi = {
   getAll: async () => {
-    const res = await axios.get("http://dali-khinkali.ru/api/goods/");
+    const res = await axios.get("http://127.0.0.1:8000/api/goods/");
     return await res.data.results;
   },
   getBuisnessLunch: async () => {
@@ -76,7 +76,7 @@ export const categoriesApi = {
   },
   getSlider: async () => {
     const res = await axios.get(
-      "http://dali-khinkali.ru/api/goods/?promotion=new_items"
+      "http://127.0.0.1:8000/api/goods/?promotion=new_items"
     );
     return await res.data.results;
   },

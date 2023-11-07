@@ -16,6 +16,8 @@ import AddServicesBanner from "./pages//menu/additionalServices/AdditionalServic
 import { PrivacyPolicy } from "./components/footer/privacyPolicy/PrivacyPolicy";
 import Delivery from "./components/delivery/Delivery";
 import { HeaderKalyan } from "./components/omar-xayam/kalyan/HeaderKalyan";
+import Basket from "./pages/Basket/Basket";
+import { Vozvrat } from "./components/footer/vozvrat/Vozvrat";
 
 function App() {
   const [add, setAdd] = useState(false);
@@ -29,7 +31,7 @@ function App() {
   async function addToCart(id, token) {
     try {
       const res = await axios.post(
-        `http://dali-khinkali.ru/api/goods/${id}/shopping_cart/`,
+        `http://127.0.0.1:8000/api/goods/${id}/shopping_cart/`,
         null,
         {
           headers: {
@@ -65,15 +67,16 @@ function App() {
 
   const pages = [
     { component: <HeaderKalyan />, url: "/kalyan" },
-    {
-      component: (
-        <Delivery
-          basketItems={basketItems}
-          setBasketItems={setBasketItemsFunction}
-        />
-      ),
-      url: "/menu",
-    },
+    { component: <Vozvrat />, url: "/vozvrat" },
+    // {
+    //   component: (
+    //     <Delivery
+    //       basketItems={basketItems}
+    //       setBasketItems={setBasketItemsFunction}
+    //     />
+    //   ),
+    //   url: "/menu",
+    // },
     {
       component: (
         <Main
@@ -151,6 +154,16 @@ function App() {
           />
           <Routes>
             <Route path="/" element={<Main />} />
+            <Route
+              path="/Basket"
+              element={
+                <Basket
+                  basketItems={basketItems}
+                  setBasketItems={setBasketItemsFunction}
+                />
+              }
+            />
+
             {pages.map((page) => (
               <Route key={page.url} path={page.url} element={page.component} />
             ))}

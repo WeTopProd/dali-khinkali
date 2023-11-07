@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Basket from "../../../assets/img/basket__icon.png";
 import Delete from "../../../assets/img/deleteBasket.png";
 import styles from "../Header.module.css";
@@ -48,7 +49,7 @@ const BasketComponent = ({
       allGoods.map(async (good) => {
         return axios
           .delete(
-            `http://dali-khinkali.ru/api/goods/${good.goods.id}/shopping_cart/`,
+            `http://127.0.0.1:8000/api/goods/${good.goods.id}/shopping_cart/`,
             {
               headers: {
                 authorization: `Token ${token}`,
@@ -84,7 +85,7 @@ const BasketComponent = ({
   const CreateOrder = () => {
     axios
       .request({
-        url: `http://dali-khinkali.ru/api/send-order/`,
+        url: `http://127.0.0.1:8000/api/send-order/`,
         method: "POST",
         headers: {
           authorization: `Token ${token}`,
@@ -101,7 +102,7 @@ const BasketComponent = ({
       .then((response) => {
         axios
           .request({
-            url: `http://dali-khinkali.ru/api/payment/`,
+            url: `http://127.0.0.1:8000/api/payment/`,
             method: "POST",
             headers: {
               authorization: `Token ${token}`,
@@ -126,6 +127,10 @@ const BasketComponent = ({
       });
   };
 
+  // const route = useRou
+  const sendToBasket = () => {
+    window.location.href = "/Basket";
+  };
   //////////// Молальное окно прошло успешно
   // const [sucessCardReserveTable, setSucessCardReserveTable] = useState(false);
 
@@ -180,7 +185,26 @@ const BasketComponent = ({
         {basketItems.length == 0 ? (
           <div className={styles.BasketEmpty}>
             <img src={IconBadket} alt="" />
-            Корзина пусто
+            Корзина пуста
+            <br />
+            <p style={{ fontSize: "20px" }}>
+              Перейдите в меню что бы добавить блюда в корзину
+              <br />
+              <Link
+                style={{
+                  border: "1px solid black",
+                  padding: "5px",
+                  borderRadius: "10px",
+                  margin: "15px auto",
+                  width: "100px",
+                  display: "block",
+                  background: "black",
+                }}
+                to="/menu"
+              >
+                меню
+              </Link>
+            </p>
           </div>
         ) : null}
         <div className={styles.BoxDeliveryBasket}>
@@ -198,10 +222,12 @@ const BasketComponent = ({
         ></span>
         <div className={styles.sumBasket}>
           <div className={styles.sumBasketTotal}>Итого:</div>
-          <span className={styles.sumBasketTotal}>{overAllPrice} руб.</span>
+          <span className={styles.sumBasketTotal}>
+            {overAllPrice + 200} руб.
+          </span>
         </div>
         <div className={styles.buttonBasketOrder}>
-          <button className={styles.basketOrder} onClick={CreateOrder}>
+          <button className={styles.basketOrder} onClick={sendToBasket}>
             Оформить заказ
           </button>
         </div>

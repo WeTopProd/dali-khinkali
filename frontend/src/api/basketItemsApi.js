@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const basketApi = {
-  url: "http://dali-khinkali.ru/api/goods/",
+  url: "http://127.0.0.1:8000/api/goods/",
   patch2pUrl: (id) => {
     return `${id}/shopping_cart/`;
   },

@@ -2,6 +2,10 @@
   transition: all 0.5s;
 }
 
+.hover:hover {
+  transform: scale(1.2);
+}
+
 .buttonDelivery {
   display: flex;
   justify-content: start;
@@ -9,9 +13,84 @@
   width: 100%;
 }
 
-.hover:hover {
-  transform: scale(1.2);
+/*  */
+.ContainerDeliverCards {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
 }
+
+.ContainerDeliverCards img {
+  max-width: 150px;
+  height: 150px;
+  width: 100%;
+}
+
+.DeliveryLine {
+  display: inline-block;
+  background: black;
+  width: 100%;
+  height: 3px;
+}
+
+.ContainerDeliverSubTitle {
+  align-items: center;
+  padding: 0 0 100px 0;
+  display: flex;
+  width: 100%;
+}
+
+.DeliverySubTitle {
+  min-width: 350px;
+  font-size: calc(30px + 10 * ((100vw - 320px) / (1920 - 320)));
+}
+
+.containerCard {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+
+
+.DeliveryCard {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex-grow: 1;
+  margin: 0 20px 0;
+  background: #f69049;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.DeliveryCard p {
+  font-size: calc(15px + 12 * ((100vw - 320px) / (1920 - 320)));
+  font-family: "Lato";
+  font-weight: 500;
+}
+
+.DeliveryCard b {
+  font-size: calc(20px + 5 * ((100vw - 320px) / (1920 - 320)));
+  font-family: "Lato";
+}
+
+@media (max-width: 745px) {
+  .containerCard {
+    flex-wrap: wrap;
+  }
+
+  .DeliveryCard {
+    margin: 0 0 20px 0;
+    background: #f69049;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+}
+
+/*  */
+
 
 @media screen and (max-width: 1200px) {
 

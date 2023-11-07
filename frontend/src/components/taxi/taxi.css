@@ -195,8 +195,8 @@
 .taxi__order-button {
   font-size: calc(25px + 29 * ((100vw - 320px) / (1920 - 320)));
   color: white;
-  background: #ff6900 !important;
-  padding: 20px 65px !important;
+  background: hsl(25, 100%, 50%) !important;
+  padding: 20px 175px !important;
   border-radius: 20px !important;
   width: 60%;
 }

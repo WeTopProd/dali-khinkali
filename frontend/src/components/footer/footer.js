@@ -14,7 +14,7 @@ import LatoSemiBold from "../../assets/fonts/latosemibold.woff2";
 import LatoRegular from "../../assets/fonts/latoregular.woff2";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
-
+// IMPORT IMAGE
 import FooterLogo from "../../assets/img/footer-logo.png";
 import Image1 from "../../assets/img/image-1.png";
 import Image2 from "../../assets/img/image-2.png";
@@ -29,7 +29,6 @@ import Image10 from "../../assets/img/image-10.png";
 import Image11 from "../../assets/img/image-11.png";
 import Image12 from "../../assets/img/image-12.png";
 import Image13 from "../../assets/img/image-9.png";
-
 import PeyKiperr from "../../assets/img/PeyKiper.svg";
 
 function Footer() {
@@ -124,6 +123,9 @@ function Footer() {
               <div className="footer__copy-center-item">
                 © Все права защищены
               </div>
+              <div className="footer__copy-item">
+                Сделано WeTop digital agency 2023
+              </div>
               <Link
                 to="/PrivacyPolicy#privacyPolicy"
                 className="footer__copy-center-item__Link"
@@ -131,11 +133,13 @@ function Footer() {
                 Политика конфиденциальности
               </Link>
               <div className="footer__copy-center-item">
-                Не явялякется публичной офертой
+                Не явяляется публичной офертой
               </div>
             </div>
-            <div className="footer__copy-item">
-              Сделано WeTop digital agency 2023
+            <div>
+              <Link className="footer__copy-center-item__Link" to={"/vozvrat"}>
+                Возврат
+              </Link>
             </div>
           </div>
         </div>

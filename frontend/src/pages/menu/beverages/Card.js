@@ -11,7 +11,7 @@ const Card = ({ elem, basketItems, setBasketItems }) => {
 
     const res = axios
       .post(
-        `http://dali-khinkali.ru/api/goods/${Number(elem.id)}/shopping_cart/`,
+        `http://127.0.0.1:8000/api/goods/${Number(elem.id)}/shopping_cart/`,
         null,
         {
           headers: {

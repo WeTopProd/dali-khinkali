@@ -17,6 +17,7 @@ import Taxi from "../../components/taxi/taxi";
 import Delivery from "../../components/delivery/Delivery";
 import Omar from "../../components/omar-xayam/OmarXayam";
 import CustomSlider from "../../components/sub-menu/Sub-menu";
+import { Ifrem } from "../../components/taxi/ifrem/Ifrem";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -59,6 +60,7 @@ const Main = ({ basketItems, setBasketItems }) => {
       <Omar />
 
       <Taxi />
+      {/* <Ifrem /> */}
 
       <Footer />
     </div>
