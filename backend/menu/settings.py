@@ -16,7 +16,7 @@ if DEBUG:
     ]
 else:
     ALLOWED_HOSTS = [
-        '127.0.0.1:8000',
+        'dali-khinkali.ru',
         '194.58.107.151',
     ]
 

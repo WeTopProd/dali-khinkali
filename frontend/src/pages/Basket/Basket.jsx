@@ -16,7 +16,7 @@ export default function Basket({ basketItems, setBasketItems }) {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8000/api/goods/basket/", {
+      .get("http://dali-khinkali.ru/api/goods/basket/", {
         headers: {
           "content-type": "application/json",
           authorization: `Token ${sessionStorage.getItem("auth_token")}`,
@@ -69,7 +69,7 @@ export default function Basket({ basketItems, setBasketItems }) {
   async function removeBasket(id) {
     try {
       await axios.delete(
-        `http://127.0.0.1:8000/api/goods/${id}/shopping_cart/`,
+        `http://dali-khinkali.ru/api/goods/${id}/shopping_cart/`,
         {
           headers: {
             "content-type": "application/json",

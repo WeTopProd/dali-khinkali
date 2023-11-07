@@ -1,8 +1,8 @@
-import b from './Basket.module.scss';
-import h from './Header.module.scss';
-import X from './del.svg';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+import b from "./Basket.module.scss";
+import h from "./Header.module.scss";
+import X from "./del.svg";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 export default function BasketTovar({
   setCountInfo,
@@ -14,15 +14,10 @@ export default function BasketTovar({
 }) {
   const [count, setCount] = useState(info.count || 1);
 
-  const tokenTwo = localStorage.getItem('token');
-useEffect(()=>{
-  console.log(
-    
-    
-   
-    info,'------'
-  );
-},[])
+  const tokenTwo = localStorage.getItem("token");
+  useEffect(() => {
+    console.log(info, "------");
+  }, []);
   const handleCountChange = async (newCount) => {
     try {
       if (newCount >= 1) {
@@ -37,7 +32,7 @@ useEffect(()=>{
           updatedCartItem,
           {
             headers: {
-              'content-type': 'application/json',
+              "content-type": "application/json",
               authorization: `Token ${tokenTwo}`,
             },
           }
@@ -48,7 +43,9 @@ useEffect(()=>{
 
           // Обновляем массив countInfo
           const updatedCountInfo = countInfo.map((item) =>
-            item.goods.id === info.goods.id ? { ...item, count: newCount } : item
+            item.goods.id === info.goods.id
+              ? { ...item, count: newCount }
+              : item
           );
           setCountInfo(updatedCountInfo);
 
@@ -60,10 +57,8 @@ useEffect(()=>{
         }
       }
     } catch (error) {
-
       if (error.response && error.response.status === 401) {
         // Ничего не делать или выполнить альтернативные действия
-
       } else {
         // Обработка других ошибок
       }
@@ -78,7 +73,7 @@ useEffect(()=>{
         info.goods.images[0] &&
         info.goods.images[0].images ? (
           <img
-            src={`http://127.0.0.1:8000${info.goods.images[0].images}`}
+            src={`http://dali-khinkali.ru${info.goods.images[0].images}`}
             alt="img"
             className={h.nav__kar__item_info_img}
           />
