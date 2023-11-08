@@ -18,7 +18,7 @@ import Delivery from "./components/delivery/Delivery";
 import { HeaderKalyan } from "./components/omar-xayam/kalyan/HeaderKalyan";
 import Basket from "./pages/Basket/Basket";
 import { Vozvrat } from "./components/footer/vozvrat/Vozvrat";
-
+import {PayRull} from './components/footer/vozvrat/PayRull'
 function App() {
   const [add, setAdd] = useState(false);
 
@@ -68,6 +68,7 @@ function App() {
   const pages = [
     { component: <HeaderKalyan />, url: "/kalyan" },
     { component: <Vozvrat />, url: "/vozvrat" },
+    { component: <PayRull />, url: "/payRull" },
     // {
     //   component: (
     //     <Delivery
