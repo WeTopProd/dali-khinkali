@@ -136,11 +136,15 @@ function Footer() {
                 Не явяляется публичной офертой
               </div>
             </div>
-            <div>
-              <Link className="footer__copy-center-item__Link" to={"/vozvrat"}>
-                Возврат
-              </Link>
-            </div>
+            
+          </div>
+          <div className="forPay">
+            <Link className="footer__copy-center-item__Link" to={"/vozvrat"}>
+              Возврат
+            </Link>
+            <Link className="footer__copy-center-item__Link" to={"/payRull"}>
+              правила оплаты
+            </Link>
           </div>
         </div>
       </div>

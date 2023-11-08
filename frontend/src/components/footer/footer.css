@@ -167,8 +167,9 @@
 .footer__copy-center-item__Link {
   display: block;
   color: #fff;
-  border-bottom: 1px solid white;
   font-family: sans-serif;
+  margin-top: 10px;
+  text-decoration: ;
 }
 
 .footer__copy-center-item {
@@ -237,4 +238,11 @@
   .footer__column-address:not(:last-child) {
     margin-bottom: 1rem;
   }
+}
+.forPay{
+  display: flex;
+  justify-content: space-around;
+  align-items: start;
+  margin-top: 20px;
+  border-top: #a5a5a5 solid 1px;
 }
