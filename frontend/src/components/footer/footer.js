@@ -116,7 +116,7 @@ function Footer() {
           </div>
           <div className="footer__copy">
             <div className="footer__copy-item">
-              ИП Авалян. В .Г <br />
+              ИП Авалян В. Г. <br />
               ИНН: 502807103555
             </div>
             <div className="footer__copy-center">
