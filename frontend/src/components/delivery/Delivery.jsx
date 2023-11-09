@@ -131,6 +131,17 @@ export default function Delivery() {
         </div>
       </Container>
       <span id="/home#hall"></span>
+      <div className={Styles.DeliveryCard}>
+        <figure className={Styles.image}>
+          {/* <img className={s.imageCard} src={imageDelivery} alt="image" /> */}
+        </figure>
+
+        <div className={Styles.info}>
+          <p className={Styles.title}>Доставка</p>
+          <p className={Styles.info_text}>Цена за доставку по Москве - 300руб</p>
+          <p className={Styles.info_text}>Цена за доставку по МО - 600руб</p>
+        </div>
+      </div>
     </>
   );
 }

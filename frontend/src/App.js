@@ -69,15 +69,15 @@ function App() {
     { component: <HeaderKalyan />, url: "/kalyan" },
     { component: <Vozvrat />, url: "/vozvrat" },
     { component: <PayRull />, url: "/payRull" },
-    // {
-    //   component: (
-    //     <Delivery
-    //       basketItems={basketItems}
-    //       setBasketItems={setBasketItemsFunction}
-    //     />
-    //   ),
-    //   url: "/menu",
-    // },
+    {
+      component: (
+        <Delivery
+          basketItems={basketItems}
+          setBasketItems={setBasketItemsFunction}
+        />
+      ),
+      url: "/menu",
+    },
     {
       component: (
         <Main
