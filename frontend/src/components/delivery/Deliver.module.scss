@@ -62,7 +62,7 @@
   background: #f69049;
   padding: 10px;
   border-radius: 10px;
-  margin: 40px 0 0 300px ;
+  margin: 40px 0 0 0 ;
 }
 
 .DeliveryCard p {
@@ -126,15 +126,17 @@
   .buttonDelivery {
     justify-content: center;
     padding: 50px 0 0px 0px;
+    align-items: flex-start;
   }
 }
 .DeliveryCard {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: baseline;
     gap: 50px;
     max-width: 407px;
+    padding-top: 20px;
+    height: 530px;
+    align-items: center;
 }
 
 .title {
@@ -162,14 +164,34 @@
 
 @media screen and (max-width: 1400px) {
     .DeliveryCard {
-        flex-direction: row;
-        max-width: 600px;
+      justify-content: start;
+      align-items: center;
+      flex-direction: column;
+      max-width: 600px;
+      
     }
 }
 
+@media screen and (max-width: 776px) {
+    .DeliveryCard {
+        flex-direction: column;
+        width: 500px;
+    }
+    .dir{
+      flex-direction: column;
+        max-width: 600px;
+        margin-top: 20px;
+    }
+}
 @media screen and (max-width: 576px) {
     .DeliveryCard {
         flex-direction: column;
-        max-width: 600px;
+        max-width: 330px;
     }
+}
+.dir {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+
 }
