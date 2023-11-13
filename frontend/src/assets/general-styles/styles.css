@@ -505,7 +505,8 @@ label+.css-v4u5dn-MuiInputBase-root-MuiInput-root {
 
   .basket_sub {
     left: -16px;
-    top: 0px;
+    top: -5px;
+    font-size: 11px;
   }
 }
 
