@@ -31,7 +31,7 @@ function App() {
   async function addToCart(id, token) {
     try {
       const res = await axios.post(
-        `http://dali-khinkali.ru/api/goods/${id}/shopping_cart/`,
+        `https://dali-khinkali.ru/api/goods/${id}/shopping_cart/`,
         null,
         {
           headers: {

@@ -87,7 +87,7 @@ const BasketItemComponent = ({ product, setBasketItems, basketItems }) => {
   const [img, setImg] = useState(product.goods.images[0].images);
   useEffect(() => {
     if (!product.goods.images[0].images.split("://").includes("http")) {
-      setImg(`http://dali-khinkali.ru${product.goods.images[0].images}`);
+      setImg(`https://dali-khinkali.ru${product.goods.images[0].images}`);
 
       console.log(img, "image");
     }

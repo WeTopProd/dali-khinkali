@@ -25,11 +25,11 @@ services:
     image: nginx:1.21.3-alpine
     ports:
       - "80:80"
-#      - "443:443"
+      - "443:443"
     volumes:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
-#      - ./nginx/billiard.crt:/etc/nginx/billiard.crt
-#      - ./nginx/billiard.key:/etc/nginx/billiard.key
+      - ./nginx/dali-khinkali.crt:/etc/nginx/dali-khinkali.crt
+      - ./nginx/dali-khinkali.key:/etc/nginx/dali-khinkali.key
       - frontend_build:/usr/share/nginx/html/
       - static_value:/var/html/backend_static/
       - media_value:/var/html/backend_media/
