@@ -73,7 +73,7 @@ export default function BasketTovar({
         info.goods.images[0] &&
         info.goods.images[0].images ? (
           <img
-            src={`http://dali-khinkali.ru${info.goods.images[0].images}`}
+            src={`https://dali-khinkali.ru${info.goods.images[0].images}`}
             alt="img"
             className={h.nav__kar__item_info_img}
           />

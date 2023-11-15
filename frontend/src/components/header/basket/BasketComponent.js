@@ -49,7 +49,7 @@ const BasketComponent = ({
       allGoods.map(async (good) => {
         return axios
           .delete(
-            `http://dali-khinkali.ru/api/goods/${good.goods.id}/shopping_cart/`,
+            `https://dali-khinkali.ru/api/goods/${good.goods.id}/shopping_cart/`,
             {
               headers: {
                 authorization: `Token ${token}`,
@@ -85,7 +85,7 @@ const BasketComponent = ({
   const CreateOrder = () => {
     axios
       .request({
-        url: `http://dali-khinkali.ru/api/send-order/`,
+        url: `https://dali-khinkali.ru/api/send-order/`,
         method: "POST",
         headers: {
           authorization: `Token ${token}`,
@@ -102,7 +102,7 @@ const BasketComponent = ({
       .then((response) => {
         axios
           .request({
-            url: `http://dali-khinkali.ru/api/payment/`,
+            url: `https://dali-khinkali.ru/api/payment/`,
             method: "POST",
             headers: {
               authorization: `Token ${token}`,
