@@ -147,7 +147,7 @@ export default function Delivery() {
 
           <div className={Styles.info}>
             <p className={Styles.title}>Наличными</p>
-            <p className={Styles.info_text}>Оплата наличными при самовывозе из нашего магазина</p>
+            <p className={Styles.info_text}>Оплата наличными при самовывозе из нашего городского Кафе </p>
             
           </div>
         </div>
@@ -174,7 +174,7 @@ export default function Delivery() {
 
           <div className={Styles.info}>
             <p className={Styles.title}>Банковской картой</p>
-            <p className={Styles.info_text}>Оплата катрой на сайте при самовывозе из нашего магазина</p>
+            <p className={Styles.info_text}>Оплата катрой на сайте при самовывозе из нашего городского Кафе</p>
             <p className={Styles.info_text}>Оплата катрой на сайте при доставке</p>
           </div>
         </div>
@@ -195,8 +195,8 @@ export default function Delivery() {
 
           <div className={Styles.info}>
             <p className={Styles.title}>Доставка</p>
-            <p className={Styles.info_text}>Цена за доставку по Москве - 300руб</p>
-            <p className={Styles.info_text}>Цена за доставку по МО - 600руб</p>
+            <p className={Styles.info_text}>Цена за доставку по Орехово-Зуевский район - 250руб до 1000руб</p>
+            
           </div>
         </div>
       </div>
